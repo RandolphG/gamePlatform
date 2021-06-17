@@ -1,0 +1,108 @@
+$font-size: 0.8rem;
+$font-color: #282828;
+$lighten-amount: 20%;
+
+.menu {
+  box-sizing: border-box;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec);
+  position: absolute;
+  height: 70px;
+  width: calc(115px + 4 * 70px + 4rem);
+  display: flex;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.52), 0 3px 4px rgba(0, 0, 0, 0.44);
+  top: 4rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.link-title {
+  //background: #5f9042;
+  transform: translateX(100%);
+  transition: transform 0.2s ease-in;
+  transform-origin: center;
+  display: block;
+  text-align: center;
+  //text-indent: 8px;
+  width: 100%;
+}
+
+.adjustment {
+  display: flex;
+  background: #626262;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 1.3rem;
+  //padding-top: 1.8rem;
+  z-index: 1;
+
+  .link {
+    background: #dc5f45;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 50px;
+    border-radius: 99em;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transform-origin: center;
+    transition: width 0.2s ease-in;
+    text-decoration: none;
+    color: inherit;
+
+    &:before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      display: block;
+      border-radius: 99em;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      transform: translateX(100%);
+      transition: transform 0.2s ease-in;
+      transform-origin: center;
+      //background-color: #fff;
+      background-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      outline: 0;
+      width: 70px;
+
+      .link-icon {
+        color: transparent;
+        transform: scale(0.2);
+        transition: 0.5s ease-in-out;
+        opacity: 0;
+      }
+
+      &:before,
+      .link-title {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .link-icon {
+      background: transparent;
+      width: 28px;
+      height: 28px;
+      display: block;
+      flex-shrink: 0;
+      //left: 16px;
+      position: absolute;
+
+      svg {
+        width: 28px;
+        height: 28px;
+        transition: 0.7s ease-in-out;
+      }
+    }
+  }
+}

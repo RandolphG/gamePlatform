@@ -1,0 +1,33 @@
+$font-size: 0.8rem;
+$font-color: #282828;
+$lighten-amount: 20%;
+
+.time {
+  width: fit-content;
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1rem;
+  color: $font-color;
+  margin-top: 1rem;
+
+  &_date {
+    display: flex;
+    width: fit-content;
+    font-size: $font-size;
+
+    &_day {
+    }
+
+    &_number {
+      margin-left: .3rem;
+    }
+  }
+
+  &_localTime {
+    font-size: $font-size;
+    margin-left: 1rem;
+    width: fit-content;
+  }
+}

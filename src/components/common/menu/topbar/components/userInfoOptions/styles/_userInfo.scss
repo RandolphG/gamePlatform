@@ -1,0 +1,26 @@
+@import "../../../../../../../theme/style";
+
+.userInfo {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  position: absolute;
+  top: -1.5rem;
+  right: 1rem;
+  padding: .3rem;
+  border-radius: 4px;
+  z-index: 1000;
+
+  &_name {
+    position: absolute;
+    padding-bottom: 1rem;
+    top: 4.3rem;
+    right :-0.2rem;
+    color: black;
+    font-size: 1.2rem;
+    margin-right: .5rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 1px 1px rgba(0, 0, 0, 0.24);
+  }
+}
