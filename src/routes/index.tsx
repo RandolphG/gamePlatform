@@ -7,10 +7,12 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Intro } from "../components";
-import { NotFound } from "./componenets";
-import { AppRouting } from "./componenets/appRouting";
-import { NonAuthRoute } from "./componenets/nonAuthRoute";
-import { PrivateRoute } from "./componenets/privateRoute";
+import {
+  PrivateRoute,
+  NonAuthRoute,
+  NotFound,
+  AppRouting,
+} from "./componenets";
 
 /**
  * application router
