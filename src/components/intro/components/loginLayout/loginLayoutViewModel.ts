@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
-import { setName } from "../../../../app/userInfo";
+import { setLogin, setName } from "../../../../app/userInfo";
 
 export const LoginLayoutViewModel = () => {
   const history = useHistory();
@@ -13,7 +13,8 @@ export const LoginLayoutViewModel = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(setName({ credentials }));
-    history.push("/dashboard");
+    dispatch(setLogin({ isLoggedIn: true }));
+    history.push("/app/dashboard");
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

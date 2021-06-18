@@ -1,4 +1,8 @@
 export const reducers = {
+  setLogin: (state, action) => {
+    const { isLoggedIn } = action.payload;
+    return { ...state, isLoggedIn };
+  },
   setName: (state, action) => {
     const { credentials } = action.payload;
     return { ...state, userName: credentials.reporter };

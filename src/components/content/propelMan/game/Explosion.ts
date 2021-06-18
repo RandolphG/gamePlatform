@@ -67,7 +67,7 @@ export class Explosion implements IExplosion {
   };
 
   update = (delta: any) => {
-    if ((this.life += delta) && !(this.life > 0.5)) {
+    if (this.life < 0.5) {
       let p;
 
       for (let i = 0; i < 40; i += 1) {

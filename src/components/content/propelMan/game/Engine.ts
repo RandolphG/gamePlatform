@@ -33,7 +33,6 @@ export class Engine implements IEngine {
         wall: any;
       }
     | {};
-
   WIDTH: number;
   HEIGHT: number;
   WALL_HEIGHT: number;

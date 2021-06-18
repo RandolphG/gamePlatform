@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../../../app/userInfo";
 import { Tooltip } from "../../../common";
 import "./styles/_logoutButton.scss";
 import { motion } from "framer-motion";
@@ -6,8 +8,11 @@ import ErrorBoundary from "../../../../ErrorBoundary";
 import { useHistory } from "react-router-dom";
 
 const LogoutButton = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
+
   function handleSignOut() {
+    dispatch(setLogin({ isLoggedIn: false }));
     history.push("/");
   }
 

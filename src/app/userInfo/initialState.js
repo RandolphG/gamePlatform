@@ -11,4 +11,5 @@ export const initialState = {
   currentGame: "none",
   gamesPlayed: [],
   totalGameTime: 0,
+  isLoggedIn: false,
 };

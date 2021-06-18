@@ -52,10 +52,10 @@ export class Player implements IPlayer {
     this.skin = this;
     this.img = new Image();
     this.gun = new Image();
-    this.x = 100;
-    // this.x = p.x;
-    this.localY = 100;
-    // this.localY = p.y;
+    // this.x = 100;
+    this.x = p.x;
+    // this.localY = 100;
+    this.localY = p.y;
     this.vx = 0;
     this.vy = 0;
     this.degree = 0;
@@ -76,9 +76,11 @@ export class Player implements IPlayer {
     };
     this.img.src = "../assets/razor.png";
     this.gun.src = "../assets/nader.png";
+    return this;
   }
 
   update = (delta: any) => {
+    console.log(`updated players`);
     this.counter += 1 * delta;
 
     if (this.currentGunDegree !== this.gunDegree) {

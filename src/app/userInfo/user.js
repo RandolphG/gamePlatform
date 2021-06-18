@@ -8,7 +8,13 @@ export const userSlice = createSlice({
   reducers,
 });
 
-export const { setName, setGame, addGamePlayed, setHighScore, setActiveRoute } =
-  userSlice.actions;
+export const {
+  setName,
+  setGame,
+  addGamePlayed,
+  setHighScore,
+  setActiveRoute,
+  setLogin,
+} = userSlice.actions;
 
 export default userSlice.reducer;
