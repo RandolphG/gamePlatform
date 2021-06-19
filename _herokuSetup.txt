@@ -1,0 +1,26 @@
+Heroku setup:
+-> heroku create [name of applicaion]
+-> heroku git:remote -a [name of application]
+
+search buildpacks:
+-> heroku buildpacks:search [name of buildpack]
+
+-> heroku buildpacks:add [name of buildpacks]
+	zidizei/typescript
+	heroku/nodejs
+	
+build project
+-> add & commit changes
+-> git push heroku master
+
+https://game-poplogics.herokuapp.com/
+
+Deploying React Node TypeScript App On Heroku with Github Integration:
+https://funnelgarden.com/deploying-react-node-typescript-heroku-github/#Deployment_Gotchas
+
+GraphQL | Node.js | MongoDB : set up a basic server with User model and auth
+https://medium.com/geekculture/graphql-node-js-mongodb-set-up-a-basic-server-with-user-model-and-auth-d05ed4d5a864
+
+
+How to automatically login users after Email/Password authentication
+https://developer.mongodb.com/community/forums/t/how-to-automatically-login-users-after-email-password-authentication/100335/2
