@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Engine } from "./game/Engine";
-import "./styles/_propelManStyles.scss";
+import React, { useEffect } from 'react'
+import { Engine } from './game/Engine'
+import './styles/_propelManStyles.scss'
 
 const PropelMan = () => {
-  let game;
+  let game
   const Instruction = () => (
     <div className="instructions">
       You are <em>PropelMan!</em>
@@ -14,15 +14,15 @@ const PropelMan = () => {
       When airborne, <em>click again in front of walls</em> to bounce further
       and further.
       <br />
-      The longer you can go without touching the ground,{" "}
+      The longer you can go without touching the ground,{' '}
       <em>the more points you get.</em>
       <br />
     </div>
-  );
+  )
 
   const GameCanvas = () => (
-    <canvas className="canvas" id="game" width="640" height="360"></canvas>
-  );
+    <canvas className="canvas" id="game" width="640" height="360" />
+  )
 
   const HighScoreHud = () => (
     <div className="hud-highscore">
@@ -31,7 +31,7 @@ const PropelMan = () => {
       </div>
       <div className="hud-caption">Highscore</div>
     </div>
-  );
+  )
 
   const HudScore = () => (
     <div className="hud-score">
@@ -40,7 +40,7 @@ const PropelMan = () => {
       </div>
       <div className="hud-caption">Score</div>
     </div>
-  );
+  )
 
   const HudJump = () => (
     <div className="hud-jumps">
@@ -49,12 +49,12 @@ const PropelMan = () => {
       </div>
       <div className="hud-caption">Jump Combo</div>
     </div>
-  );
+  )
 
   useEffect(() => {
-    game = new Engine();
-    game.init();
-  }, []);
+    game = new Engine()
+    game.init()
+  }, [])
 
   return (
     <div className="propelManContainer">
@@ -75,7 +75,7 @@ const PropelMan = () => {
         <Instruction />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PropelMan;
+export default PropelMan

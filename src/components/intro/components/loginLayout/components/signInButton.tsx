@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { signInButton } from "../motionSettings";
-import React from "react";
+import { motion } from 'framer-motion'
+import React from 'react'
+import { signInButton } from '../motionSettings'
 
 const SignInButton = () => (
   <motion.button
@@ -10,6 +10,6 @@ const SignInButton = () => (
   >
     Sign in
   </motion.button>
-);
+)
 
-export default SignInButton;
+export default SignInButton

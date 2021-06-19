@@ -1,7 +1,7 @@
-import React from "react";
-import { ASSETS } from "../../utils";
-import { state } from "../grabZone/grabZone";
-import { useGrabber } from "./useGrabber";
+import React from 'react'
+import { ASSETS } from '../../utils'
+import { state } from '../grabZone/grabZone'
+import { useGrabber } from './useGrabber'
 
 /**
  * Grabber (The graphic)
@@ -21,13 +21,13 @@ export const Grabber = (
     state,
     gameOver,
     extended
-  );
+  )
 
   return (
     <div className={grabberClass}>
       <div className="grabber__body" />
       <img className="grabber__face" src={ASSETS.head} alt="grabber__face" />
-      {/*@ts-ignore*/}
+      {/* @ts-ignore */}
       <div className="grabber__arm-wrapper" ref={ref} style={wrapperStyle}>
         <div className="grabber__arm">
           <img
@@ -39,5 +39,5 @@ export const Grabber = (
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

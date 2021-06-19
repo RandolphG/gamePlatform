@@ -1,28 +1,28 @@
 export const reducers = {
   setCursorGrabbed: (state: any, action: any) => {
-    const { cursorGrabbed } = action.payload;
+    const { cursorGrabbed } = action.payload
 
-    return { ...state, cursorGrabbed };
+    return { ...state, cursorGrabbed }
   },
   setDebugState: (state: any, action: any) => {
-    const { debug } = action.payload;
+    const { debug } = action.payload
 
-    return { ...state, debug };
+    return { ...state, debug }
   },
   setState: (state: any, action: any) => {
-    const { currentState } = action.payload;
+    const { currentState } = action.payload
 
-    return { ...state, state: currentState };
+    return { ...state, state: currentState }
   },
   setRotation: (state: any, action: any) => {
-    const { rotation } = action.payload;
+    const { rotation } = action.payload
 
-    return { ...state, rotation };
+    return { ...state, rotation }
   },
   setExtendedArm: (state: any, action: any) => {
-    const { isExtended } = action.payload;
+    const { isExtended } = action.payload
 
-    return { ...state, isExtended };
+    return { ...state, isExtended }
   },
   setInnerHovered: (state: any) => {
     return {
@@ -31,7 +31,7 @@ export const reducers = {
         ...state.innerRef,
         hovered: true,
       },
-    };
+    }
   },
   removeInnerHovered: (state: any) => {
     return {
@@ -40,13 +40,13 @@ export const reducers = {
         ...state.innerRef,
         hovered: false,
       },
-    };
+    }
   },
   setGameOver: (state: any, action: any) => {
-    const { gameOver } = action.payload;
+    const { gameOver } = action.payload
     return {
       ...state,
       gameOver,
-    };
+    }
   },
-};
+}

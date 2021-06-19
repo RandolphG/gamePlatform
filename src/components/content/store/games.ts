@@ -1,13 +1,13 @@
-import { reducers } from "./reducers";
-import { initialState } from "./initialState";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
+import { reducers } from './reducers'
+import { initialState } from './initialState'
 
 export const gamesSlice = createSlice({
-  name: "games",
+  name: 'games',
   initialState,
   reducers,
-});
+})
 
-export const {} = gamesSlice.actions;
+export const {} = gamesSlice.actions
 
-export default gamesSlice.reducer;
+export default gamesSlice.reducer

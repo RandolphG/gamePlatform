@@ -1,2 +1,2 @@
-//@ts-ignore
-export { default as Tilt } from "./tilt";
+// @ts-ignore
+export { default as Tilt } from './tilt'

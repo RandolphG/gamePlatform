@@ -1,56 +1,5 @@
 {
-  "name": "game-platform",
   "author": "randolph gordon - randolph.gordon@poplogics.com",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@reduxjs/toolkit": "^1.5.1",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/gsap": "^3.0.0",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-redux": "^7.1.7",
-    "@types/react-router-dom": "^5.1.7",
-    "@types/three": "^0.129.0",
-    "@types/uuid": "^8.3.0",
-    "array-move": "^3.0.1",
-    "date-fns": "^2.22.1",
-    "eslint-import-resolver-typescript": "^2.4.0",
-    "framer-motion": "^4.1.11",
-    "gsap": "^3.6.1",
-    "jsdom": "^16.6.0",
-    "node-sass": "^5.0.0",
-    "popmotion": "^9.3.5",
-    "react": "^17.0.2",
-    "react-beautiful-dnd": "^13.1.0",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.3",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "redux": "^4.0.5",
-    "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "three": "^0.129.0",
-    "ts-node": "^10.0.0",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "~4.1.5",
-    "uuid": "^8.3.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postinstall": "tsc"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -63,10 +12,69 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "prettier": "^2.2.1"
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/express": "^4.17.12",
+    "@types/gsap": "^3.0.0",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-redux": "^7.1.7",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "4.8.1",
+    "@types/three": "^0.129.0",
+    "@types/uuid": "^8.3.0",
+    "array-move": "^3.0.1",
+    "date-fns": "^2.22.1",
+    "enzyme": "3.11.0",
+    "eslint": "7.11.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-config-airbnb-typescript": "12.0.0",
+    "eslint-config-prettier": "6.15.0",
+    "eslint-plugin-import": "2.22.0",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "4.0.8",
+    "express": "^4.17.1",
+    "framer-motion": "^4.1.11",
+    "gsap": "^3.6.1",
+    "jsdom": "^16.6.0",
+    "node-sass": "^5.0.0",
+    "popmotion": "^9.3.5",
+    "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
+    "prettier": "^2.3.1",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
+    "three": "^0.129.0",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "~4.1.5",
+    "uuid": "^8.3.2"
   },
-  "quokka": {
-    "babel": true
-  }
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "name": "game-platform",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "tsc"
+  },
+  "version": "0.1.0"
 }

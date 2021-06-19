@@ -1,1 +1,1 @@
-export { default as MediaIconsPopups } from "./mediaIconsPopups";
+export { default as MediaIconsPopups } from './mediaIconsPopups'

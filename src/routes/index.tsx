@@ -1,18 +1,8 @@
-import React, { FC } from "react";
-import {
-  HashRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { Intro } from "../components";
-import {
-  PrivateRoute,
-  NonAuthRoute,
-  NotFound,
-  AppRouting,
-} from "./componenets";
+import React, { FC } from 'react'
+import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import { Intro } from '../components'
+import { PrivateRoute, NonAuthRoute, NotFound, AppRouting } from './componenets'
 
 /**
  * application router
@@ -20,7 +10,7 @@ import {
  * @constructor
  */
 const AppRouter: FC = () => {
-  const renderRootRedirect = () => <Redirect to="/app" />;
+  const renderRootRedirect = () => <Redirect to="/app" />
 
   return (
     <Router>
@@ -39,7 +29,7 @@ const AppRouter: FC = () => {
         )}
       />
     </Router>
-  );
-};
+  )
+}
 
-export default AppRouter;
+export default AppRouter

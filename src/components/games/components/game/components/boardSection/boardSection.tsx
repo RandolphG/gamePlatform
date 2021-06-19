@@ -1,7 +1,7 @@
-import { Nothing } from "../index";
-import React from "react";
-import ListCarousel from "./listCarousel";
-import { useSelector } from "react-redux";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Nothing } from '../index'
+import ListCarousel from './listCarousel'
 // import { getList } from "../../../../../listLayout";
 // import { getBoards } from "../../../../../boardLayout";
 
@@ -11,11 +11,11 @@ const BoardSection = (boardID: any) => {
 
   return (
     <span className="projects_link_info_container_section">
-      {/*{boards[boardID].lists.length
+      {/* {boards[boardID].lists.length
         ? ListCarousel({ boards, boardID, lists })
-        : Nothing()}*/}
+        : Nothing()} */}
     </span>
-  );
-};
+  )
+}
 
-export default BoardSection;
+export default BoardSection

@@ -1,1 +1,1 @@
-export { default as BoardSection } from "./boardSection";
+export { default as BoardSection } from './boardSection'

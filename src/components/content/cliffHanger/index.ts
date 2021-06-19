@@ -1,2 +1,2 @@
-export { default as CliffHanger } from "./cliffHanger";
-export * from "./store";
+export { default as CliffHanger } from './cliffHanger'
+export * from './store'

@@ -1,1 +1,1 @@
-export { default as PropelMan } from "./propelMan";
+export { default as PropelMan } from './propelMan'

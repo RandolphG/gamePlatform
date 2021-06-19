@@ -1,9 +1,9 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 interface IArrowBtnSelect {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  onClick: () => void;
+  onMouseEnter: () => void
+  onMouseLeave: () => void
+  onClick: () => void
 }
 
 const ArrowBtnSelect: ({
@@ -25,8 +25,8 @@ const ArrowBtnSelect: ({
     opacity="0"
     x="550"
     y="220"
-    style={{ cursor: "pointer" }}
+    style={{ cursor: 'pointer' }}
   />
-);
+)
 
-export default ArrowBtnSelect;
+export default ArrowBtnSelect

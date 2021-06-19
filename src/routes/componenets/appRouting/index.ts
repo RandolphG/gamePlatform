@@ -1,1 +1,1 @@
-export { default as AppRouting } from "./appRouting";
+export { default as AppRouting } from './appRouting'

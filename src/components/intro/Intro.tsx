@@ -1,6 +1,6 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { LoginLayout } from "./components/loginLayout";
+import React from 'react'
+import { motion } from 'framer-motion'
+import { LoginLayout } from './components/loginLayout'
 import {
   ArrowBtnSelect,
   DownArrow,
@@ -8,14 +8,14 @@ import {
   IntroMessage,
   LowerSection,
   UpperSection,
-} from "./components";
-import "./styles/_scrollIntro.scss";
-import { scrollIntro } from "./motionSettings";
-import { viewBox } from "./assets";
-import { IntroViewModel } from "./introViewModel";
+} from './components'
+import './styles/_scrollIntro.scss'
+import { scrollIntro } from './motionSettings'
+import { viewBox } from './assets'
+import { IntroViewModel } from './introViewModel'
 
 const Intro = () => {
-  const { show, onMouseEnter, onMouseLeave, onClick } = IntroViewModel();
+  const { show, onMouseEnter, onMouseLeave, onClick } = IntroViewModel()
 
   const FromTheMountains = () => (
     <svg {...viewBox}>
@@ -26,7 +26,7 @@ const Intro = () => {
       {LowerSection()}
       {ArrowBtnSelect({ onMouseLeave, onClick, onMouseEnter })}
     </svg>
-  );
+  )
 
   return (
     <motion.div {...scrollIntro} className="scrollIntro">
@@ -35,7 +35,7 @@ const Intro = () => {
         {FromTheMountains()}
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default Intro;
+export default Intro

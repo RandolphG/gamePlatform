@@ -1,6 +1,6 @@
 export const reducers = {
   setHighScore: (state: any, action: any) => {
-    const { highScore } = action.payload;
+    const { highScore } = action.payload
 
     return {
       ...state,
@@ -9,6 +9,6 @@ export const reducers = {
         player: highScore.player,
         score: highScore.score,
       },
-    };
+    }
   },
-};
+}

@@ -1,5 +1,5 @@
-import * as imgs from "../assets";
-import React from "react";
+import React from 'react'
+import * as imgs from '../assets'
 
 const UpperSection = () => (
   <mask id="m">
@@ -8,6 +8,6 @@ const UpperSection = () => (
       <image xlinkHref={imgs.cloud1Mask} width="1200" height="800" />
     </g>
   </mask>
-);
+)
 
-export default UpperSection;
+export default UpperSection

@@ -1,5 +1,5 @@
-import { INotificationState } from "./notification";
+import { INotificationState } from './notification'
 
 export const initialState: INotificationState = {
   notifications: [],
-};
+}

@@ -1,2 +1,2 @@
-export * from "./time";
-export * from "./selectors";
+export * from './time'
+export * from './selectors'

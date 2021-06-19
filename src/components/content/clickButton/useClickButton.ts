@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
 import {
   gameOverState,
   getDebugState,
@@ -6,33 +6,33 @@ import {
   setCursorGrabbed,
   setDebugState,
   setGameOver,
-} from "./store";
+} from './store'
 
 export const useClickButton = () => {
-  const dispatch = useDispatch();
-  const debug = useSelector(getDebugState);
-  const cursorGrabbed = useSelector(isCursorGrabbed);
-  const gameOver = useSelector(gameOverState);
+  const dispatch = useDispatch()
+  const debug = useSelector(getDebugState)
+  const cursorGrabbed = useSelector(isCursorGrabbed)
+  const gameOver = useSelector(gameOverState)
 
-  let screenStyle = cursorGrabbed ? { cursor: "none" } : {};
-  let appClass = debug ? "app app--debug" : "app";
+  const screenStyle = cursorGrabbed ? { cursor: 'none' } : {}
+  const appClass = debug ? 'app app--debug' : 'app'
 
   function handleToggleDebug() {
-    dispatch(setDebugState({ debug: !debug }));
+    dispatch(setDebugState({ debug: !debug }))
   }
 
   function handleCursorGrabbed() {
-    setCursorGrabbed(true);
+    setCursorGrabbed(true)
     setTimeout(() => {
-      setCursorGrabbed(false);
-    }, 2000);
+      setCursorGrabbed(false)
+    }, 2000)
   }
 
   function handleButtonClicked() {
-    setGameOver(true);
+    setGameOver(true)
     setTimeout(() => {
-      setGameOver(false);
-    }, 4000);
+      setGameOver(false)
+    }, 4000)
   }
 
   return {
@@ -43,5 +43,5 @@ export const useClickButton = () => {
     appClass,
     gameOver,
     cursorGrabbed,
-  };
-};
+  }
+}

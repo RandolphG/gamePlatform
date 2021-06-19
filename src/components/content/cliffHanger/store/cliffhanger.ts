@@ -1,13 +1,13 @@
-import { reducers } from "./reducers";
-import { initialState } from "./initialState";
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
+import { reducers } from './reducers'
+import { initialState } from './initialState'
 
 const cliffHangerSlice = createSlice({
-  name: "cliffHanger",
+  name: 'cliffHanger',
   initialState,
   reducers,
-});
+})
 
-export const { setHighScore } = cliffHangerSlice.actions;
+export const { setHighScore } = cliffHangerSlice.actions
 
-export default cliffHangerSlice.reducer;
+export default cliffHangerSlice.reducer

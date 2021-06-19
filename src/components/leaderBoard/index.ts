@@ -1,1 +1,1 @@
-export { default as LeaderBoard } from "./leaderBoard";
+export { default as LeaderBoard } from './leaderBoard'

@@ -1,10 +1,10 @@
-//@ts-nocheck
-import { Game } from "../game";
-import React from "react";
-import "./styles/_renderBoards.scss";
-import _rabbitCover from "../game/components/image/assets/_rabbitCover.png";
-import _tiltCover from "../game/components/image/assets/_tiltCover.png";
-import _cliffHanger from "../game/components/image/assets/_cliffHanger.png";
+// @ts-nocheck
+import React from 'react'
+import { Game } from '../game'
+import './styles/_renderBoards.scss'
+import _rabbitCover from '../game/components/image/assets/_rabbitCover.png'
+import _tiltCover from '../game/components/image/assets/_tiltCover.png'
+import _cliffHanger from '../game/components/image/assets/_cliffHanger.png'
 
 /**
  * Rendering of boards on dashboard
@@ -36,21 +36,21 @@ const GameSelection = ({
       >
         {singleRefs &&
           [
-            { title: "_rabbit", imgUrl: _rabbitCover, url: "/rabbit" },
-            { title: "_tilt", imgUrl: _tiltCover, url: "/tilt" },
+            { title: '_rabbit', imgUrl: _rabbitCover, url: '/app/rabbit' },
+            { title: '_tilt', imgUrl: _tiltCover, url: '/app/tilt' },
             {
-              title: "_cliffHanger",
+              title: '_cliffHanger',
               imgUrl: _cliffHanger,
-              url: "/cliffhanger",
+              url: '/app/cliffhanger',
             },
           ].map((game, index) => {
             return (
               <Game game={game} ref={singleRefs} key={index} index={index} />
-            );
+            )
           })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default GameSelection;
+export default GameSelection

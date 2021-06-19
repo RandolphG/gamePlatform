@@ -1,15 +1,15 @@
 export const initialState = {
-  userName: "randi",
-  email: "randi@poplogics.com",
-  homeTown: "Houston, Texas",
+  userName: 'randi',
+  email: 'randi@poplogics.com',
+  homeTown: 'Houston, Texas',
   currentLocation: {
-    country: "Croatia",
-    city: "Velika Gorica",
+    country: 'Croatia',
+    city: 'Velika Gorica',
   },
-  activeRoute: "",
+  activeRoute: '',
   playing: false,
-  currentGame: "none",
+  currentGame: 'none',
   gamesPlayed: [],
   totalGameTime: 0,
   isLoggedIn: false,
-};
+}

@@ -1,12 +1,12 @@
-import React, { ChangeEvent, FormEvent } from "react";
-import { motion } from "framer-motion";
-import { input, stayLoggedIn } from "../motionSettings";
-import SignInButton from "./signInButton";
+import React, { ChangeEvent, FormEvent } from 'react'
+import { motion } from 'framer-motion'
+import { input, stayLoggedIn } from '../motionSettings'
+import SignInButton from './signInButton'
 
 interface IInputField {
-  credentials: { reporter: string };
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (event: FormEvent<HTMLFormElement>) => void;
+  credentials: { reporter: string }
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
+  handleSubmit: (event: FormEvent<HTMLFormElement>) => void
 }
 
 const Input = ({ handleChange, handleSubmit, credentials }: IInputField) => {
@@ -24,7 +24,7 @@ const Input = ({ handleChange, handleSubmit, credentials }: IInputField) => {
       />
       <label className="input-group__label">Reporter</label>
     </motion.div>
-  );
+  )
 
   const StayLoggedIn = () => (
     <motion.div {...stayLoggedIn} className="login-options">
@@ -32,7 +32,7 @@ const Input = ({ handleChange, handleSubmit, credentials }: IInputField) => {
         <input className="remember-me" type="checkbox" /> Remember Me
       </label>
     </motion.div>
-  );
+  )
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -42,7 +42,7 @@ const Input = ({ handleChange, handleSubmit, credentials }: IInputField) => {
       {StayLoggedIn()}
       {SignInButton()}
     </form>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

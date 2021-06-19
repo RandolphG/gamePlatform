@@ -1,10 +1,10 @@
-//@ts-nocheck
-import React, { useRef, useState } from "react";
-import image from "./assets/_default_profile_img.png";
-import "./styles/_userImage.scss";
-import { UserImageViewModel } from "./userImageViemModel";
+// @ts-nocheck
+import React, { useRef, useState } from 'react'
+import image from './assets/_default_profile_img.png'
+import './styles/_userImage.scss'
+import { UserImageViewModel } from './userImageViemModel'
 
-/*TODO
+/* TODO
  *  react forms: tools for input manipulation
  *  */
 
@@ -14,13 +14,13 @@ import { UserImageViewModel } from "./userImageViemModel";
  * @constructor
  */
 const UserImage = () => {
-  const { imageFile, fileInputRef, handleFileInput } = UserImageViewModel();
+  const { imageFile, fileInputRef, handleFileInput } = UserImageViewModel()
 
   return (
     <div className="profile">
       <img
         onClick={(e) => {
-          fileInputRef.current && fileInputRef.current.click();
+          fileInputRef.current && fileInputRef.current.click()
         }}
         className="profile__img"
         src={imageFile}
@@ -28,14 +28,14 @@ const UserImage = () => {
       />
       <input
         ref={fileInputRef}
-        style={{ display: "none" }}
+        style={{ display: 'none' }}
         id="photo-upload"
         type="file"
         accept="image/*"
         onChange={handleFileInput}
       />
     </div>
-  );
-};
+  )
+}
 
-export default UserImage;
+export default UserImage

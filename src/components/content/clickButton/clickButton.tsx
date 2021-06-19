@@ -1,8 +1,8 @@
-/*@ts-nocheck*/
-import React from "react";
-import { GrabZone } from "./components";
-import { useClickButton } from "./useClickButton";
-import "./styles/_clickButtonStyles.scss";
+/* @ts-nocheck */
+import React from 'react'
+import { GrabZone } from './components'
+import { useClickButton } from './useClickButton'
+import './styles/_clickButtonStyles.scss'
 
 export const ClickButton = () => {
   const {
@@ -13,7 +13,7 @@ export const ClickButton = () => {
     handleToggleDebug,
     screenStyle,
     appClass,
-  } = useClickButton();
+  } = useClickButton()
 
   return (
     <div className={appClass} style={screenStyle}>
@@ -31,17 +31,17 @@ export const ClickButton = () => {
       <button
         className="trap-button"
         onClick={() => {
-          handleButtonClicked();
+          handleButtonClicked()
         }}
       >
-        {gameOver && "Nice one"}
-        {cursorGrabbed && "Gotcha!"}
-        {!gameOver && !cursorGrabbed && "Button!"}
+        {gameOver && 'Nice one'}
+        {cursorGrabbed && 'Gotcha!'}
+        {!gameOver && !cursorGrabbed && 'Button!'}
       </button>
       <div className="grab-zone-wrapper">
-        {/*@ts-ignore*/}
+        {/* @ts-ignore */}
         <GrabZone onCursorGrabbed={handleCursorGrabbed} />
       </div>
     </div>
-  );
-};
+  )
+}

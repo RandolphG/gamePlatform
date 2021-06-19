@@ -1,1 +1,1 @@
-export { default as Rabbit } from "./Rabbit";
+export { default as Rabbit } from './Rabbit'

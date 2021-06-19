@@ -1,20 +1,19 @@
-import { getUserState } from "app";
-import React, { FC, LazyExoticComponent } from "react";
-import { RouteComponentProps } from "react-router";
-import { useSelector } from "react-redux";
-import { Redirect, Route } from "react-router-dom";
+import { getUserState } from 'app'
+import React, { FC, LazyExoticComponent } from 'react'
+import { RouteComponentProps } from 'react-router'
+import { useSelector } from 'react-redux'
+import { Redirect, Route } from 'react-router-dom'
 
 interface IPrivateRoute {
   component:
     | React.ComponentType<RouteComponentProps<any>>
     | React.ComponentType<any>
-    | LazyExoticComponent<React.ComponentType<any>>;
-  path: string;
+    | LazyExoticComponent<React.ComponentType<any>>
+  path: string
 }
 
 const PrivateRoute: FC<IPrivateRoute> = ({ component: Component, ...rest }) => {
-  const user = useSelector(getUserState);
-  console.log(`isLoggedIn`, user.isLoggedIn);
+  const user = useSelector(getUserState)
 
   return (
     <Route
@@ -24,10 +23,10 @@ const PrivateRoute: FC<IPrivateRoute> = ({ component: Component, ...rest }) => {
           <Component {...props} />
         ) : (
           <Redirect to="/intro" />
-        );
+        )
       }}
     />
-  );
-};
+  )
+}
 
-export default PrivateRoute;
+export default PrivateRoute

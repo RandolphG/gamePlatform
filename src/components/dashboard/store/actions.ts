@@ -1,1 +1,1 @@
-import { addBoard } from "./dashboard";
+import { addBoard } from './dashboard'

@@ -1,5 +1,5 @@
-import React from "react";
-import "./styles/_leadberStyles.scss";
+import React from 'react'
+import './styles/_leadberStyles.scss'
 
 const LeaderBoard = () => {
   const Images = () => (
@@ -57,13 +57,13 @@ const LeaderBoard = () => {
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <div className="leaderBoard">
       <Images />
     </div>
-  );
-};
+  )
+}
 
-export default LeaderBoard;
+export default LeaderBoard

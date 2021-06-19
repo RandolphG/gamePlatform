@@ -1,8 +1,8 @@
-import React from "react";
-import { Grabber } from "../grabber";
-import { useGrabZone } from "./useGrabZone";
+import React from 'react'
+import { Grabber } from '../grabber'
+import { useGrabZone } from './useGrabZone'
 
-export type state = "waiting" | "stalking" | "grabbing" | "grabbed" | "shaka";
+export type state = 'waiting' | 'stalking' | 'grabbing' | 'grabbed' | 'shaka'
 
 /**
  * GrabZone (The hover trigger zone)
@@ -16,21 +16,21 @@ export const GrabZone = (
   gameOver: any,
   onCursorGrabbed: () => void
 ) => {
-  console.log(`grabZone : gameOver`, gameOver);
-  const { isExtended, innerRef, outerRef, state } = useGrabZone();
+  console.log(`grabZone : gameOver`, gameOver)
+  const { isExtended, innerRef, outerRef, state } = useGrabZone()
 
   return (
     <>
-      {/*@ts-ignore*/}
+      {/* @ts-ignore */}
       <div className="grab-zone" ref={outerRef}>
         <div className="grab-zone__debug">
           <strong>Debug info:</strong>
           <p>Current state: {state}</p>
-          <p>Extended arm: {isExtended ? "Yes" : "No"}</p>
+          <p>Extended arm: {isExtended ? 'Yes' : 'No'}</p>
         </div>
-        {/*@ts-ignore*/}
+        {/* @ts-ignore */}
         <div className="grab-zone__danger" ref={innerRef}>
-          {/*@ts-ignore*/}
+          {/* @ts-ignore */}
           <Grabber
             state={state}
             gameOver={gameOver}
@@ -40,5 +40,5 @@ export const GrabZone = (
         </div>
       </div>
     </>
-  );
-};
+  )
+}
