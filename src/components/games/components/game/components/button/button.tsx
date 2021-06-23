@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './styles/_button.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./styles/_button.scss";
 
 const Button = () => {
   // const path = `${location.pathname}/${gameID}`;
@@ -16,7 +16,7 @@ const Button = () => {
         Play
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

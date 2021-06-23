@@ -1,8 +1,19 @@
-import React, { FC } from 'react'
-import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
-import { Intro } from '../components'
-import { PrivateRoute, NonAuthRoute, NotFound, AppRouting } from './componenets'
+import React, { FC } from "react";
+import {
+  HashRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { Intro } from "../components";
+import { SignUp } from "../components/intro/components/signUp";
+import {
+  PrivateRoute,
+  NonAuthRoute,
+  NotFound,
+  AppRouting,
+} from "./componenets";
 
 /**
  * application router
@@ -10,7 +21,7 @@ import { PrivateRoute, NonAuthRoute, NotFound, AppRouting } from './componenets'
  * @constructor
  */
 const AppRouter: FC = () => {
-  const renderRootRedirect = () => <Redirect to="/app" />
+  const renderRootRedirect = () => <Redirect to="/app" />;
 
   return (
     <Router>
@@ -18,7 +29,8 @@ const AppRouter: FC = () => {
         render={({ location }) => (
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.key}>
-              <Route exact path="/" component={renderRootRedirect} />
+              <Route exact path="/" component={SignUp} />
+              {/*<Route exact path="/" component={renderRootRedirect} />*/}
               <PrivateRoute path="/app" component={AppRouting} />
               <Route exact path="/intro" component={Intro} />
               <Route path="/non-auth" component={NonAuthRoute} />
@@ -29,7 +41,7 @@ const AppRouter: FC = () => {
         )}
       />
     </Router>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

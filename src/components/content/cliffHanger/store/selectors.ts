@@ -1,1 +1,1 @@
-export const cliffHangerState = (state: any) => state.cliffhanger
+export const cliffHangerState = (state: any) => state.cliffhanger;

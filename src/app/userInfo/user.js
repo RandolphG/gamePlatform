@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { reducers } from './reducers'
-import { initialState } from './initialState'
+import { createSlice } from "@reduxjs/toolkit";
+import { reducers } from "./reducers";
+import { initialState } from "./initialState";
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers,
-})
+});
 
 export const {
   setName,
@@ -15,6 +15,6 @@ export const {
   setHighScore,
   setActiveRoute,
   setLogin,
-} = userSlice.actions
+} = userSlice.actions;
 
-export default userSlice.reducer
+export default userSlice.reducer;

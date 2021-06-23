@@ -1,1 +1,1 @@
-export { GrabZone } from './grabZone'
+export { GrabZone } from "./grabZone";

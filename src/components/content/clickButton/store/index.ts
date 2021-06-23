@@ -1,2 +1,2 @@
-export * from './selectors'
-export * from './clickBtn'
+export * from "./selectors";
+export * from "./clickBtn";

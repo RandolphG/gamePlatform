@@ -1,5 +1,5 @@
-import React from 'react'
-import './styles/_image.scss'
+import React from "react";
+import "./styles/_image.scss";
 
 const Image = (title: string, imgUrl: string) => (
   <div className="image">
@@ -11,6 +11,6 @@ const Image = (title: string, imgUrl: string) => (
       </figcaption>
     </figure>
   </div>
-)
+);
 
-export default Image
+export default Image;

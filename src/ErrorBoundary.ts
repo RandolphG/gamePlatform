@@ -1,21 +1,21 @@
-import { Component } from 'react'
+import { Component } from "react";
 
 export default class ErrorBoundary extends Component {
   constructor(props: any) {
-    super(props)
-    this.state = { hasError: false }
+    super(props);
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError() {
-    return { hasError: true }
+    return { hasError: true };
   }
 
   render() {
     // @ts-ignore
     if (this.state.hasError) {
-      return null
+      return null;
     }
 
-    return this.props.children
+    return this.props.children;
   }
 }

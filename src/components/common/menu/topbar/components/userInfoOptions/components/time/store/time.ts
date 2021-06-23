@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { initialState } from './initialState'
-import { reducers } from './reducers'
+import { createSlice } from "@reduxjs/toolkit";
+import { initialState } from "./initialState";
+import { reducers } from "./reducers";
 
 export const timeSlice = createSlice({
-  name: 'time',
+  name: "time",
   initialState,
   reducers,
-})
+});
 
-export const { setDate, setCurrentDateTime } = timeSlice.actions
+export const { setDate, setCurrentDateTime } = timeSlice.actions;
 
-export default timeSlice.reducer
+export default timeSlice.reducer;

@@ -1,6 +1,6 @@
-import { AnimatePresence } from 'framer-motion'
-import React, { FC } from 'react'
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { AnimatePresence } from "framer-motion";
+import React, { FC } from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
 import {
   Dashboard,
   ClickButton,
@@ -11,12 +11,12 @@ import {
   PropelMan,
   Rabbit,
   Tilt,
-} from '../../../components'
-import { PrivateRoute } from '../privateRoute'
+} from "../../../components";
+import { PrivateRoute } from "../privateRoute";
 
 const AppRouting: FC = () => {
   /* redirect from app to "/app/dashboard" */
-  const renderRootRedirect = () => <Redirect to="/app/dashboard" />
+  const renderRootRedirect = () => <Redirect to="/app/dashboard" />;
 
   /* return the root view */
   return (
@@ -36,7 +36,7 @@ const AppRouting: FC = () => {
         </Switch>
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
-export default AppRouting
+export default AppRouting;

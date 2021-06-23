@@ -1,3 +1,3 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect";
 
-export const getGames = (state: any) => state.games
+export const getGames = (state: any) => state.games;

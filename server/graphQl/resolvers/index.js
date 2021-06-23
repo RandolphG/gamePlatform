@@ -5,18 +5,20 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
-  createUser: async (args) => {
+  createUser: async (user) => {
     try {
-      const { userName, password, email, homeTown } = args.user;
-      const hashPassword = await User.findOne({ email }).then((user) => {
+      const localUser = user;
+      const hashPassword = await User.findOne({
+        email: user.userInput.email,
+      }).then((user) => {
         if (user) {
           throw new Error("User exists already.");
         }
 
+        const pw = localUser.userInput.password;
         return bcrypt
-          .hash(password, 12)
+          .hash(pw, 12)
           .then((hash) => {
-            console.log(`\nhashPassword`, hash);
             return hash;
           })
           .catch((err) => {
@@ -25,17 +27,14 @@ module.exports = {
           });
       });
 
-      const user = await new User({
-        userName,
+      const createdUser = await new User({
+        userName: user.userInput.userName,
+        email: user.userInput.email,
         password: hashPassword,
-        email,
-        homeTown,
       });
 
-      console.log(`\nuser: `, user);
-      const newUser = user.save();
+      const newUser = await createdUser.save();
 
-      console.log(`\nnewUser: `, newUser);
       return { ...newUser._doc, _id: newUser.id };
     } catch (error) {
       throw error;
@@ -55,7 +54,6 @@ module.exports = {
       throw error;
     }
   },
-
   createArticle: async (args) => {
     try {
       const { title, body } = args.article;
@@ -81,12 +79,17 @@ module.exports = {
         throw err;
       });
   },
-  createEvent: async (args) => {
+  createEvent: async (args, request) => {
+    console.log(`\ncreateEvent:`);
+
+    if (!request.isAuth) {
+      throw new Error("Unauthorized");
+    }
     try {
       const { userName } = args.event;
       const event = new Event({
         userName,
-        creator: "43534tdfgdgrt",
+        creator: request.userId,
       });
 
       let createdEvent;
@@ -115,20 +118,23 @@ module.exports = {
       throw error;
     }
   },
-  login: async ({ email, password }) => {
+  login: async ({ userName, email, password }) => {
+    console.log(`\nlogin: -->`, { userName, email, password });
     try {
-      console.log(`password, email`, { password, email });
-      const user = await User.findOne({ email: email });
-      checkData(!user);
+      console.log(`\npassword, email`, { password, email });
+      const user = await User.findOne({ userName: userName });
+      console.log(`\nuser found : `, user);
+      checkData(user);
       const isEqual = await bcrypt.compare(password, user.password);
-      checkData(!isEqual);
+      console.log(`\nuser isEqual : `, isEqual);
+      checkData(isEqual);
 
       const token = jwt.sign(
         { userId: user.id, email: user.email },
         "secretKey",
         { expiresIn: "1h" }
       );
-
+      console.log(`\njwt token is : `, token);
       return { userId: user.id, token: token, tokenExpiration: 1 };
     } catch (error) {
       throw error;
@@ -138,5 +144,8 @@ module.exports = {
 
 /* validate */
 function checkData(data) {
-  if (!data) throw Error("missing data");
+  if (!data) {
+    console.log(`\nError found : `);
+    throw Error("missing data");
+  }
 }

@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import './styles/_tileStyles.scss'
-import { TiltMaze } from './TiltMaze'
+import React, { useEffect } from "react";
+import "./styles/_tileStyles.scss";
+import { TiltMaze } from "./TiltMaze";
 
 const Tilt = () => {
   useEffect(() => {
-    console.log(`tiltMaze initialized`)
-    const tilt = new TiltMaze()
-  })
+    console.log(`tiltMaze initialized`);
+    const tilt = new TiltMaze();
+  });
 
   return (
     <div id="center">
@@ -27,7 +27,7 @@ const Tilt = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Tilt
+export default Tilt;

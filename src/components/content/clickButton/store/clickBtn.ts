@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
-import { reducers } from './reducers'
-import { initialState } from './initialState'
+import { createSlice } from "@reduxjs/toolkit";
+import { reducers } from "./reducers";
+import { initialState } from "./initialState";
 
 const clickButtonSlice = createSlice({
-  name: 'clickButton',
+  name: "clickButton",
   initialState,
   reducers,
-})
+});
 
 export const {
   setExtendedArm,
@@ -17,6 +17,6 @@ export const {
   setDebugState,
   setGameOver,
   setCursorGrabbed,
-} = clickButtonSlice.actions
+} = clickButtonSlice.actions;
 
-export default clickButtonSlice.reducer
+export default clickButtonSlice.reducer;

@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { motion } from 'framer-motion'
+import * as React from "react";
+import { motion } from "framer-motion";
 
 const Path = (props: any) => (
   <motion.path
@@ -9,7 +9,7 @@ const Path = (props: any) => (
     strokeLinecap="round"
     {...props}
   />
-)
+);
 
 export const NotificationCloseButton = (close: any) => (
   <button onClick={close} className="container_list_item_close">
@@ -18,4 +18,4 @@ export const NotificationCloseButton = (close: any) => (
       <Path d="M 3 2.5 L 17 16.346" />
     </svg>
   </button>
-)
+);

@@ -1,17 +1,17 @@
-import * as React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useDispatch, useSelector } from 'react-redux'
-import { getNotifications, onRemoveNotification } from './store'
-import './styles/_notifications.scss'
+import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { getNotifications, onRemoveNotification } from "./store";
+import "./styles/_notifications.scss";
 
 const Notification = () => {
-  const dispatch = useDispatch()
-  const notifications = useSelector(getNotifications)
+  const dispatch = useDispatch();
+  const notifications = useSelector(getNotifications);
 
   function remove(id: number) {
     setTimeout(() => {
-      dispatch(onRemoveNotification(id))
-    }, 2500)
+      dispatch(onRemoveNotification(id));
+    }, 2500);
   }
 
   return (
@@ -20,7 +20,7 @@ const Notification = () => {
         <AnimatePresence initial={false}>
           {notifications &&
             notifications.map((notification: any, idx: number) => {
-              remove(idx)
+              remove(idx);
               return (
                 <motion.li
                   className="notification_list_item"
@@ -38,12 +38,12 @@ const Notification = () => {
                   </span>
                   {/* <NotificationCloseButton close={() => remove(idx)} /> */}
                 </motion.li>
-              )
+              );
             })}
         </AnimatePresence>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Notification
+export default Notification;

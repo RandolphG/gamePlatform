@@ -1,8 +1,8 @@
-import React from 'react'
-import './styles/_menuStyles.scss'
-import { Link } from 'react-router-dom'
-import { MediaIconsPopups } from './mediaIconsPopups'
-import { Topbar } from './topbar'
+import React from "react";
+import "./styles/_menuStyles.scss";
+import { Link } from "react-router-dom";
+import { MediaIconsPopups } from "./mediaIconsPopups";
+import { Topbar } from "./topbar";
 
 const Menu = () => {
   const homeLink = () => (
@@ -22,7 +22,7 @@ const Menu = () => {
       </span>
       <span className="link-title">Home</span>
     </Link>
-  )
+  );
 
   const gamesLink = () => (
     <Link to="/" className="link">
@@ -60,7 +60,7 @@ const Menu = () => {
       </span>
       <span className="link-title">Games</span>
     </Link>
-  )
+  );
 
   const chatLink = () => (
     <Link to="/" className="link">
@@ -101,7 +101,7 @@ const Menu = () => {
       </span>
       <span className="link-title">Chat</span>
     </Link>
-  )
+  );
 
   const searchLink = () => (
     <Link to="/" className="link">
@@ -133,7 +133,7 @@ const Menu = () => {
       </span>
       <span className="link-title">Search</span>
     </Link>
-  )
+  );
 
   const profile = () => (
     <Link to="/" className="link">
@@ -161,7 +161,7 @@ const Menu = () => {
       </span>
       <span className="link-title">Profile</span>
     </Link>
-  )
+  );
 
   return (
     <div className="menu">
@@ -175,7 +175,7 @@ const Menu = () => {
       <MediaIconsPopups />
       <Topbar />
     </div>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react'
-import './styles/_style.scss'
-import { Main } from './Main'
-import { LogoutButton } from '../../dashboard/components'
+import React, { useEffect } from "react";
+import "./styles/_style.scss";
+import { Main } from "./Main";
+import { LogoutButton } from "../../dashboard/components";
 
 const Rabbit = () => {
   useEffect(() => {
-    const Game = new Main()
+    const Game = new Main();
 
-    Game.init()
+    Game.init();
 
     console.log(
       `Game Status`,
       Main.gameStatus,
       `\nHero Status`,
       Game && Game.hero && Game.hero.status
-    )
-  })
+    );
+  });
 
   const renderStats = () => (
     <div className="stats">
@@ -36,21 +36,21 @@ const Rabbit = () => {
         <div id="geometriesInMemoryValue">000</div>
       </div>
     </div>
-  )
+  );
 
   const distance = () => (
     <div id="dist">
       <div className="label">distance</div>
       <div id="distValue">000</div>
     </div>
-  )
+  );
 
   const highScore = () => (
     <div id="highScore">
       HighScore:
       <div id="highScoreValue">000</div>
     </div>
-  )
+  );
 
   const instruction = () => (
     <div id="instructions">
@@ -60,7 +60,7 @@ const Rabbit = () => {
       </span>
       <button id="button">sound</button>
     </div>
-  )
+  );
 
   return (
     <div id="world">
@@ -71,7 +71,7 @@ const Rabbit = () => {
       {instruction()}
       <LogoutButton />
     </div>
-  )
-}
+  );
+};
 
-export default Rabbit
+export default Rabbit;

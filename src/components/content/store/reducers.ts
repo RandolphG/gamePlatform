@@ -1,1 +1,1 @@
-export const reducers = {}
+export const reducers = {};

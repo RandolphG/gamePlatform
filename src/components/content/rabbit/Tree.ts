@@ -1,24 +1,24 @@
-import * as THREE from 'three'
-import { ITrunc, Trunc } from './Trunc'
+import * as THREE from "three";
+import { ITrunc, Trunc } from "./Trunc";
 
 interface ITree {
-  mesh: THREE.Object3D
-  trunc: ITrunc
-  init: () => void
+  mesh: THREE.Object3D;
+  trunc: ITrunc;
+  init: () => void;
 }
 
 export class Tree implements ITree {
-  mesh: THREE.Object3D
+  mesh: THREE.Object3D;
 
-  trunc: ITrunc
+  trunc: ITrunc;
 
   constructor() {
-    this.init()
+    this.init();
   }
 
   init() {
-    this.mesh = new THREE.Object3D()
-    this.trunc = new Trunc()
-    this.mesh.add(this.trunc.mesh)
+    this.mesh = new THREE.Object3D();
+    this.trunc = new Trunc();
+    this.mesh.add(this.trunc.mesh);
   }
 }

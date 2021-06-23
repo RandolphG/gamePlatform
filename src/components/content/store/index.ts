@@ -1,2 +1,2 @@
-export * from './selectors'
-export * from './games'
+export * from "./selectors";
+export * from "./games";

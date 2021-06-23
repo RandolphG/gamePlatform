@@ -5,25 +5,24 @@ module.exports = buildSchema(`
     type User {
         _id: ID!
         userName: String!
-        password: String
         email: String!
-        homeTown: String!
-        createdEvents: [Event!]
+        password: String
     }
         
     input UserInput {
         userName: String!
-        password: String!
         email: String!
-        homeTown: String!
+        password: String!
     }
 
     type Login {    
+        userName:String!
         email: String!
         password: String!
     }
 
-    input LoginInput {    
+    input LoginInput {  
+        userName:String!  
         email: String!
         password: String!
     }
@@ -61,13 +60,12 @@ module.exports = buildSchema(`
     type Query {
         articles:[Article!]
         event:[Event!]
-        login(email:String!, password:String!): AuthData!     
+        login(userName:String!, email:String!, password:String!): AuthData!     
     }
 
     type Mutation {
         createArticle(article:ArticleInput): Article
-        createUser(user:UserInput): User
-        createEvent(eventInput: EventInput): Event
+        createUser(userInput:UserInput): User
     }
 
     schema {

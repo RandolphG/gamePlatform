@@ -1,1 +1,1 @@
-export { default as NonAuthRoute } from './nonAuthRoute'
+export { default as NonAuthRoute } from "./nonAuthRoute";

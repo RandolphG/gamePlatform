@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { imageSection } from '../assets'
+import React, { Fragment } from "react";
+import { imageSection } from "../assets";
 
 const Images = () => (
   <Fragment>
@@ -13,6 +13,6 @@ const Images = () => (
       />
     ))}
   </Fragment>
-)
+);
 
-export default Images
+export default Images;

@@ -1,10 +1,10 @@
 // @ts-nocheck
-import React, { forwardRef, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { projectsAnim } from './motionSettings'
-import { Image, OptionsSvg } from './components'
-import './styles/_gameStyles.scss'
-import { Link } from 'react-router-dom'
+import React, { forwardRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { projectsAnim } from "./motionSettings";
+import { Image, OptionsSvg } from "./components";
+import "./styles/_gameStyles.scss";
+import { Link } from "react-router-dom";
 
 /* TODO
     Resolve scrolling issue.
@@ -17,15 +17,15 @@ import { Link } from 'react-router-dom'
 const Game = forwardRef(({ game, index }, ref) => {
   function setReferences(element: any) {
     if (ref && ref.current) {
-      ref.current[index] = element
+      ref.current[index] = element;
     }
   }
 
   useEffect(() => {
     if (ref && ref.current) {
-      ref.current[index].scrollIntoView({ behavior: 'smooth', block: 'end' })
+      ref.current[index].scrollIntoView({ behavior: "smooth", block: "end" });
     }
-  }, [])
+  }, []);
 
   return (
     <motion.div
@@ -40,7 +40,7 @@ const Game = forwardRef(({ game, index }, ref) => {
         </span>
       </Link>
     </motion.div>
-  )
-})
+  );
+});
 
-export default Game
+export default Game;

@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './styles/_mediaIconsPopupStyles.scss'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./styles/_mediaIconsPopupStyles.scss";
 
 const MediaIconsPopups = () => {
   return (
@@ -41,7 +41,7 @@ const MediaIconsPopups = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MediaIconsPopups
+export default MediaIconsPopups;

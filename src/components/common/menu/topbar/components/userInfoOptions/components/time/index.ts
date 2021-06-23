@@ -1,2 +1,2 @@
-export { default as Time } from './time'
-export * from './store'
+export { default as Time } from "./time";
+export * from "./store";

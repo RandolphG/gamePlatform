@@ -1,15 +1,16 @@
-import { motion } from 'framer-motion'
-import React, { FC } from 'react'
-import { loginLayout } from './motionSettings'
-import './styles/_loginLayout.scss'
-import ErrorBoundary from '../../../../ErrorBoundary'
-import { Divider, Input, Social } from './components'
-import { LoginLayoutViewModel } from './loginLayoutViewModel'
+import { motion } from "framer-motion";
+import React, { FC } from "react";
+import { loginLayout } from "./motionSettings";
+import "./styles/_loginLayout.scss";
+import ErrorBoundary from "../../../../ErrorBoundary";
+import { Divider, Input, Social } from "./components";
+import { LoginLayoutViewModel } from "./loginLayoutViewModel";
 
 interface ILoginLayout {}
 
 const LoginLayout: FC<ILoginLayout> = () => {
-  const { handleSubmit, handleChange, credentials } = LoginLayoutViewModel()
+  const { handleSubmit, handleChange, credentials, showPassword, inputType } =
+    LoginLayoutViewModel();
 
   return (
     <ErrorBoundary>
@@ -18,12 +19,18 @@ const LoginLayout: FC<ILoginLayout> = () => {
           <div className="login_border__container">
             {Social()}
             {Divider()}
-            {Input({ handleSubmit, handleChange, credentials })}
+            {Input({
+              handleSubmit,
+              handleChange,
+              credentials,
+              showPassword,
+              inputType,
+            })}
           </div>
         </div>
       </motion.div>
     </ErrorBoundary>
-  )
-}
+  );
+};
 
-export default LoginLayout
+export default LoginLayout;

@@ -1,32 +1,32 @@
-import { useRef } from 'react'
+import { useRef } from "react";
 
 export default function useIntersectionObserver() {
-  let mouseDown = false
-  let startX
-  let scrollLeft
-  const draggableArea = useRef()
+  let mouseDown = false;
+  let startX;
+  let scrollLeft;
+  const draggableArea = useRef();
 
   function startDragging(e) {
     if (draggableArea) {
-      mouseDown = true
-      startX = e.pageX - draggableArea.current.offsetLeft
-      scrollLeft = draggableArea.current.scrollLeft
+      mouseDown = true;
+      startX = e.pageX - draggableArea.current.offsetLeft;
+      scrollLeft = draggableArea.current.scrollLeft;
     }
   }
 
   function stopDragging(e) {
-    mouseDown = false
+    mouseDown = false;
   }
 
   function dragging(e) {
-    e.preventDefault()
+    e.preventDefault();
     if (!mouseDown) {
-      return
+      return;
     }
     if (draggableArea) {
-      const x = e.pageX - draggableArea.current.offsetLeft
-      const scroll = x - startX
-      draggableArea.current.scrollLeft = scrollLeft - scroll
+      const x = e.pageX - draggableArea.current.offsetLeft;
+      const scroll = x - startX;
+      draggableArea.current.scrollLeft = scrollLeft - scroll;
     }
   }
 
@@ -38,5 +38,5 @@ export default function useIntersectionObserver() {
     startDragging,
     dragging,
     stopDragging,
-  ]
+  ];
 }

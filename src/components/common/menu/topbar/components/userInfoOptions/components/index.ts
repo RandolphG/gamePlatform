@@ -1,2 +1,2 @@
-export * from './time'
-export { UserImage } from './userImage'
+export * from "./time";
+export { UserImage } from "./userImage";

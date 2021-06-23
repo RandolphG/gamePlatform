@@ -1,18 +1,18 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import { setLogin } from '../../../../app/userInfo'
-import './styles/_logoutButton.scss'
-import { motion } from 'framer-motion'
-import ErrorBoundary from '../../../../ErrorBoundary'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useDispatch } from "react-redux";
+import { setLogin } from "../../../../app/userInfo";
+import "./styles/_logoutButton.scss";
+import { motion } from "framer-motion";
+import ErrorBoundary from "../../../../ErrorBoundary";
+import { useHistory } from "react-router-dom";
 
 const LogoutButton = () => {
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   function handleSignOut() {
-    dispatch(setLogin({ isLoggedIn: false }))
-    history.push('/')
+    dispatch(setLogin({ isLoggedIn: false }));
+    history.push("/");
   }
 
   const LogOutSvg = () => (
@@ -29,14 +29,14 @@ const LogoutButton = () => {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 
   const logout = {
     initial: { x: -50, opacity: 0 },
     animate: { x: 0, opacity: 1 },
     exit: { y: 50, opacity: 0 },
     transition: { duration: 1.0 },
-  }
+  };
 
   return (
     <ErrorBoundary>
@@ -51,7 +51,7 @@ const LogoutButton = () => {
         </div>
       </motion.div>
     </ErrorBoundary>
-  )
-}
+  );
+};
 
-export default LogoutButton
+export default LogoutButton;

@@ -3,7 +3,7 @@ export const initialState = {
   position: { x: 0, y: 0 },
   ref: null,
   hovered: false,
-  state: 'waiting',
+  state: "waiting",
   gameOver: false,
   extended: false,
   rotation: 0,
@@ -14,4 +14,4 @@ export const initialState = {
     hovered: false,
   },
   cursorGrabbed: false,
-}
+};
