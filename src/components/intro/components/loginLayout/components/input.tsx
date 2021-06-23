@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { input, stayLoggedIn } from "../motionSettings";
 import SignInButton from "./signInButton";
+import { Link } from "react-router-dom";
 
 interface IInputField {
   credentials: { userName: string; email: string; password: string };
@@ -19,20 +20,24 @@ const Input = ({
   inputType,
 }: IInputField) => {
   const Inputfield = () => (
-    <motion.div {...input} className="input-group">
-      <input
-        onChange={handleChange}
-        value={credentials.userName}
-        type="text"
-        name="userName"
-        id="userName"
-        placeholder="&nbsp;"
-        autoComplete="off"
-        required
-      />
-      <label className="input-group__label">Username</label>
-      <div>
+    <motion.div>
+      <div className="input-group">
         <input
+          className="input-group__input"
+          onChange={handleChange}
+          value={credentials.userName}
+          type="text"
+          name="userName"
+          id="userName"
+          placeholder="&nbsp;"
+          autoComplete="off"
+          required
+        />
+        <label className="input-group__label">Username</label>
+      </div>
+      <div className="input-group">
+        <input
+          className="input-group__input"
           onChange={handleChange}
           type="text"
           name="email"
@@ -41,10 +46,11 @@ const Input = ({
           placeholder="&nbsp;"
           required
         />
-        <label>Email</label>
+        <label className="input-group__label">Email</label>
       </div>
-      <div>
+      <div className="input-group">
         <input
+          className="input-group__input"
           onChange={handleChange}
           value={credentials.password}
           type={inputType}
@@ -53,8 +59,8 @@ const Input = ({
           placeholder="&nbsp;"
           required
         />
-        <label>Password</label>
-        <span onClick={showPassword}>
+        <label className="input-group__label">Password</label>
+        <span className="input-group__password_show" onClick={showPassword}>
           {inputType === "text" ? "Hide" : "show"}
         </span>
       </div>
@@ -70,12 +76,18 @@ const Input = ({
   );
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
-      <motion.div {...input} className="input-group">
-        {Inputfield()}
-      </motion.div>
+    <form {...input} className="form" onSubmit={handleSubmit}>
+      {Inputfield()}
       {StayLoggedIn()}
       {SignInButton()}
+      <div className="alternate-section">
+        <motion.p className="alternate-section__forget-password">
+          <a href="#">Forgot Password?</a>
+        </motion.p>
+        <motion.p className="alternate-section__signup">
+          <Link to="/signUp">Sign up</Link>
+        </motion.p>
+      </div>
     </form>
   );
 };

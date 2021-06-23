@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { setLogin, setName } from "../../../../app/userInfo";
 
@@ -45,20 +45,33 @@ export const LoginLayoutViewModel = () => {
     })
       .then((response) => {
         if (response.status !== 200 && response.status !== 201) {
-          console.log(`\nresponse`, response);
+          console.log(`\nFailure!`, response);
           throw new Error("Failed");
         }
-        console.log(`\nresponse`, response);
+        console.log(`\nSuccess!`, response);
         return response.json();
       })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => console.log(err));
+      .then(({ data }) => {
+        const { login } = data;
+        console.log(`\nlogin`, login);
 
-    // dispatch(setName({ credentials }));
-    // dispatch(setLogin({ isLoggedIn: true }));
-    // history.push("/app/dashboard");
+        if (login.token) {
+          dispatch(setName({ credentials }));
+          dispatch(
+            setLogin({
+              isLoggedIn: {
+                userId: login.userId,
+                status: true,
+                token: login.token,
+              },
+            })
+          );
+          history.push("/app/dashboard");
+        }
+      })
+      .catch((err) => {
+        console.log(`\nError Signing In: -->`, err);
+      });
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import React, { FC } from "react";
 import { loginLayout } from "./motionSettings";
-import "./styles/_loginLayout.scss";
 import ErrorBoundary from "../../../../ErrorBoundary";
 import { Divider, Input, Social } from "./components";
 import { LoginLayoutViewModel } from "./loginLayoutViewModel";
+import "./styles/_loginLayout.scss";
 
-interface ILoginLayout {}
+interface ILogin {}
 
-const LoginLayout: FC<ILoginLayout> = () => {
+const LoginLayout: FC<ILogin> = () => {
   const { handleSubmit, handleChange, credentials, showPassword, inputType } =
     LoginLayoutViewModel();
 

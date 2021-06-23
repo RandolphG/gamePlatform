@@ -12,10 +12,9 @@ const MediaIconsPopups = () => {
             <i className="fab fa-facebook-f" />
           </span>
         </div>
-        <Link to="/dashboard">
+        <Link to="/app">
           <div className="icon twitter">
             <div className="tooltip">Game</div>
-
             <span>
               <i className="fab fa-twitter" />
             </span>

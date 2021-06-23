@@ -1,17 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setLogin } from "../../../../app/userInfo";
-import "./styles/_logoutButton.scss";
+import { useHistory } from "react-router-dom";
+import { setLogout } from "../../../../app/userInfo";
 import { motion } from "framer-motion";
 import ErrorBoundary from "../../../../ErrorBoundary";
-import { useHistory } from "react-router-dom";
+import "./styles/_logoutButton.scss";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   function handleSignOut() {
-    dispatch(setLogin({ isLoggedIn: false }));
+    dispatch(setLogout());
     history.push("/");
   }
 

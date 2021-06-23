@@ -1,4 +1,3 @@
 export const initialState = {
-  score: 0,
-  highScore: [],
+  highScore: { player: "", score: 0 },
 };

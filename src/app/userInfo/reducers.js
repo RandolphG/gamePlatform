@@ -3,9 +3,13 @@ export const reducers = {
     const { isLoggedIn } = action.payload;
     return { ...state, isLoggedIn };
   },
+  setLogout: (state) => {
+    const isLoggedIn = { userId: null, status: false, token: null };
+    return { ...state, isLoggedIn };
+  },
   setName: (state, action) => {
     const { credentials } = action.payload;
-    return { ...state, userName: credentials.reporter };
+    return { ...state, userName: credentials.userName };
   },
   setGame: (state, action) => {
     const { game } = action.payload;

@@ -6,8 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Intro } from "../components";
-import { SignUp } from "../components/intro/components/signUp";
+import { Intro, SignUp } from "../components";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -29,9 +28,9 @@ const AppRouter: FC = () => {
         render={({ location }) => (
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.key}>
-              <Route exact path="/" component={SignUp} />
-              {/*<Route exact path="/" component={renderRootRedirect} />*/}
+              <Route exact path="/" component={renderRootRedirect} />
               <PrivateRoute path="/app" component={AppRouting} />
+              <Route exact path="/signup" component={SignUp} />
               <Route exact path="/intro" component={Intro} />
               <Route path="/non-auth" component={NonAuthRoute} />
               <Route path="/404" component={NotFound} />

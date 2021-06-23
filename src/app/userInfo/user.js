@@ -15,6 +15,7 @@ export const {
   setHighScore,
   setActiveRoute,
   setLogin,
+  setLogout,
 } = userSlice.actions;
 
 export default userSlice.reducer;

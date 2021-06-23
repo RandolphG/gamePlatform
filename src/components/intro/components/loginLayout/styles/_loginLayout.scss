@@ -1,9 +1,8 @@
 @import "src/theme/style";
 
 .login {
-  //background: $background-color;
-  box-sizing: border-box;
   background: $background-color;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,10 +11,8 @@
   width: 100%;
 
   &_border {
-    //border: #142824 2px solid;
     position: relative;
     box-sizing: border-box;
-    background-color: transparent;
     width: 80%;
     height: 800px;
     overflow: hidden;
@@ -24,18 +21,9 @@
     align-items: center;
 
     &__container {
-      //background-color: #FEE01C;
-      //display: flex;
-      //align-self: center;
       height: 50%;
       width: 350px;
       flex-direction: column;
-
-      .logo {
-        //background: #0086e4;
-        position: absolute;
-        top: 1rem;
-      }
 
       &__divider {
         text-align: center;
@@ -60,9 +48,9 @@
       }
 
       .form {
-        //background-color: #ff3860;
         //padding: 1rem;
         .input-group {
+          font-family: $font-main;
           height: fit-content;
           width: 100%;
           display: flex;
@@ -75,6 +63,7 @@
             display: block;
             position: absolute;
             top: 0;
+            // to keep the position center
             line-height: $input-height;
             color: #aaa;
             left: 5px;
@@ -145,7 +134,11 @@
         cursor: pointer;
         font-weight: bold;
         text-transform: uppercase;
-        font-family: $font-main;
+
+        &:hover {
+          background-color: lighten($primary-color, 10%);
+          color: $dark-gray;
+        }
 
         &__google-sign-in {
           font-family: $font-main;
@@ -208,4 +201,18 @@
       }
     }
   }
+}
+
+.alternate-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__forget-password {
+  }
+
+  &__signup {
+  }
+
 }

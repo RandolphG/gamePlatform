@@ -14,6 +14,17 @@ module.exports = buildSchema(`
         email: String!
         password: String!
     }
+    
+    type CliffHanger {
+        _id:ID!
+        highScore:Int!
+        highScorePlayer: String!
+    }
+    
+    input CliffHangerInput {
+        highScore:Int!
+        highScorePlayer: String!
+    }
 
     type Login {    
         userName:String!
@@ -21,8 +32,8 @@ module.exports = buildSchema(`
         password: String!
     }
 
-    input LoginInput {  
-        userName:String!  
+    input LoginInput {
+        userName:String!
         email: String!
         password: String!
     }
@@ -30,10 +41,10 @@ module.exports = buildSchema(`
     type AuthData {
         userId: ID!
         token: String!
-        tokeExpiration: Int!
+        tokenExpiration: Int!
     }
 
-    type Article {    
+    type Article {
         _id: ID!
         title: String!
         body: String!
@@ -66,6 +77,7 @@ module.exports = buildSchema(`
     type Mutation {
         createArticle(article:ArticleInput): Article
         createUser(userInput:UserInput): User
+        setHighScore(cliffHangerInput:CliffHangerInput): CliffHanger
     }
 
     schema {

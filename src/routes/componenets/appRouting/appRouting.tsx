@@ -1,5 +1,5 @@
 import { AnimatePresence } from "framer-motion";
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import {
   Dashboard,
@@ -20,7 +20,7 @@ const AppRouting: FC = () => {
 
   /* return the root view */
   return (
-    <div>
+    <Fragment>
       <AnimatePresence exitBeforeEnter>
         <Menu />
         <Notification />
@@ -35,7 +35,7 @@ const AppRouting: FC = () => {
           <Route exact path="/app/propelman" component={PropelMan} />
         </Switch>
       </AnimatePresence>
-    </div>
+    </Fragment>
   );
 };
 

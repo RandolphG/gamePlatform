@@ -1,8 +1,8 @@
-import { getUserState } from "app";
 import React, { FC, LazyExoticComponent } from "react";
 import { RouteComponentProps } from "react-router";
 import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
+import { getLoggedInState } from "../../../app/userInfo";
 
 interface IPrivateRoute {
   component:
@@ -13,13 +13,13 @@ interface IPrivateRoute {
 }
 
 const PrivateRoute: FC<IPrivateRoute> = ({ component: Component, ...rest }) => {
-  const user = useSelector(getUserState);
+  const loggedIn = useSelector(getLoggedInState);
 
   return (
     <Route
       {...rest}
       render={(props) => {
-        return user.isLoggedIn ? (
+        return loggedIn.status ? (
           <Component {...props} />
         ) : (
           <Redirect to="/intro" />

@@ -1,10 +1,30 @@
 const Article = require("../../models/articles");
 const User = require("../../models/users");
 const Event = require("../../models/event");
+const CliffHanger = require("../../models/games/cliffHanger");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 module.exports = {
+  setHighScore: async (score) => {
+    try {
+      const { cliffHangerInput } = score;
+      const { highScore, highScorePlayer } = cliffHangerInput;
+
+      const highScoreFetched = await CliffHanger.find();
+
+      const newHighScore = await new CliffHanger({
+        highScore,
+        highScorePlayer,
+      });
+
+      console.log(`\nnewHighScore`, newHighScore);
+      const savedScore = await newHighScore.save();
+      return { ...savedScore._doc, _id: savedScore.id };
+    } catch (error) {
+      throw error;
+    }
+  },
   createUser: async (user) => {
     try {
       const localUser = user;
