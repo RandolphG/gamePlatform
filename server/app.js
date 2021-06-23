@@ -13,7 +13,8 @@ const port = process.env.PORT || 8000;
 
 app.use(cors());
 
-app.use(bodyParser.json());
+app.use(express.json());
+// app.use(bodyParser.json());
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");
@@ -39,7 +40,7 @@ app.use(
   })
 );
 
-// app.use(express.static("build"));
+app.use(express.static("build"));
 
 const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.f466e.gcp.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`;
 
