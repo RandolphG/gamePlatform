@@ -7,10 +7,11 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   setHighScore: async (score) => {
-    try {
-      const { cliffHangerInput } = score;
-      const { highScore, highScorePlayer } = cliffHangerInput;
+    console.log(`\nsetHighScore: -->`, score);
+    const { cliffHangerInput } = score;
+    const { highScore, highScorePlayer } = cliffHangerInput;
 
+    try {
       const highScoreFetched = await CliffHanger.find();
 
       const newHighScore = await new CliffHanger({
@@ -26,6 +27,7 @@ module.exports = {
     }
   },
   createUser: async (user) => {
+    console.log(`\ncreatUser: -->`);
     try {
       const localUser = user;
       const hashPassword = await User.findOne({
@@ -141,12 +143,10 @@ module.exports = {
   login: async ({ userName, email, password }) => {
     console.log(`\nlogin: -->`, { userName, email, password });
     try {
-      console.log(`\npassword, email`, { password, email });
       const user = await User.findOne({ userName: userName });
       console.log(`\nuser found : `, user);
       checkData(user);
       const isEqual = await bcrypt.compare(password, user.password);
-      console.log(`\nuser isEqual : `, isEqual);
       checkData(isEqual);
 
       const token = jwt.sign(
@@ -154,7 +154,6 @@ module.exports = {
         "secretKey",
         { expiresIn: "1h" }
       );
-      console.log(`\njwt token is : `, token);
       return { userId: user.id, token: token, tokenExpiration: 1 };
     } catch (error) {
       throw error;

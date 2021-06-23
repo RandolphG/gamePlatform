@@ -4,30 +4,29 @@ export const reducers = {
 
     const requestBody = {
       query: `
-      mutation  {
-        setHighScore(cliffHangerInput: {
-           highScore: "${highScore.score}",
-           highScorePlayer: "${highScore.score}",
-          }) {
-            highScore
-            highScorePlayer
+        mutation {
+          setHighScore(cliffHangerInput: {
+            highScore: ${highScore.score}, highScorePlayer: "${highScore.player}"}) {
+              highScore
+              highScorePlayer
+            }
           }
-        }
       `,
     };
+
+    const body = JSON.stringify(requestBody);
 
     fetch("http://localhost:8000/graphql", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(requestBody),
+      body,
     })
       .then((response) => {
         if (response.status !== 200 && response.status !== 201) {
           throw new Error("Failed");
         }
-        console.log(`response`, response);
         return response.json();
       })
       .then((response) => {

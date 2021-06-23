@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { getUserState } from "../../../app/userInfo";
 import { CliffHangerGame } from "./game";
-import { setHighScore } from "./store";
+import { cliffHangerState, setHighScore } from "./store";
 import "./styles/_cliffHangerStyles.scss";
 
 const CliffHanger = () => {
   const dispatch = useDispatch();
+  const gameState = useSelector(cliffHangerState);
   const player = useSelector(getUserState);
   let gameInstance;
 
-  const setScore = (highScore: number) => dispatch(setHighScore({ highScore }));
+  function setScore(highScore: any) {
+    dispatch(setHighScore({ highScore }));
+  }
 
   const HighScore = () => (
     <span className="highScore">
@@ -39,8 +42,15 @@ const CliffHanger = () => {
   const GameCanvas = () => <canvas id="game" width="375" height="375" />;
 
   useEffect(() => {
-    gameInstance = new CliffHangerGame(player.userName, setScore);
-  });
+    if (gameState.highScore > 0) {
+      gameInstance = new CliffHangerGame(
+        player.userName,
+        gameState.highScore.score,
+        setScore
+      );
+    }
+    gameInstance = new CliffHangerGame(player.userName, 0, setScore);
+  }, []);
 
   return (
     <motion.div className="container">

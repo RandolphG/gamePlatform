@@ -159,21 +159,17 @@ export class CliffHangerGame implements ICliffHanger {
 
   constructor(
     player: string,
-    setScore: (
-      highScore: number
-    ) =>
-      | { payload: undefined; type: string }
-      | { payload: { highScore: number }; type: string }
+    highScore: number,
+    setScore: (highScore: any) => void
   ) {
     this.setScore = setScore;
     this.player = player;
+    this.highScore = highScore;
     this.phase = "waiting";
     this.platforms = [];
     this.sticks = [];
     this.trees = [];
     this.score = 0;
-    this.highScore = 0;
-
     this.canvasWidth = 375;
     this.canvasHeight = 375;
     this.platformHeight = 100;
@@ -508,12 +504,9 @@ export class CliffHangerGame implements ICliffHanger {
           /* set the high score */
           if (this.score > this.highScore) {
             this.highScore = this.score;
-
-            console.log(`highScore --> `, this.score);
-            console.log(`data : `, this.player);
-
             this.highScoreElement!.innerText = this.highScore.toString();
             this.setScore({ player: this.player, score: this.highScore });
+            break;
           }
           return;
         }

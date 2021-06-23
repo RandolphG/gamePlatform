@@ -14,7 +14,7 @@ export const SignUpViewModel = () => {
 
   const requestBody = {
     query: `
-      mutation  {
+      mutation {
         createUser(userInput: {
           userName: "${credentials.username}",
           email: "${credentials.email}",
