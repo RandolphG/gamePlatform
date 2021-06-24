@@ -65,7 +65,8 @@
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-unused-expressions": "off",
     "jsx-a11y/anchor-is-valid": "off",
-    "spaced-comment": "off"
+    "spaced-comment": "off",
+    "no-useless-return": "off"
   },
   "overrides": [
     {

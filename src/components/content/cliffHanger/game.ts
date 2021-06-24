@@ -228,8 +228,8 @@ export class CliffHangerGame implements ICliffHanger {
   };
 
   /*
-    keyDown :  If space was pressed restart the game
-    */
+      keyDown :  If space was pressed restart the game
+      */
   keyDown = (event: KeyboardEvent) => {
     if (event.key == " ") {
       event.preventDefault();
@@ -275,7 +275,9 @@ export class CliffHangerGame implements ICliffHanger {
     this.perfectElement!.style.opacity = perfectOpacity.toString();
     this.restartButton!.style.display = "none";
     this.scoreElement!.innerText = this.score.toString();
-    this.highScoreElement!.innerText = this.highScore.toString();
+    if (this.highScore) {
+      this.highScoreElement!.innerText = this.highScore.toString();
+    }
 
     // The first platform is always the same
     // x + w has to match paddingX
@@ -397,6 +399,126 @@ export class CliffHangerGame implements ICliffHanger {
     return [platformTheStickHits, false];
   };
 
+  phaseStretching = (timestamp: any) => {
+    console.log(`\nPHASE: Stretching`);
+    if (this.lastTimestamp) {
+      this.sticks.last().length +=
+        (timestamp - this.lastTimestamp) / this.stretchingSpeed;
+    }
+  };
+
+  phaseTurning = (timestamp: any) => {
+    console.log(`\nPHASE: Turning`);
+    if (this.lastTimestamp) {
+      this.sticks.last().rotation +=
+        (timestamp - this.lastTimestamp) / this.turningSpeed;
+
+      if (this.sticks.last().rotation > 90) {
+        this.sticks.last().rotation = 90;
+
+        const [nextPlatform, perfectHit] = this.thePlatformTheStickHits();
+        if (nextPlatform) {
+          // Increase score
+          this.score += perfectHit ? 2 : 1;
+          this.scoreElement!.innerText = this.score.toString();
+
+          if (perfectHit) {
+            let perfectOpacity = 1;
+            this.perfectElement!.style.opacity = perfectOpacity.toString();
+            perfectOpacity = 0;
+            setTimeout(
+              () =>
+                (this.perfectElement!.style.opacity =
+                  perfectOpacity.toString()),
+              1000
+            );
+          }
+
+          this.generatePlatform();
+          this.generateTree();
+          this.generateTree();
+        }
+
+        this.phase = "walking";
+      }
+    }
+  };
+
+  phaseWalking = (timestamp: any) => {
+    console.log(`\nPHASE: Walking`);
+    if (this.lastTimestamp) {
+      this.heroX += (timestamp - this.lastTimestamp) / this.walkingSpeed;
+
+      const [nextPlatform] = this.thePlatformTheStickHits();
+      if (nextPlatform) {
+        // If hero will reach another platform then limit it's position at it's edge
+        const maxHeroX =
+          nextPlatform.x + nextPlatform.w - this.heroDistanceFromEdge;
+        if (this.heroX > maxHeroX) {
+          this.heroX = maxHeroX;
+          this.phase = "transitioning";
+        }
+      } else {
+        // If hero won't reach another platform then limit it's position at the end of the pole
+        const maxHeroX =
+          this.sticks.last().x + this.sticks.last().length + this.heroWidth;
+        if (this.heroX > maxHeroX) {
+          this.heroX = maxHeroX;
+          this.phase = "falling";
+        }
+      }
+    }
+  };
+
+  phaseTransitioning = (timestamp: any) => {
+    console.log(`\nPHASE: Transitioning`);
+    if (this.lastTimestamp) {
+      this.sceneOffset +=
+        (timestamp - this.lastTimestamp) / this.transitioningSpeed;
+
+      const [nextPlatform] = this.thePlatformTheStickHits();
+      if (this.sceneOffset > nextPlatform.x + nextPlatform.w - this.paddingX) {
+        // Add the next step
+        this.sticks.push({
+          x: nextPlatform.x + nextPlatform.w,
+          length: 0,
+          rotation: 0,
+        });
+        this.phase = "waiting";
+      }
+    }
+  };
+
+  phaseFalling = (timestamp: any) => {
+    console.log(`\nPHASE: Falling`);
+    if (this.lastTimestamp) {
+      if (this.sticks.last().rotation < 180)
+        this.sticks.last().rotation +=
+          (timestamp - this.lastTimestamp) / this.turningSpeed;
+
+      this.heroY += (timestamp - this.lastTimestamp) / this.fallingSpeed;
+
+      const maxHeroY =
+        this.platformHeight +
+        100 +
+        (window.innerHeight - this.canvasHeight) / 2;
+
+      if (this.heroY > maxHeroY) {
+        /* set the high score */
+        if (this.score > this.highScore) {
+          console.log(`\nSCORE: High score!!`);
+
+          this.highScore = this.score;
+          this.highScoreElement!.innerText = this.highScore.toString();
+          this.setScore({ player: this.player, score: this.highScore });
+        }
+
+        this.restartButton!.style.display = "block";
+        return;
+      }
+    }
+  };
+
   animate = (timestamp: any) => {
     if (!this.lastTimestamp) {
       this.lastTimestamp = timestamp;
@@ -408,108 +530,26 @@ export class CliffHangerGame implements ICliffHanger {
       case "waiting":
         return; // Stop the loop
       case "stretching": {
-        this.sticks.last().length +=
-          (timestamp - this.lastTimestamp) / this.stretchingSpeed;
+        this.phaseStretching(timestamp);
         break;
       }
       case "turning": {
-        this.sticks.last().rotation +=
-          (timestamp - this.lastTimestamp) / this.turningSpeed;
-
-        if (this.sticks.last().rotation > 90) {
-          this.sticks.last().rotation = 90;
-
-          const [nextPlatform, perfectHit] = this.thePlatformTheStickHits();
-          if (nextPlatform) {
-            // Increase score
-            this.score += perfectHit ? 2 : 1;
-            this.scoreElement!.innerText = this.score.toString();
-
-            if (perfectHit) {
-              let perfectOpacity = 1;
-              this.perfectElement!.style.opacity = perfectOpacity.toString();
-              perfectOpacity = 0;
-              setTimeout(
-                () =>
-                  (this.perfectElement!.style.opacity =
-                    perfectOpacity.toString()),
-                1000
-              );
-            }
-
-            this.generatePlatform();
-            this.generateTree();
-            this.generateTree();
-          }
-
-          this.phase = "walking";
-        }
+        this.phaseTurning(timestamp);
         break;
       }
       case "walking": {
-        this.heroX += (timestamp - this.lastTimestamp) / this.walkingSpeed;
-
-        const [nextPlatform] = this.thePlatformTheStickHits();
-        if (nextPlatform) {
-          // If hero will reach another platform then limit it's position at it's edge
-          const maxHeroX =
-            nextPlatform.x + nextPlatform.w - this.heroDistanceFromEdge;
-          if (this.heroX > maxHeroX) {
-            this.heroX = maxHeroX;
-            this.phase = "transitioning";
-          }
-        } else {
-          // If hero won't reach another platform then limit it's position at the end of the pole
-          const maxHeroX =
-            this.sticks.last().x + this.sticks.last().length + this.heroWidth;
-          if (this.heroX > maxHeroX) {
-            this.heroX = maxHeroX;
-            this.phase = "falling";
-          }
-        }
+        this.phaseWalking(timestamp);
         break;
       }
       case "transitioning": {
-        this.sceneOffset +=
-          (timestamp - this.lastTimestamp) / this.transitioningSpeed;
-
-        const [nextPlatform] = this.thePlatformTheStickHits();
-        if (
-          this.sceneOffset >
-          nextPlatform.x + nextPlatform.w - this.paddingX
-        ) {
-          // Add the next step
-          this.sticks.push({
-            x: nextPlatform.x + nextPlatform.w,
-            length: 0,
-            rotation: 0,
-          });
-          this.phase = "waiting";
-        }
+        this.phaseTransitioning(timestamp);
         break;
       }
       case "falling": {
-        if (this.sticks.last().rotation < 180)
-          this.sticks.last().rotation +=
-            (timestamp - this.lastTimestamp) / this.turningSpeed;
-
-        this.heroY += (timestamp - this.lastTimestamp) / this.fallingSpeed;
-        const maxHeroY =
-          this.platformHeight +
-          100 +
-          (window.innerHeight - this.canvasHeight) / 2;
-        if (this.heroY > maxHeroY) {
-          this.restartButton!.style.display = "block";
-
-          /* set the high score */
-          if (this.score > this.highScore) {
-            this.highScore = this.score;
-            this.highScoreElement!.innerText = this.highScore.toString();
-            this.setScore({ player: this.player, score: this.highScore });
-            break;
-          }
-          return;
-        }
+        this.phaseFalling(timestamp);
+        setTimeout(() => {
+          this.resetGame();
+        }, 500);
         break;
       }
       default:
@@ -523,8 +563,8 @@ export class CliffHangerGame implements ICliffHanger {
   };
 
   /*
-    drawHill - A hill is a shape under a stretched out sinus wave
-    */
+      drawHill - A hill is a shape under a stretched out sinus wave
+      */
   drawHill = (
     baseHeight: number,
     amplitude: number,

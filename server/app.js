@@ -1,12 +1,10 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const graphqlHttp = require("express-graphql").graphqlHTTP;
 const mongoose = require("mongoose");
 const graphqlSchema = require("./graphql/schema");
 const graphqlResolvers = require("./graphql/resolvers");
 const isAuth = require("./middleware/isAuth");
-
 const app = express();
 const host = "0.0.0.0";
 const port = process.env.PORT || 8000;
@@ -14,7 +12,6 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 
 app.use(express.json());
-// app.use(bodyParser.json());
 
 app.use((request, response, next) => {
   response.setHeader("Access-Control-Allow-Origin", "*");

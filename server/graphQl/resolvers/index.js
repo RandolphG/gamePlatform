@@ -140,11 +140,9 @@ module.exports = {
       throw error;
     }
   },
-  login: async ({ userName, email, password }) => {
-    console.log(`\nlogin: -->`, { userName, email, password });
+  login: async ({ userName, password }) => {
     try {
       const user = await User.findOne({ userName: userName });
-      console.log(`\nuser found : `, user);
       checkData(user);
       const isEqual = await bcrypt.compare(password, user.password);
       checkData(isEqual);
