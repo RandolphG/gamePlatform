@@ -11,6 +11,7 @@ import {
   Rabbit,
   Tilt,
 } from "../../../components";
+import { Profile } from "../../../components/profile";
 import { PrivateRoute } from "../privateRoute";
 
 const AppRouting: FC = () => {
@@ -31,6 +32,7 @@ const AppRouting: FC = () => {
         <Route exact path="/app/rabbit" component={Rabbit} />
         <Route exact path="/app/tilt" component={Tilt} />
         <Route exact path="/app/propelman" component={PropelMan} />
+        <Route exact path="/app/profile" component={Profile} />
       </Switch>
     </Fragment>
   );

@@ -32,12 +32,14 @@ const MediaIconsPopups = () => {
             <i className="fab fa-github" />
           </span>
         </div>
-        <div className="icon youtube">
-          <div className="tooltip">Profile</div>
-          <span>
-            <i className="fab fa-youtube" />
-          </span>
-        </div>
+        <Link to="/app/profile">
+          <div className="icon youtube">
+            <div className="tooltip">Profile</div>
+            <span>
+              <i className="fab fa-youtube" />
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );

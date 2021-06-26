@@ -1,3 +1,4 @@
+export { Profile } from "./profile";
 export { LeaderBoard } from "./leaderBoard";
 export * from "./intro";
 export * from "./dashboard";

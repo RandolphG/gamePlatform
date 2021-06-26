@@ -17,12 +17,12 @@ const UserImage = () => {
   const { imageFile, fileInputRef, handleFileInput } = UserImageViewModel();
 
   return (
-    <div className="profile">
+    <div className="userProfile">
       <img
         onClick={(e) => {
           fileInputRef.current && fileInputRef.current.click();
         }}
-        className="profile__img"
+        className="userProfile__img"
         src={imageFile}
         alt="profile_img"
       />
