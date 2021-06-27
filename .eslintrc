@@ -66,7 +66,8 @@
     "@typescript-eslint/no-unused-expressions": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "spaced-comment": "off",
-    "no-useless-return": "off"
+    "no-useless-return": "off",
+    "react/jsx-curly-brace-presenc": "off"
   },
   "overrides": [
     {

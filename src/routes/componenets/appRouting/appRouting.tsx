@@ -4,7 +4,6 @@ import {
   Dashboard,
   ClickButton,
   CliffHanger,
-  LeaderBoard,
   Menu,
   Notification,
   PropelMan,
@@ -27,7 +26,6 @@ const AppRouting: FC = () => {
         <Route exact path="/app" render={renderRootRedirect} />
         <PrivateRoute path="/app/dashboard" component={Dashboard} />
         <Route exact path="/app/cliffHanger" component={CliffHanger} />
-        <Route exact path="/app/leaderBoard" component={LeaderBoard} />
         <Route exact path="/app/click" component={ClickButton} />
         <Route exact path="/app/rabbit" component={Rabbit} />
         <Route exact path="/app/tilt" component={Tilt} />
