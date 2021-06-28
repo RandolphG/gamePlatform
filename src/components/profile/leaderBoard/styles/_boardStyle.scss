@@ -1,12 +1,22 @@
+$backgroundColor: lighten(grey, 10%);
 
-.Leaderboard{
+.Leaderboard {
+  //border: black solid 2px;
+  background: #FEE01C;
+  position: relative;
+  box-sizing: border-box;
+  width: 50%;
+  height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  padding: 40px 20px;
-  margin: auto;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+
 
   &_title {
+    border: black solid 2px;
+    background: #0086e4;
     color: #0d0c22;
     font-size: 2.9rem;
     font-weight: 600;
@@ -16,61 +26,114 @@
     transform: rotate(-5deg);
     transform-origin: 0 0;
   }
+
+  .leaders {
+    //border: black solid 2px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    //background: #0086e4;
+    position: absolute;
+    margin-top: 3rem;
+    width: 100%;
+    height: 100%;
+    padding-right: .5rem;
+    padding-left: .5rem;
+  }
+
+  .leader {
+    border-radius: 4px;
+    background: $backgroundColor;
+    height: 115px;
+    width: 100%;
+    border: black solid 2px;
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    animation-name: revealLeaders;
+    animation-duration: .4s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+
+    &-content {
+      //background: #FEE01C;
+      .leader-name {
+        font-size: 2rem;
+      }
+    }
+  }
 }
+
 .leader-wrap {
-  display: flex;
-}
-
-.leaders{
+  position: relative;
   width: 100%;
+  background: lighten(grey, 5%);
+  display: flex;
+  flex-direction: row;
+
+  .playerImage {
+    position: absolute;
+    right: 10%;
+  }
+
+  .blank {
+    background: transparent;
+    width: 50px;
+    margin-right: 16px;
+
+  }
 }
 
-.leader{
-  padding: 8px 16px;
-  margin-bottom: 8px;
-  animation-name: revealLeaders;
-  animation-duration: .4s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
-}
 
 .leader-ava {
-  padding: 8px;
+  //border: black solid 2px;
+  height: 70px;
+  width: 50px;
+  padding: 9px;
   margin-right: 16px;
   position: relative;
 }
 
 .leader-score {
+  //border: black solid 2px;
+  color: black;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   opacity: 0.6;
 }
 
-.leader-score svg{
+.leader-score svg {
+  //border: black solid 2px;
+  color: #FEE01C;
+  font-size: 1.3rem;
   display: block;
   margin-right: 4px;
 }
 
-.leader-score_title{
+.leader-score_title {
+  //border: black solid 2px;
+  font-size: 1.3rem;
   line-height: 1;
 }
 
-.leader-ava::after{
+.leader-ava::after {
   content: "";
   left: 0;
   bottom: 0;
   display: block;
-  height: 6px;
+  height: 9px;
+  width: 8px;
   position: absolute;
   border: 0px transparent solid;
   border-left-width: 20px;
   border-right-width: 20px;
-  border-bottom-width: 6px;
-  border-bottom-color: #fff;
+  border-bottom-width: 9px;
+  border-bottom-color: lighten(grey, 10%);
   transition: border-bottom-color .2s ease-in-out;
 }
 
 .leader-bar {
+  //border: black solid 2px;
   margin-top: 8px;
   animation-name: barLoad;
   animation-duration: .4s;
@@ -80,26 +143,26 @@
 }
 
 .bar {
-  height: 4px;
+  height: 10px;
   border-radius: 2px;
 }
 
-@keyframes revealLeaders{
-  from{
+@keyframes revealLeaders {
+  from {
     transform: translateX(-200px);
     opacity: 0;
   }
-  to{
+  to {
     transform: none;
     opacity: 1;
   }
 }
 
-@keyframes barLoad{
-  from{
+@keyframes barLoad {
+  from {
     transform: scaleX(0);
   }
-  to{
+  to {
     transform: scaleX(1)
   }
 }

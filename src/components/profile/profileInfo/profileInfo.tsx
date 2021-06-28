@@ -14,8 +14,8 @@ import {
 const ProfileInfo = ({ imageFile }: any) => {
   return (
     <div className="profileInfo">
+      <Title />
       <div className="profileInfo_container">
-        <Title />
         <div className="profileInfo_container_avatarSection">
           <Rank />
           <span className="profileInfo_container_avatarSection_imageSection">

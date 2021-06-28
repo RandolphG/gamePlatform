@@ -28,10 +28,10 @@ const AppRouter: FC = () => {
         render={({ location }) => (
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.key}>
-              <Route exact path="/" component={Profile} />
               {/*<Route exact path="/" component={renderRootRedirect} />*/}
               <PrivateRoute path="/app" component={AppRouting} />
               <Route exact path="/signup" component={SignUp} />
+              <Route exact path="/" component={Profile} />
               <Route exact path="/intro" component={Intro} />
               <Route path="/non-auth" component={NonAuthRoute} />
               <Route path="/404" component={NotFound} />

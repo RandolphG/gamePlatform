@@ -1,7 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles/_boardStyle.scss";
+import { UserImage } from "../../common/menu/topbar";
+import { PlayerImg } from "../profileInfo/components";
 import { colors } from "./colors";
-import { Example } from "./components";
+import { motion, AnimatePresence } from "framer-motion";
+import { wrap } from "popmotion";
+import { profile } from "../motionSettings";
 
 const variants = {
   enter: (direction: number) => {
@@ -18,18 +22,19 @@ const variants = {
   exit: (direction: number) => {
     return {
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? 500 : -500,
       opacity: 0,
     };
   },
 };
 
 const swipeConfidenceThreshold = 10000;
+
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-const gameLeaderBoard = {
+const gameLeaderBoard: any = {
   cliff: [
     { id: 1, name: "Randi", score: 350 },
     { id: 3, name: "Marija", score: 275 },
@@ -58,6 +63,13 @@ const gameLeaderBoard = {
 const games = ["cliff", "maze", "pumpMan"];
 
 const LeaderBoard = () => {
+  const [[page, direction], setPage] = useState([0, 0]);
+  const imageIndex = wrap(0, games.length, page);
+  const paginate = (newDirection: number) => {
+    setPage([page + newDirection, newDirection]);
+  };
+
+  /* normal fc*/
   const [leaders, setLeaders] = useState<any>([]);
   const [maxScore, setMaxScore] = useState(500);
 
@@ -88,7 +100,6 @@ const LeaderBoard = () => {
           height="20"
           viewBox="0 0 493 493"
           version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M247,468 C369.05493,468 468,369.05493 468,247 C468,124.94507 369.05493,26 247,26 C124.94507,26 26,124.94507 26,247 C26,369.05493 124.94507,468 247,468 Z M236.497159,231.653661 L333.872526,231.653661 L333.872526,358.913192 C318.090922,364.0618 303.232933,367.671368 289.298112,369.742004 C275.363292,371.81264 261.120888,372.847943 246.570473,372.847943 C209.522878,372.847943 181.233938,361.963276 161.702804,340.193617 C142.17167,318.423958 132.40625,287.169016 132.40625,246.427855 C132.40625,206.805956 143.738615,175.914769 166.403684,153.753368 C189.068753,131.591967 220.491582,120.511432 260.673112,120.511432 C285.856523,120.511432 310.144158,125.548039 333.536749,135.621403 L316.244227,177.257767 C298.336024,168.303665 279.700579,163.826682 260.337335,163.826682 C237.840155,163.826682 219.820296,171.381591 206.277218,186.491638 C192.734139,201.601684 185.962702,221.915997 185.962702,247.435186 C185.962702,274.073638 191.419025,294.415932 202.331837,308.462679 C213.244648,322.509425 229.109958,329.532693 249.928244,329.532693 C260.785092,329.532693 271.809664,328.413447 283.002291,326.174922 L283.002291,274.96891 L236.497159,274.96891 L236.497159,231.653661 Z" />
         </svg>
@@ -118,50 +129,88 @@ const LeaderBoard = () => {
     </svg>
   );
 
+  const Blank = () => <div className="blank" />;
+
+  const PlayerImage = () => (
+    <span className="playerImage">
+      <UserImage />
+    </span>
+  );
+
   useEffect(() => {
     getData();
   }, []);
 
-  const currentIndex = 0;
-
   return (
-    <div className="Leaderboard">
+    <motion.div
+      className="Leaderboard"
+      {...profile}
+      key="Leaderboard"
+      initial="initial"
+      animate="visible"
+      exit="exit"
+    >
       <h1 className="Leaderboard_title">Leaderboard</h1>
-      {games &&
-        games.map((game, idx) => (
-          <div className="leaders">
-            {gameLeaderBoard ? (
-              gameLeaderBoard["maze"].map((el: any, i: any) => (
-                <div
-                  key={el.id}
-                  style={{
-                    animationDelay: `${i * 0.1}s`,
-                  }}
-                  className="leader"
-                >
-                  <div className="leader-wrap">
-                    {i < 3 ? (
-                      <div
-                        style={{
-                          backgroundColor: colors[i],
-                        }}
-                        className="leader-ava"
-                      >
-                        <Crown />
-                      </div>
-                    ) : null}
-                    <LeaderContent i={i} el={el} />
-                  </div>
-                  <LeaderBar i={1} el={el} />
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          className="leaders"
+          key={page}
+          custom={direction}
+          variants={variants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={(e, { offset, velocity }) => {
+            const swipe = swipePower(offset.x, velocity.x);
+
+            if (swipe < -swipeConfidenceThreshold) {
+              paginate(1);
+            } else if (swipe > swipeConfidenceThreshold) {
+              paginate(-1);
+            }
+          }}
+        >
+          {gameLeaderBoard ? (
+            gameLeaderBoard[games[imageIndex]].map((el: any, i: any) => (
+              <div
+                key={el.id}
+                style={{
+                  animationDelay: `${i * 0.1}s`,
+                }}
+                className="leader"
+              >
+                <div className="leader-wrap">
+                  {i < 3 ? (
+                    <div
+                      style={{
+                        backgroundColor: colors[i],
+                      }}
+                      className="leader-ava"
+                    >
+                      <Crown />
+                    </div>
+                  ) : (
+                    <Blank />
+                  )}
+                  <LeaderContent i={i} el={el} />
+                  <PlayerImage />
                 </div>
-              ))
-            ) : (
-              <div className="empty">No Leaders</div>
-            )}
-          </div>
-        ))}
-      <Example />
-    </div>
+                <LeaderBar i={1} el={el} />
+              </div>
+            ))
+          ) : (
+            <div className="empty">No Leaders</div>
+          )}
+        </motion.div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

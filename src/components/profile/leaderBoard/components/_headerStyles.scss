@@ -15,11 +15,12 @@
 }
 
 .long {
-  height: 470%;
-  transform: rotate(-3deg);
-  position: absolute;
-  top: -210px;
-  left: -10px;
+  height: 570%;
+  width: 100%;
+  //transform: rotate(-3deg);
+  //position: absolute;
+  //top: -210px;
+  //left: -10px;
   animation: long 0.4s ease-in-out infinite;
   animation-direction: alternate-reverse;
 }
@@ -31,12 +32,12 @@
   top: 15px;
   filter: drop-shadow(0px 0px 10px #000);
   z-index: 1;
-  animation: t 10s ease-in-out infinite;
+  animation: t 15s ease-in-out infinite;
 }
 
 .spin2 {
   position: absolute;
-  animation: spin2 10s linear infinite;
+  animation: spin2 15s linear infinite;
 }
 
 .spinner:before {
@@ -66,7 +67,7 @@
   left: -10px;
   transform: rotate(10deg);
   z-index: 2;
-  animation: s1 10s ease infinite;
+  animation: s1 15s ease infinite;
 }
 
 .but {
@@ -90,7 +91,7 @@
 
 .butd {
   position: absolute;
-  animation: butd 10s ease-in-out infinite;
+  animation: butd 15s ease-in-out infinite;
 }
 
 a:link,
@@ -101,11 +102,11 @@ a:visited {
 
 .ea {
   position: absolute;
-  height: 70%;
+  height: 100%;
   top: 13px;
   left: 320px;
   z-index: 3;
-  animation: ea 10s ease infinite;
+  animation: ea 15s ease infinite;
 
 }
 
@@ -114,7 +115,7 @@ a:visited {
   height: 100%;
   left: 1700px;
   z-index: 3;
-  animation: ps 10s ease-in-out infinite;
+  animation: ps 15s ease-in-out infinite;
 }
 
 .x {
@@ -123,7 +124,7 @@ a:visited {
   top: 11.5px;
   left: 1700px;
   z-index: 3;
-  animation: x 10s ease-in-out infinite;
+  animation: x 15s ease-in-out infinite;
 
 }
 
@@ -136,7 +137,7 @@ a:visited {
   background: linear-gradient(45deg, #a6075b, #fe0034, #fe0034);
   transform: rotate(10deg);
   z-index: 6;
-  animation: h2 10s ease-in-out infinite;
+  animation: h2 15s ease-in-out infinite;
 
 }
 
@@ -154,7 +155,7 @@ a:visited {
   font-size: 20px;
   font-family: 'Raleway', sans-serif;
   font-weight: bolder;
-  animation: h 10s ease-in-out infinite;
+  animation: h 15s ease-in-out infinite;
   transform: rotate(-10deg);
   z-index: 6;
 }

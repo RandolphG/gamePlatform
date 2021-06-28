@@ -6,7 +6,6 @@ const Badges = () => {
     { name: "Kills" },
     { name: "Perfect" },
     { name: "Determined" },
-    { name: "Leader" },
   ];
 
   const Label = () => (

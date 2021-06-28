@@ -30,7 +30,7 @@ const AppRouting: FC = () => {
         <Route exact path="/app/rabbit" component={Rabbit} />
         <Route exact path="/app/tilt" component={Tilt} />
         <Route exact path="/app/propelman" component={PropelMan} />
-        <Route exact path="/app/profile" component={Profile} />
+        {/*<Route exact path="/app/profile" component={Profile} />*/}
       </Switch>
     </Fragment>
   );

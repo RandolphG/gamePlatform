@@ -2,12 +2,12 @@ import React, { memo, useState } from "react";
 import { motion } from "framer-motion";
 import image from "./assets/_default_profile_img.png";
 import { LeaderBoard } from "./leaderBoard";
-import { Example, Header } from "./leaderBoard/components";
+import { Header } from "./leaderBoard/components";
 import { profile } from "./motionSettings";
 import "./styles/_profileStyles.scss";
 import { ProfileInfo } from "./profileInfo";
 
-const Profile: React.FC = memo(() => {
+const Profile = () => {
   const [imageFile, s] = useState(image);
 
   return (
@@ -20,11 +20,11 @@ const Profile: React.FC = memo(() => {
       exit="exit"
     >
       {/*<Header />*/}
-
+      <div className="profile_headerLabel">Home</div>
       <LeaderBoard />
       <ProfileInfo imageFile={imageFile} />
     </motion.div>
   );
-});
+};
 
 export default Profile;
