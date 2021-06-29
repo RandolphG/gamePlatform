@@ -12,7 +12,6 @@ const Profile = () => {
   return (
     <motion.div {...profileMotionSettings} className="profile" key="profile">
       {/*<Header />*/}
-      <div className="profile_headerLabel">Home</div>
       <LeaderBoard />
       <ProfileInfo imageFile={imageFile} />
     </motion.div>
