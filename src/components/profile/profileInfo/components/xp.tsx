@@ -1,7 +1,8 @@
+import { motion } from "framer-motion";
 import React from "react";
 
-const Xp = () => (
-  <div className="profileInfo_container_xp">
+const Xp = ({ variants }: any) => (
+  <motion.div variants={variants} className="profileInfo_container_xp">
     <div className="profileInfo_container_xp_bar">
       <span className="profileInfo_container_xp_bar_top">
         <span className="profileInfo_container_xp_bar_top__number">7</span>
@@ -26,7 +27,7 @@ const Xp = () => (
         </span>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default Xp;

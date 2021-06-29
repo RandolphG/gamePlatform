@@ -16,6 +16,8 @@ export const contains = (original: any, filter: any) => {
   const res = filter.map((item: any) => {
     return original.includes(item);
   });
+
+  console.log(`that shit got removed!`);
   return !res.includes(false);
 };
 

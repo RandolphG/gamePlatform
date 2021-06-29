@@ -5,8 +5,8 @@ const transition = {
   ease,
 };
 
-export const profileMotionSettings = {
+export const leaderBoardMotionSettings = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 2 } },
+  animate: { opacity: 1, transition: { duration: 1 } },
   exit: { opacity: 0 },
 };

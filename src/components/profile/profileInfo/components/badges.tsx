@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import React from "react";
 
-const Badges = () => {
+const Badges = ({ variants }: any) => {
   const badges = [
     { name: "Fast" },
     { name: "Kills" },
@@ -15,7 +16,7 @@ const Badges = () => {
   );
 
   return (
-    <div className="profileInfo_container_badges">
+    <motion.div variants={variants} className="profileInfo_container_badges">
       <Label />
       <div className="profileInfo_container_badges_element">
         {badges &&
@@ -28,7 +29,7 @@ const Badges = () => {
             </div>
           ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

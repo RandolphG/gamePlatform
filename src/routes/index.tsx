@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import {
   HashRouter as Router,
   Redirect,
@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Intro, Profile, SignUp } from "../components";
+import { Intro, Notification, Profile, Shiny, SignUp } from "../components";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -23,24 +23,27 @@ const AppRouter: FC = () => {
   const renderRootRedirect = () => <Redirect to="/app" />;
 
   return (
-    <Router>
-      <Route
-        render={({ location }) => (
-          <AnimatePresence exitBeforeEnter>
-            <Switch location={location} key={location.key}>
-              {/*<Route exact path="/" component={renderRootRedirect} />*/}
-              <PrivateRoute path="/app" component={AppRouting} />
-              <Route exact path="/signup" component={SignUp} />
-              <Route exact path="/" component={Profile} />
-              <Route exact path="/intro" component={Intro} />
-              <Route path="/non-auth" component={NonAuthRoute} />
-              <Route path="/404" component={NotFound} />
-              <Redirect to="/404" />
-            </Switch>
-          </AnimatePresence>
-        )}
-      />
-    </Router>
+    <Fragment>
+      <Notification />
+      <Router>
+        <Route
+          render={({ location }) => (
+            <AnimatePresence exitBeforeEnter>
+              <Switch location={location} key={location.key}>
+                {/*<Route exact path="/" component={renderRootRedirect} />*/}
+                <Route exact path="/" component={Profile} />
+                <PrivateRoute path="/app" component={AppRouting} />
+                <Route exact path="/signup" component={SignUp} />
+                <Route exact path="/intro" component={Intro} />
+                <Route path="/non-auth" component={NonAuthRoute} />
+                <Route path="/404" component={NotFound} />
+                <Redirect to="/404" />
+              </Switch>
+            </AnimatePresence>
+          )}
+        />
+      </Router>
+    </Fragment>
   );
 };
 

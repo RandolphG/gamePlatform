@@ -1,4 +1,4 @@
 export * from "./notification";
-export { Menu } from "./menu";
+export * from "./menu";
+export { Shiny } from "./shiny";
 export { MediaIconsPopups } from "./menu/mediaIconsPopups";
-export { Cursor } from "./cursor";

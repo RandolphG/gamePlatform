@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-export const getState = (state) => state.notification;
+export const getNotificationState = (state) => state.notification;
 
 export const getNotifications = createSelector(
-  getState,
+  getNotificationState,
   (state) => state.notifications
 );

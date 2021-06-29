@@ -1,94 +1,25 @@
-import React, { useEffect, useState } from "react";
-import "./styles/_boardStyle.scss";
-import { UserImage } from "../../common/menu/topbar";
-import { PlayerImg } from "../profileInfo/components";
-import { colors } from "./colors";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { profile } from "../motionSettings";
+import { onAddNotification, UserImage } from "../../common";
+import { leaderBoardMotionSettings } from "./motionSettings";
+import { colors } from "./colors";
+import { LeaderBoardViewModel } from "./leaderBoardViewModel";
+import { leaderboardState } from "./store";
+import "./styles/_leaderBoardStyle.scss";
 
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 500 : -500,
-      opacity: 0,
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
-  },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 500 : -500,
-      opacity: 0,
-    };
-  },
-};
-
-const swipeConfidenceThreshold = 10000;
-
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
-
-const gameLeaderBoard: any = {
-  cliff: [
-    { id: 1, name: "Randi", score: 350 },
-    { id: 3, name: "Marija", score: 275 },
-    { id: 2, name: "Goran", score: 220 },
-    { id: 4, name: "Sime", score: 200 },
-    { id: 5, name: "Borna", score: 175 },
-  ],
-
-  maze: [
-    { id: 1, name: "William", score: 350 },
-    { id: 3, name: "Sanya", score: 275 },
-    { id: 2, name: "Peter", score: 220 },
-    { id: 4, name: "Kevin", score: 200 },
-    { id: 5, name: "Borna", score: 175 },
-  ],
-
-  pumpMan: [
-    { id: 1, name: "Torey", score: 350 },
-    { id: 3, name: "Kirk", score: 275 },
-    { id: 2, name: "Stephan", score: 220 },
-    { id: 4, name: "Simon", score: 200 },
-    { id: 5, name: "Borna", score: 175 },
-  ],
-};
-
-const games = ["cliff", "maze", "pumpMan"];
+/* TODO change background image of cards to game image instead of color */
 
 const LeaderBoard = () => {
+  const { variants, swipeConfidenceThreshold, swipePower } =
+    LeaderBoardViewModel();
+  const leader = useSelector(leaderboardState);
+  const dispatch = useDispatch();
   const [[page, direction], setPage] = useState([0, 0]);
-  const imageIndex = wrap(0, games.length, page);
+  const imageIndex = wrap(0, leader.games.length, page);
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
-  };
-
-  /* normal fc*/
-  const [leaders, setLeaders] = useState<any>([]);
-  const [maxScore, setMaxScore] = useState(500);
-
-  const getData = () => {
-    /* Here you can implement data fetching */
-    let data = {
-      success: true,
-      leaders: [
-        { id: 1, name: "Randi", score: 350 },
-        { id: 3, name: "Marija", score: 275 },
-        { id: 2, name: "Goran", score: 220 },
-        { id: 4, name: "Sime", score: 200 },
-        { id: 5, name: "Borna", score: 175 },
-      ],
-      maxScore: 500,
-    };
-
-    setLeaders(data.leaders);
-    setMaxScore(data.maxScore);
   };
 
   const LeaderContent = ({ i, el }: any) => (
@@ -116,7 +47,7 @@ const LeaderBoard = () => {
       <div
         style={{
           backgroundColor: colors[i],
-          width: `${(el.score / maxScore) * 100}%`,
+          width: `${(el.score / leader.maxScore) * 100}%`,
         }}
         className="bar"
       />
@@ -131,24 +62,25 @@ const LeaderBoard = () => {
 
   const Blank = () => <div className="blank" />;
 
-  const PlayerImage = () => (
-    <span className="playerImage">
-      <UserImage />
-    </span>
-  );
+  const PlayerImage = (object: any) => {
+    console.log(`el.id`, object.el.imgUrl);
 
-  useEffect(() => {
-    getData();
-  }, []);
+    return (
+      <span className="playerImage">
+        <UserImage image={object.el.imgUrl} />
+      </span>
+    );
+  };
+
+  function onClick(el: any) {
+    dispatch(onAddNotification({ title: el.name }));
+  }
 
   return (
     <motion.div
+      {...leaderBoardMotionSettings}
       className="Leaderboard"
-      {...profile}
       key="Leaderboard"
-      initial="initial"
-      animate="visible"
-      exit="exit"
     >
       <h1 className="Leaderboard_title">Leaderboard</h1>
       <AnimatePresence initial={false} custom={direction}>
@@ -177,8 +109,8 @@ const LeaderBoard = () => {
             }
           }}
         >
-          {gameLeaderBoard ? (
-            gameLeaderBoard[games[imageIndex]].map((el: any, i: any) => (
+          {leader ? (
+            leader[leader.games[imageIndex]].list.map((el: any, i: any) => (
               <div
                 key={el.id}
                 style={{
@@ -186,7 +118,7 @@ const LeaderBoard = () => {
                 }}
                 className="leader"
               >
-                <div className="leader-wrap">
+                <div className="leader-wrap" onClick={(e) => onClick(el)}>
                   {i < 3 ? (
                     <div
                       style={{
@@ -200,7 +132,8 @@ const LeaderBoard = () => {
                     <Blank />
                   )}
                   <LeaderContent i={i} el={el} />
-                  <PlayerImage />
+                  <div className="globalRank">#{el.rank}</div>
+                  <PlayerImage el={el} />
                 </div>
                 <LeaderBar i={1} el={el} />
               </div>

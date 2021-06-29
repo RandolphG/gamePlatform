@@ -6,6 +6,7 @@ import notification from "../components/common/notification/store/notification";
 import games from "../components/content/store/games";
 import clickBtn from "../components/content/clickButton/store/clickBtn";
 import cliffhanger from "../components/content/cliffHanger/store/cliffhanger";
+import leaderboard from "../components/profile/leaderBoard/store/leaderboard";
 
 const reducers = combineReducers({
   user,
@@ -14,6 +15,7 @@ const reducers = combineReducers({
   games,
   clickButton: clickBtn,
   cliffhanger,
+  leaderboard,
 });
 
 export const store = configureStore({

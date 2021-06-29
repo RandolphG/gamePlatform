@@ -1,7 +1,11 @@
+import { motion } from "framer-motion";
 import React from "react";
 
-const GamePlayStats = () => (
-  <div className="profileInfo_container_gamePlayStats">
+const GamePlayStats = ({ variants }: any) => (
+  <motion.div
+    variants={variants}
+    className="profileInfo_container_gamePlayStats"
+  >
     <div className="profileInfo_container_gamePlayStats_wins">
       <span className="profileInfo_container_gamePlayStats_wins__label">
         WINS
@@ -26,7 +30,7 @@ const GamePlayStats = () => (
         #77
       </span>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default GamePlayStats;

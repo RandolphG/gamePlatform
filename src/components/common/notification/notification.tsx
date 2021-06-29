@@ -11,7 +11,7 @@ const Notification = () => {
   function remove(id: number) {
     setTimeout(() => {
       dispatch(onRemoveNotification(id));
-    }, 2500);
+    }, 3000);
   }
 
   return (
@@ -28,9 +28,9 @@ const Notification = () => {
                   initial={{ opacity: 0, y: 50, scale: 0.3 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{
-                    x: 50,
+                    x: 100,
                     opacity: 0,
-                    transition: { duration: 0.2 },
+                    transition: { duration: 0.4 },
                   }}
                 >
                   <span className="notification_list_item_message">

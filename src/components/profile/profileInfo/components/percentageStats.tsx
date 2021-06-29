@@ -1,7 +1,11 @@
+import { motion } from "framer-motion";
 import React from "react";
 
-const PercentageStats = () => (
-  <div className="profileInfo_container_percentageStats">
+const PercentageStats = ({ variants }: any) => (
+  <motion.div
+    variants={variants}
+    className="profileInfo_container_percentageStats"
+  >
     <div className="profileInfo_container_percentageStats_allGames">
       <span className="profileInfo_container_percentageStats_allGames__label">
         ALL GAMES
@@ -26,7 +30,7 @@ const PercentageStats = () => (
         95.6%
       </span>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default PercentageStats;

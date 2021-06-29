@@ -1,8 +1,7 @@
 // @ts-nocheck
-import React, { useRef, useState } from "react";
-import image from "./assets/_default_profile_img.png";
-import "./styles/_userImage.scss";
+import React from "react";
 import { UserImageViewModel } from "./userImageViemModel";
+import "./styles/_userImage.scss";
 
 /* TODO
  *  react forms: tools for input manipulation
@@ -13,8 +12,19 @@ import { UserImageViewModel } from "./userImageViemModel";
  * @returns {JSX.Element}
  * @constructor
  */
-const UserImage = () => {
+const UserImage = ({ image }: any) => {
   const { imageFile, fileInputRef, handleFileInput } = UserImageViewModel();
+
+  const useThisImage = () => {
+    if (image) {
+      console.log(`there is local image`);
+      return image;
+    }
+
+    return imageFile;
+  };
+
+  const thisImage = useThisImage();
 
   return (
     <div className="userProfile">
@@ -23,7 +33,7 @@ const UserImage = () => {
           fileInputRef.current && fileInputRef.current.click();
         }}
         className="userProfile__img"
-        src={imageFile}
+        src={thisImage}
         alt="profile_img"
       />
       <input

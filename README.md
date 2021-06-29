@@ -2,6 +2,8 @@
 
 ![INTRO](_platform_intro.gif)
 
+![PROFILE](_preview_01.gif)
+
 ### Features :
 - unique animations
 - Responsive SCSS
