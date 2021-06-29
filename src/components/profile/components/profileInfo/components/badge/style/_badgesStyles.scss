@@ -1,0 +1,106 @@
+@import "src/theme/style";
+
+.food-card {
+  box-sizing: border-box;
+  background: $blackGradient;
+  width: 125px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 30px;
+  box-shadow: $boxShadow;
+  transform-style: preserve-3d;
+  transform: rotateX(22deg) rotate(-14deg) rotateY(17deg) translateZ(var(--z));
+  position: absolute;
+  transition: transform .3s;
+
+  &:nth-child(1) {
+    left: 0%;
+    bottom: 0%;
+    z-index: 1;
+    --z: 10px;
+
+    &:hover {
+      --z: 20px;
+    }
+  }
+
+  &:nth-child(2) {
+    left: 10%;
+    bottom: 0;
+    z-index: 2;
+    --z: 10px;
+
+    &:hover {
+      --z: 20px;
+    }
+  }
+
+  &:nth-child(3) {
+    left: 20%;
+    bottom: 0;
+    z-index: 3;
+    --z: 10px;
+
+    &:hover {
+      --z: 20px;
+    }
+  }
+
+  &:hover {
+    z-index: 5;
+  }
+
+  &__image {
+    position: relative;
+    height: 50px;
+
+    > img {
+      max-width: 100%;
+      border: black solid 1px;
+      border-bottom-right-radius: 16px;
+      transform: rotate(8deg) translate(-5px, -38px);
+      position: absolute;
+      height: 100px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &_details {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+
+    &__name {
+      width: fit-content;
+      height: fit-content;
+      font-size: 18px;
+      font-weight: bold;
+      color: #e6c356;
+    }
+
+    &_rating {
+      text-align: center;
+      transform: translateY(4px);
+      &_star {
+        width: 16px;
+        height: 16px;
+        background-color: #e6c356;
+        display: inline-block;
+        clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+
+        &:not(:last-child) {
+          margin-right: 6px;
+        }
+
+        &--gold {
+          background-color: #e6c356;
+        }
+      }
+    }
+  }
+}

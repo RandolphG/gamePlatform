@@ -21,9 +21,24 @@ $gradientDarkTheme: linear-gradient(-45deg, #353434, #6b6b6b, #676767);
 $backgroundSize: 400% 400%;
 $darkBackground:radial-gradient(at center bottom, #4242a2, #282828);
 
+/* leaderBoard styles */
+$backgroundColor: lighten(grey, 10%);
+
+/* profileInfo styles */
+$borderStyle: black solid 2px;
+$xp-text-color: black;
+$black-font: #000;
+$gradient: linear-gradient(45deg , rgba(90, 83, 126, 1) 0%, rgb(25, 26, 54) 100%);
+$blackGradient: linear-gradient(90deg , rgb(59, 59, 59) 0%, rgb(26, 26, 26) 100%);
+$fontColor: white;
+$text-color: hsl(0, 2%, 11%);
+$bevel-color: hsl(0, 0%, 92%);
+
+
 /* Input */
 $input-height: 40px;
 $small-wrapper: 330px;
+$boxShadow: 0 4px 6px rgba(0, 0, 0, 0.52), 0 3px 4px rgba(0, 0, 0, 0.44);
 
 /* default styling */
 html, body, div, span, applet, object, iframe,

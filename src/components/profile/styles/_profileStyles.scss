@@ -9,12 +9,13 @@ $gradient: radial-gradient(
 $borderStyle: black solid 2px;
 
 .profile {
+  background: $background-color;
+  //background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/194122/07t2mb2.gif');
   overflow: hidden;
   box-sizing: border-box;
   position: relative;
   height: 100%;
   width: 100%;
-  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -30,5 +31,5 @@ $borderStyle: black solid 2px;
     transform: rotate(-5deg);
   }
 
-  @import "profileInfo";
+  @import "../components/profileInfo/styles/profileInfo";
 }

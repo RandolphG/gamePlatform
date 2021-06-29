@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { onAddNotification, UserImage } from "../../common";
+import { onAddNotification, UserImage } from "../../../common";
+import { Coin } from "./components/coin";
 import { leaderBoardMotionSettings } from "./motionSettings";
 import { colors } from "./colors";
 import { LeaderBoardViewModel } from "./leaderBoardViewModel";
@@ -77,15 +78,15 @@ const LeaderBoard = () => {
   }
 
   return (
-    <motion.div
-      {...leaderBoardMotionSettings}
-      className="Leaderboard"
-      key="Leaderboard"
-    >
-      <h1 className="Leaderboard_title">Leaderboard</h1>
-      <AnimatePresence initial={false} custom={direction}>
+    <AnimatePresence initial={false} custom={direction}>
+      <motion.div
+        {...leaderBoardMotionSettings}
+        className="leaderboard"
+        key="leaderboard"
+      >
+        <h1 className="leaderboard_title">Leaderboard</h1>
         <motion.div
-          className="leaders"
+          className="leaderboard_leaders"
           key={page}
           custom={direction}
           variants={variants}
@@ -119,18 +120,7 @@ const LeaderBoard = () => {
                 className="leader"
               >
                 <div className="leader-wrap" onClick={(e) => onClick(el)}>
-                  {i < 3 ? (
-                    <div
-                      style={{
-                        backgroundColor: colors[i],
-                      }}
-                      className="leader-ava"
-                    >
-                      <Crown />
-                    </div>
-                  ) : (
-                    <Blank />
-                  )}
+                  {i < 3 ? <Coin /> : <Blank />}
                   <LeaderContent i={i} el={el} />
                   <div className="globalRank">#{el.rank}</div>
                   <PlayerImage el={el} />
@@ -142,8 +132,8 @@ const LeaderBoard = () => {
             <div className="empty">No Leaders</div>
           )}
         </motion.div>
-      </AnimatePresence>
-    </motion.div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

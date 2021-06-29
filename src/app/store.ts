@@ -6,7 +6,7 @@ import notification from "../components/common/notification/store/notification";
 import games from "../components/content/store/games";
 import clickBtn from "../components/content/clickButton/store/clickBtn";
 import cliffhanger from "../components/content/cliffHanger/store/cliffhanger";
-import leaderboard from "../components/profile/leaderBoard/store/leaderboard";
+import leaderboard from "../components/profile/components/leaderBoard/store/leaderboard";
 
 const reducers = combineReducers({
   user,

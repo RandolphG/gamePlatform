@@ -1,6 +1,6 @@
-import marioImage from "../../assets/_Mario.png";
-import marijaImage from "../../assets/_Marija.jpg";
-import randiImage from "../../assets/_default_profile_img.png";
+import marioImage from "../../../assets/_Mario.png";
+import marijaImage from "../../../assets/_Marija.jpg";
+import randiImage from "../../../assets/_default_profile_img.png";
 
 export const initialState = {
   games: ["cliff", "maze", "pumpMan"],

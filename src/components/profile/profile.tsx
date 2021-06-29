@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import image from "./assets/_default_profile_img.png";
-import { LeaderBoard } from "./leaderBoard";
+import { LeaderBoard } from "./components/leaderBoard";
 import { profileMotionSettings } from "./motionSettings";
-import { ProfileInfo } from "./profileInfo";
+import { ProfileInfo } from "./components/profileInfo";
 import "./styles/_profileStyles.scss";
 
 const Profile = () => {
