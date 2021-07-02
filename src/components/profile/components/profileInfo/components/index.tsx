@@ -1,4 +1,3 @@
-export { default as Badges } from "./badge/badges";
 export { default as Title } from "./title";
 export { default as GamePlayStats } from "./gamePlayStats";
 export { default as PlayerStatus } from "./playerStatus";

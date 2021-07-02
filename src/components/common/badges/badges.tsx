@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React, { Fragment } from "react";
-import treasure from "../../../../assets/treasurer.png";
+import treasure from "../../profile/assets/treasurer.png";
 import "./style/_badgesStyles.scss";
 
 const Badges = ({ variants }: any) => {
@@ -36,7 +36,7 @@ const Badges = ({ variants }: any) => {
     <Fragment>
       {pizzaBadges &&
         pizzaBadges.map(({ name, src }, idx) => (
-          <div className="food-card">
+          <div key={idx} className="food-card">
             <div className="food-card__image">
               <img src={src} alt="Coffee" />
             </div>

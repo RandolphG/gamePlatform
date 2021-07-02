@@ -1,7 +1,7 @@
 import { motion, useCycle } from "framer-motion";
 import React from "react";
+import { Badges } from "../../../common";
 import {
-  Badges,
   GamePlayStats,
   Level,
   PercentageStats,
@@ -13,14 +13,15 @@ import {
 } from "./components";
 
 const variants = {
-  open: {
+  initial: { x: 50, opacity: 0 },
+  animate: {
     x: 0,
     opacity: 1,
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
   },
-  closed: {
+  exit: {
     x: 50,
     opacity: 0,
     transition: {
@@ -30,30 +31,28 @@ const variants = {
 };
 
 const profileInfoVariants = {
-  open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+  animate: {
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.3,
+      delayChildren: 0.3,
+    },
   },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
+  exit: {
+    transition: { staggerChildren: 0.1, staggerDirection: -1 },
   },
 };
 
 const ProfileInfo = ({ imageFile }: any) => {
-  const [isOpen, toggleOpen] = useCycle(false, true);
-
-  function onClick() {
-    toggleOpen();
-  }
-
   return (
     <motion.div
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      exit="closed"
+      initial="initial"
+      animate="animate"
+      exit="exit"
       key="profileInfo"
       className="profileInfo"
     >
-      <Title onClick={onClick} />
+      {/*<Title />*/}
       <motion.div
         variants={profileInfoVariants}
         className="profileInfo_container"

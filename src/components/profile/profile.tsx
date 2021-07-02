@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { SideList } from "../gameDashboard";
 import image from "./assets/_default_profile_img.png";
-import { LeaderBoard } from "./components/leaderBoard";
+import { LeaderBoard, ProfileInfo } from "./components";
 import { profileMotionSettings } from "./motionSettings";
-import { ProfileInfo } from "./components/profileInfo";
 import "./styles/_profileStyles.scss";
 
 const Profile = () => {
   const [imageFile, s] = useState(image);
 
   return (
-    <motion.div {...profileMotionSettings} className="profile" key="profile">
-      {/*<Header />*/}
-      <LeaderBoard />
-      <ProfileInfo imageFile={imageFile} />
-    </motion.div>
+    <div className="profileContainer">
+      <motion.div {...profileMotionSettings} className="profile" key="profile">
+        <LeaderBoard />
+        <ProfileInfo imageFile={imageFile} />
+      </motion.div>
+      <SideList />
+    </div>
   );
 };
 

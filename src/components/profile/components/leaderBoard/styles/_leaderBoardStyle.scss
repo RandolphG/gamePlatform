@@ -12,14 +12,15 @@
 }
 
 .leaderboard {
+  background: transparent;
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 50%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 
   &_title {
@@ -37,13 +38,14 @@
   }
 
   &_leaders {
+    background: transparent;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    position: absolute;
+    align-items: center;
     top: 4rem;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     padding-right: .5rem;
     padding-left: .5rem;
   }
@@ -51,7 +53,7 @@
   .leader {
     border-radius: 4px;
     background: $gradient;
-    height: 125px;
+    height: 100%;
     width: 100%;
     border: black solid 2px;
     padding: 8px 16px;

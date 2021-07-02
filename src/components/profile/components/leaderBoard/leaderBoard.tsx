@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import { onAddNotification, UserImage } from "../../../common";
-import { Coin } from "./components/coin";
+import { Coin } from "../../../common/coin";
 import { leaderBoardMotionSettings } from "./motionSettings";
 import { colors } from "./colors";
 import { LeaderBoardViewModel } from "./leaderBoardViewModel";
@@ -58,8 +58,6 @@ const LeaderBoard = () => {
   const Blank = ({ children }: any) => <div className="blank">{children}</div>;
 
   const PlayerImage = (object: any) => {
-    console.log(`el.id`, object.el.imgUrl);
-
     return (
       <span className="playerImage">
         <UserImage image={object.el.imgUrl} />
@@ -67,9 +65,29 @@ const LeaderBoard = () => {
     );
   };
 
-  function onClick(el: any) {
-    dispatch(onAddNotification({ title: el.name }));
-  }
+  const Title = () => <h1 className="leaderboard_title">Leaderboard</h1>;
+
+  const Leader = ({ children, el, i }: any) => (
+    <div
+      style={{
+        animationDelay: `${i * 0.1}s`,
+      }}
+      className="leader"
+    >
+      {children}
+    </div>
+  );
+
+  const LeaderWrap = ({ children, el }: any) => {
+    function onClick(el: any) {
+      dispatch(onAddNotification({ title: el.name }));
+    }
+    return (
+      <div className="leader-wrap" onClick={(e) => onClick(el)}>
+        {children}
+      </div>
+    );
+  };
 
   return (
     <AnimatePresence initial={false} custom={direction}>
@@ -78,7 +96,7 @@ const LeaderBoard = () => {
         className="leaderboard"
         key="leaderboard"
       >
-        <h1 className="leaderboard_title">Leaderboard</h1>
+        {/*<Title />*/}
         <motion.div
           className="leaderboard_leaders"
           key={page}
@@ -106,14 +124,8 @@ const LeaderBoard = () => {
         >
           {leader ? (
             leader[leader.games[imageIndex]].list.map((el: any, i: any) => (
-              <div
-                key={el.id}
-                style={{
-                  animationDelay: `${i * 0.1}s`,
-                }}
-                className="leader"
-              >
-                <div className="leader-wrap" onClick={(e) => onClick(el)}>
+              <Leader key={i} el={el} i={i}>
+                <LeaderWrap el={el}>
                   {i < 3 ? (
                     <Blank>
                       <Coin />
@@ -124,9 +136,9 @@ const LeaderBoard = () => {
                   <LeaderContent i={i} el={el} />
                   <div className="globalRank">#{el.rank}</div>
                   <PlayerImage el={el} />
-                </div>
+                </LeaderWrap>
                 <LeaderBar i={1} el={el} />
-              </div>
+              </Leader>
             ))
           ) : (
             <div className="empty">No Leaders</div>

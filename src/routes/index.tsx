@@ -6,7 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Intro, Notification, Profile, Shiny, SignUp } from "../components";
+import { GameDashboard, Intro, Notification, SignUp } from "../components";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -20,7 +20,8 @@ import {
  * @constructor
  */
 const AppRouter: FC = () => {
-  const renderRootRedirect = () => <Redirect to="/app" />;
+  // const renderRootRedirect = () => <Redirect to="/app" />;
+  const renderRootRedirect = () => <Redirect to="/gameDashboard" />;
 
   return (
     <Fragment>
@@ -30,8 +31,8 @@ const AppRouter: FC = () => {
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.key}>
-                {/*<Route exact path="/" component={renderRootRedirect} />*/}
-                <Route exact path="/" component={Profile} />
+                <Route exact path="/" component={renderRootRedirect} />
+                <Route path="/gameDashboard" component={GameDashboard} />
                 <PrivateRoute path="/app" component={AppRouting} />
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/intro" component={Intro} />
