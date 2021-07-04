@@ -31,6 +31,7 @@ const AppRouter: FC = () => {
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.key}>
+                {/*<Route exact path="/" component={Wizard} />*/}
                 <Route exact path="/" component={renderRootRedirect} />
                 <Route path="/gameDashboard" component={GameDashboard} />
                 <PrivateRoute path="/app" component={AppRouting} />

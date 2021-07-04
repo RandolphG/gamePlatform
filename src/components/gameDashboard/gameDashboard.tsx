@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Profile } from "../profile";
-import { Gallery } from "./Gallery";
+import { Carousel } from "./carousel";
 import { MainLinks } from "./mainLinks";
 import { SingleImage } from "./SingleImage";
 import GameDashboardUserAvatar from "./userAvatar";
@@ -43,8 +43,9 @@ const GameDashboard = () => {
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter initial={false}>
               <Switch location={location} key={location.pathname}>
-                <Route exact path="/gameDashboard" component={Gallery} />
+                {/*<Route exact path="/gameDashboard" component={Gallery} />*/}
                 <Route path="/gameDashboard/profile" component={Profile} />
+                <Route path="/gameDashboard/" component={Carousel} />
                 <Route
                   path="/gameDashboard/image/:id"
                   component={SingleImage}

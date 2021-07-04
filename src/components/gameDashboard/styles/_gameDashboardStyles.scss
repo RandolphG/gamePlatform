@@ -12,18 +12,16 @@ $bgColor: rgba(27, 31, 36, 0.5);
   width: 100%;
   display: flex;
   flex-direction: column;
-
-  @extend .gameLoungeNavbar;
+  overflow: hidden;
 
   .mainContent {
-    background: black;
+    background: transparent;
     box-sizing: border-box;
     position: relative;
     height: 90%;
     width: 100%;
     display: flex;
-    flex-direction: row;
-    overflow: hidden;
+    //flex-direction: row;
 
     .gameDashboardContainer {
       background: black;

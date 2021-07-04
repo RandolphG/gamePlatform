@@ -1,3 +1,4 @@
+import { easeInOut } from "popmotion";
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -64,6 +65,16 @@ const gameDashboardMotionSettings = {
   exit: { opacity: 0, transition: { duration: 2 } },
 };
 
+const gameLoungeTitleMotionSettings = {
+  initial: { y: 25, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 1, duration: 1, ease: easeInOut },
+  },
+  exit: { y: 25, opacity: 0, transition: { duration: 1 } },
+};
+
 export const Gallery = () => {
   const { draggableArea, startDragging, stopDragging, dragging } =
     GallerViewModel();
@@ -74,7 +85,12 @@ export const Gallery = () => {
       className="gameDashboardContainer"
     >
       <div className="gallery">
-        <div className="gameLoungeTitle">GameLounge</div>
+        <motion.div
+          {...gameLoungeTitleMotionSettings}
+          className="gameLoungeTitle"
+        >
+          GameLounge
+        </motion.div>
         <Thumbnails
           startDragging={startDragging}
           stopDragging={stopDragging}
