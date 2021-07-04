@@ -20,7 +20,7 @@ const Rank = () => {
   }
 
   useEffect(() => {
-    counter(0, 299, 1000);
+    counter(0, 299, 3000);
   }, []);
 
   return (

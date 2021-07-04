@@ -14,6 +14,11 @@ const screens = [
     color: "black",
     link: "/gameDashboard/profile",
   },
+  {
+    title: "Rewards",
+    color: "black",
+    link: "/gameDashboard/rewards",
+  },
 ];
 
 export const MainLinks = () => {

@@ -1,16 +1,18 @@
 
 .view {
+  box-sizing: border-box;
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #EEF2CB;
+  background-color: black;
+  .coinContainer {
+    width: 500px;
+    height: 500px;
+  }
 }
 
-.coinContainer {
-  width: 500px;
-  height: 500px;
-}
 
 .st0 {
   opacity: 7.000000e-02;

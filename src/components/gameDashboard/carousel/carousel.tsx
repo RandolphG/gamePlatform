@@ -1,6 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import gsap from "gsap";
 import "./styles/_carouselStyles.scss";
+import { motion } from "framer-motion";
+
+import image00 from "../../../images/_cliffHanger.png";
+import image01 from "../../../images/_rabbitCover.png";
+import image02 from "../../../images/_tiltCover.png";
 
 const Carousel = () => {
   const [draggable, setDraggable] = useState(false);
@@ -10,7 +15,7 @@ const Carousel = () => {
   useEffect(() => {
     gsap
       .timeline()
-      .set(".carouselRing", { rotationY: 180 }) //set initial rotationY so the parallax jump happens off screen
+      // .set(".carouselRing", { rotationY: 180 }) //set initial rotationY so the parallax jump happens off screen
       .set(".carouselCardContainer", {
         /* apply transform rotations to each image */
         rotateY: (i) => i * -36,
@@ -18,7 +23,7 @@ const Carousel = () => {
         z: -500,
         background: "black",
         // backgroundImage: (i) => `url(${baseUrl}${i + 32}/600/400/)`,
-        backgroundPosition: (i) => getBgPos(i),
+        // backgroundPosition: (i) => getBgPos(i),
         backfaceVisibility: "hidden",
         borderRadius: 4,
       })
@@ -40,20 +45,20 @@ const Carousel = () => {
     };
   }, []);
 
-  function mouseEnter(e: any) {
+  const mouseEnter = useCallback((e: any) => {
     let current = e.currentTarget;
     gsap.to(".carouselCardContainer", {
       opacity: (i, t) => (t == current ? 1 : 0.5),
       ease: "power3",
     });
-  }
+  }, []);
 
   function mouseLeave(e: any) {
     gsap.to(".carouselCardContainer", { opacity: 1, ease: "power2.inOut" });
     gsap.set(".carouselRing", { cursor: "grab" });
   }
 
-  function drag(e: any) {
+  const drag = useCallback((e: any) => {
     if (e.touches) e.clientX = e.touches[0].clientX;
 
     gsap.to(".carouselRing", {
@@ -66,7 +71,7 @@ const Carousel = () => {
     });
 
     xPos = Math.round(e.clientX);
-  }
+  }, []);
 
   function dragStart(e: any) {
     setDraggable(true);
@@ -76,7 +81,7 @@ const Carousel = () => {
     gsap.set(".carouselRing", { cursor: "grabbing" });
 
     xPos = Math.round(e.clientX);
-    document.addEventListener("mousemove touchmove", drag);
+    // document.addEventListener("mousemove touchmove", drag);
   }
 
   function dragEnd(e: any) {
@@ -87,7 +92,7 @@ const Carousel = () => {
   }
 
   /* returns the background-position string to create parallax movement in each image */
-  function getBgPos(i: any) {
+  const getBgPos = useCallback((i: any) => {
     return (
       100 -
       (gsap.utils.wrap(
@@ -99,10 +104,16 @@ const Carousel = () => {
         500 +
       "px 0px"
     );
-  }
+  }, []);
+
+  const carouselMotionSettings = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
 
   return (
-    <div className="carousel">
+    <motion.div {...carouselMotionSettings} className="carousel">
       <div className="carouselStage">
         <div className="carouselContainer">
           <div
@@ -112,25 +123,41 @@ const Carousel = () => {
             onMouseMove={(e) => {
               if (draggable) {
                 drag(e);
-              } else return {};
+              } else {
+                return {};
+              }
             }}
           >
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((img, idx) => (
+            {[
+              { name: "name", image: image00 },
+              { name: "name", image: image01 },
+              { name: "name", image: image02 },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+              { name: "name", image: "image" },
+            ].map((img, idx) => (
               <div
                 key={idx}
                 className="carouselCardContainer"
                 onMouseEnter={mouseEnter}
                 onMouseLeave={mouseLeave}
               >
-                <div className="carouselImg">
+                <motion.div
+                  className="carouselImg" /*@ts-ignore*/
+                  // style={{ "--image": image02 }}
+                >
                   <div className="carouselImgTitle">game title</div>
-                </div>
+                </motion.div>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

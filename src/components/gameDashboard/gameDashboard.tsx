@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { CoinDrop } from "../common";
 import { Profile } from "../profile";
 import { Carousel } from "./carousel";
 import { MainLinks } from "./mainLinks";
@@ -45,11 +46,12 @@ const GameDashboard = () => {
               <Switch location={location} key={location.pathname}>
                 {/*<Route exact path="/gameDashboard" component={Gallery} />*/}
                 <Route path="/gameDashboard/profile" component={Profile} />
-                <Route path="/gameDashboard/" component={Carousel} />
+                <Route path="/gameDashboard/rewards" component={CoinDrop} />
                 <Route
                   path="/gameDashboard/image/:id"
                   component={SingleImage}
                 />
+                <Route path="/gameDashboard/" component={Carousel} />
               </Switch>
             </AnimatePresence>
           )}

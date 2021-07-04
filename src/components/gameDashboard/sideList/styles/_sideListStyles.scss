@@ -2,6 +2,10 @@
 .sideList {
   background: black;
   width: 40%;
+  @media screen and (max-width: 1350px) {
+    display: none;
+    background: #FEE01C;
+  }
 }
 
 .sideButtons {
