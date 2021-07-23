@@ -1,0 +1,88 @@
+/* Animation Times */
+@keyframes finger-of-doom {
+  10%, 50% {
+    transform: translate(-45%, 45%);
+  }
+  60%, 100% {
+    animation-timing-function: ease-out;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes key-submission {
+  7% {
+    transform: translate(0, 0);
+  }
+  10%, 50% {
+    fill: cyan;
+    transform: translate(0, 5%);
+  }
+  57%, 100% {
+    animation-timing-function: ease-out;
+    fill: #DA98FE;
+    transform: translate(0, 0);
+  }
+}
+
+.st0 {
+  fill: #FFFFFF;
+}
+
+.cls-1 {
+  fill: #000;
+}
+
+.cls-2 {
+  fill: #da98fe;
+}
+
+.illustration {
+  width: 100%;
+  max-width: 60vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.illo_keypress {
+  .illo_wrapper {
+    padding-top: calc(85 / 80 * 100%);
+  }
+}
+
+.illo_component {
+  fill: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.illo_keypress_bg-keys {
+  width: calc(68 / 80 * 100%);
+  top: calc(36 / 85 * 100%);
+  left: calc(12 / 80 * 100%);
+}
+
+.illo_keypress_fg-keys {
+  //background: #dc5f45;
+  width: calc(34 / 80 * 100%);
+  top: calc(55 / 85 * 100%);
+  left: calc(1 / 80 * 100%);
+}
+
+.illo_keypress_finger {
+  animation: finger-of-doom 7s ease-in infinite;
+  width: calc(26 / 80 * 100%);
+  top: calc(1 / 85 * 100%);
+  left: calc(49 / 80 * 100%);
+}
+
+.illo_keypress_pressed-key {
+  //background: #4242a2;
+  animation: key-submission 7s ease-in infinite;
+  fill: #DA98FE;
+  width: calc(39 / 80 * 100%);
+  top: calc(47 / 85 * 100%);
+  left: calc(23 / 80 * 100%);
+}

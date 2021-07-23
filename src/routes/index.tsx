@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { GameDashboard, Intro, Notification, SignUp } from "../components";
+import DiagonalCarousel from "../components/common/daigonalCarousel/diagonalCarousel";
+import HomeIngParticles from "../components/common/homingParticles/homingParticles";
+import { Wizard } from "../components/wizard";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -31,9 +34,15 @@ const AppRouter: FC = () => {
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.key}>
-                {/*<Route exact path="/" component={Wizard} />*/}
                 <Route exact path="/" component={renderRootRedirect} />
+                <Route
+                  exact
+                  path="/homingParticles"
+                  component={HomeIngParticles}
+                />
                 <Route path="/gameDashboard" component={GameDashboard} />
+                <Route path="/wizard" component={Wizard} />
+                <Route path="/diagonalCarousel" component={DiagonalCarousel} />
                 <PrivateRoute path="/app" component={AppRouting} />
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/intro" component={Intro} />

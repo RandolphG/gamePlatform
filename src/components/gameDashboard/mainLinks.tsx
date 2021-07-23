@@ -5,7 +5,7 @@ import { imageVariants, transition } from "./motionSettings";
 
 const screens = [
   {
-    title: "Dashboard",
+    title: "Lounge",
     color: "black",
     link: "/gameDashboard/",
   },

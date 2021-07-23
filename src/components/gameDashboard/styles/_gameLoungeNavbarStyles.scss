@@ -11,6 +11,7 @@
     background: #FE4342;
     display: flex;
     width: 100%;
+    justify-content: space-around;
     .olStyle,
     li {
       list-style: none;
@@ -51,7 +52,7 @@
       border-radius: 4px;
       background: black;
       position: absolute;
-      bottom: -4px;
+      bottom: -8px;
     }
 
   }

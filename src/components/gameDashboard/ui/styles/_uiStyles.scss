@@ -1,0 +1,100 @@
+.carouselUI {
+  background: transparent;
+  box-sizing: border-box;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+
+
+  .topUI {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+    pointer-events: none;
+
+    .keys {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .coins {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .ruby {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .medallion {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+  }
+
+  .bottomUI {
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+
+    .heroes {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .quests {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .content {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+
+    .shop {
+      color: white;
+      width: fit-content;
+      border: 1px solid white;
+    }
+  }
+
+  .countDownUI {
+    background: #5f9042;
+    position: absolute;
+    bottom: 5rem;
+    right: 1rem;
+    font-size: 3rem;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: 2rem;
+  }
+}

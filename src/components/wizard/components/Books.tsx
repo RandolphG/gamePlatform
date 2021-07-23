@@ -68,7 +68,7 @@ const Books = ({ addBooks, books }: any) => {
         })}
       </ul>
 
-      <Link to="/order">
+      <Link to="/wizard/order">
         <motion.button variants={buttonVariants} whileHover="hover">
           Order
         </motion.button>

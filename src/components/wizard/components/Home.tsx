@@ -14,6 +14,7 @@ const buttonVariants = {
     },
   },
 };
+
 const containerVariants = {
   hidden: {
     opacity: 0,
@@ -27,6 +28,7 @@ const containerVariants = {
     transition: { ease: "easeInOut" },
   },
 };
+
 const Home = () => {
   return (
     <motion.div
@@ -37,7 +39,7 @@ const Home = () => {
       exit="exit"
     >
       <h2>Welcome to Book Corner</h2>
-      <Link to="/authors">
+      <Link to="/wizard/authors">
         <motion.button variants={buttonVariants} whileHover="hover">
           Create Your Order
         </motion.button>

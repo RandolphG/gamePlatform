@@ -1,9 +1,7 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "env": {
+    "jest": true
+  },
   "extends": [
     "plugin:prettier/recommended",
     "airbnb-typescript",
@@ -11,9 +9,25 @@
     "prettier/@typescript-eslint",
     "prettier/react"
   ],
-  "env": {
-    "jest": true
-  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts",
+        "*.tsx"
+      ],
+      "parserOptions": {
+        "ecmaVersion": 12,
+        "project": [
+          "./tsconfig.json"
+        ]
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "root": true,
   "rules": {
     // Make prettier code formatting suggestions more verbose.
     "prettier/prettier": [
@@ -68,20 +82,9 @@
     "spaced-comment": "off",
     "no-useless-return": "off",
     "react/jsx-curly-brace-presenc": "off",
-    "prefer-template": "off"
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "parserOptions": {
-        "ecmaVersion": 12,
-        "project": [
-          "./tsconfig.json"
-        ]
-      }
-    }
-  ]
+    "prefer-template": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "no-restricted-properties": "off",
+    "prefer-destructuring": "off"
+  }
 }

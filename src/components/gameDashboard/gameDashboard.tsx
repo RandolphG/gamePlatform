@@ -1,37 +1,19 @@
-import { AnimatePresence } from "framer-motion";
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 import { Route, Switch } from "react-router-dom";
 import { CoinDrop } from "../common";
+import { DiagonalCarousel } from "../common/daigonalCarousel";
 import { Profile } from "../profile";
+import { Wizard } from "../wizard";
 import { Carousel } from "./carousel";
 import { MainLinks } from "./mainLinks";
 import { SingleImage } from "./SingleImage";
-import GameDashboardUserAvatar from "./userAvatar";
-import instagram from "./assets/instagram.svg";
-import twitter from "./assets/twitter.svg";
-import youtube from "./assets/youtube.svg";
-import twitch from "./assets/twitch.svg";
-import lastfm from "./assets/lastfm.svg";
-import me from "./assets/_me.jpg";
+import SocialLinks from "./socialLinks";
+
 import "./styles/_gameDashboardStyles.scss";
+import UserProfileOptions from "./userProfileOptions";
 
 const GameDashboard = () => {
-  const SocialLinks = () => (
-    <div className="socialLinks">
-      <img className="instagramSvg" src={instagram} alt="instagram" />
-      <img className="twitterSvg" src={twitter} alt="twitter" />
-      <img className="youtubeSvg" src={youtube} alt="youtube" />
-      <img className="twitchSvg" src={twitch} alt="twitch" />
-      <img className="lastfmSvg" src={lastfm} alt="lastfm" />
-    </div>
-  );
-
-  const UserProfileOptions = () => (
-    <div className="userProfileOptions">
-      <GameDashboardUserAvatar imageFile={me} />
-    </div>
-  );
-
   return (
     <div className="gameDashboardLayout">
       <div className="gameLoungeNavbar">
@@ -51,7 +33,9 @@ const GameDashboard = () => {
                   path="/gameDashboard/image/:id"
                   component={SingleImage}
                 />
-                <Route path="/gameDashboard/" component={Carousel} />
+                {/*<Route path="/gameDashboard/" component={Carousel} />*/}
+                <Route path="/gameDashboard/" component={DiagonalCarousel} />
+                <Route exact path="/gameDashboard/wizard" component={Wizard} />
               </Switch>
             </AnimatePresence>
           )}

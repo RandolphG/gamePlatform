@@ -86,7 +86,7 @@ const Author = ({ addAuthor, books }: any) => {
           // animate='visible'
           // transition={{type:'spring',stiffness:120}}
         >
-          <Link to="/books">
+          <Link to="/wizard/books">
             <motion.button variants={buttonVariants} whileHover="hover">
               Next
             </motion.button>

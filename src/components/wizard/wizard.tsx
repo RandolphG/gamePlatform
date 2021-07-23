@@ -13,7 +13,6 @@ const Wizard = () => {
   const location = useLocation();
   const [books, setBooks] = useState({ author: "", Books: [] });
   const [showModal, setShowModal] = useState(false);
-  console.log(books);
   const addAuthor = (base: any) => {
     setBooks({ ...books, author: base });
   };
@@ -37,18 +36,16 @@ const Wizard = () => {
         onExitComplete={() => setShowModal(false)}
       >
         <Switch location={location} key={location.pathname}>
-          <Route path="/authors">
-            <Author addAuthor={addAuthor} books={books} />
-          </Route>
-          <Route path="/books">
-            <Books addBooks={addBooks} books={books} />
-          </Route>
-          <Route path="/order">
+          <Route path="/wizard/order">
             <Order books={books} setShowModal={setShowModal} />
           </Route>
-          <Route exact path="/">
-            <Home />
+          <Route path="/wizard/books">
+            <Books addBooks={addBooks} books={books} />
           </Route>
+          <Route path="/wizard/authors">
+            <Author addAuthor={addAuthor} books={books} />
+          </Route>
+          <Route exact path="/wizard" component={Home} />
         </Switch>
       </AnimatePresence>
     </>

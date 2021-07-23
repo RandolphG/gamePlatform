@@ -6,3 +6,4 @@ export { CoinDrop } from "./coinDrop";
 export { Coin } from "./coin";
 export { Shiny } from "./shiny";
 export { MediaIconsPopups } from "./menu/mediaIconsPopups";
+export { HomingParticles } from "./homingParticles";
