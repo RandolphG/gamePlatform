@@ -10,12 +10,14 @@ import { GameDashboard, Intro, Notification, SignUp } from "../components";
 import DiagonalCarousel from "../components/common/daigonalCarousel/diagonalCarousel";
 import HomeIngParticles from "../components/common/homingParticles/homingParticles";
 import { Wizard } from "../components/wizard";
+import { CardBeamDown, HeroProfiles, HomePage, TitlePage } from "../game";
 import {
   PrivateRoute,
   NonAuthRoute,
   NotFound,
   AppRouting,
 } from "./componenets";
+import { AwardPage } from "../game/awardPage";
 
 /**
  * application router
@@ -24,7 +26,8 @@ import {
  */
 const AppRouter: FC = () => {
   // const renderRootRedirect = () => <Redirect to="/app" />;
-  const renderRootRedirect = () => <Redirect to="/gameDashboard" />;
+  // const renderRootRedirect = () => <Redirect to="/gameDashboard" />;
+  const renderRootRedirect = () => <Redirect to="/titlePage" />;
 
   return (
     <Fragment>
@@ -40,6 +43,11 @@ const AppRouter: FC = () => {
                   path="/homingParticles"
                   component={HomeIngParticles}
                 />
+                <Route path="/cardBeamPage" component={CardBeamDown} />
+                <Route path="/awardPage" component={AwardPage} />
+                <Route path="/homePage" component={HomePage} />
+                <Route path="/titlePage" component={TitlePage} />
+                <Route path="/heroProfiles" component={HeroProfiles} />
                 <Route path="/gameDashboard" component={GameDashboard} />
                 <Route path="/wizard" component={Wizard} />
                 <Route path="/diagonalCarousel" component={DiagonalCarousel} />

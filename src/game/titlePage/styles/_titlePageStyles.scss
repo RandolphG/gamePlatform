@@ -1,0 +1,29 @@
+.titlePage{
+  background: #1b818d;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &_container{
+    border: black 2px solid;
+    width: 75%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    &__title{
+      font-size: 4rem;
+    }
+    &__button{
+      font-size: 4rem;
+      border: #3b5999 solid 3px;
+      border-radius: 1rem;
+      padding: 1rem;
+    }
+  }
+}
