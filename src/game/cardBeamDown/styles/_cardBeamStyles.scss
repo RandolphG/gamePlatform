@@ -17,7 +17,6 @@ $star_twinkle_duration: 1s;
   --background: url("../../assets/_card/델론즈.png");
 }
 
-
 .animationButton {
   color: black;
   font-family: $font-main;
@@ -48,8 +47,10 @@ $star_twinkle_duration: 1s;
 }
 
 .parent {
-  background: purple;
+  //background: purple;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   width: 70%;
   margin: 0 auto;
 
@@ -66,13 +67,13 @@ $star_twinkle_duration: 1s;
 }
 
 .beamcard {
-  background: pink;
+  //background: pink;
   position: relative;
   box-sizing: border-box;
   width: 33%;
   min-width: 200px;
   height: 70vh;
-  margin: auto;
+  //margin: auto;
 
   &:nth-child(1).active .card{
     background-image: url("../../assets/_card/린.png");

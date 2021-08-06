@@ -1,34 +1,31 @@
-import React, { useEffect } from "react";
-import "./styles/_cardBeamStyles.scss";
-import { VictorySvg } from "./components";
-import { AwardPage } from "../awardPage";
+import React from "react";
 import { AnimatePresence } from "framer-motion";
-import { CardStar } from "./components/cardStar";
-import { Pyro } from "./components/pyro";
-import { Debris } from "./components/debris";
+import { VictorySvg, Pyro, CardStar, Debris } from "./components";
+import { AwardPage } from "../awardPage";
+import "./styles/_cardBeamStyles.scss";
 
 const CardBeamDown = () => {
   let count = 0;
 
   function onclick() {
-    let beamcards = document.querySelectorAll(".beamcard");
+    let beamCards = document.querySelectorAll(".beamcard");
     count++;
 
-    if (count >= beamcards.length) {
+    if (count >= beamCards.length) {
       count = 0;
-      beamcards.forEach((el) =>
+      beamCards.forEach((el) =>
         window.setTimeout(function () {
           el.classList.remove("active");
         }, 1)
       );
     }
 
-    let beamcard = beamcards[count];
+    let beamCard = beamCards[count];
 
-    beamcard.classList.remove("active");
+    beamCard.classList.remove("active");
 
     window.setTimeout(function () {
-      beamcard.classList.add("active");
+      beamCard.classList.add("active");
     }, 50);
   }
 

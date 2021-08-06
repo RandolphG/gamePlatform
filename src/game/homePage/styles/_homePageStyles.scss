@@ -1,0 +1,110 @@
+.homePage {
+  position: relative;
+  box-sizing: border-box;
+  background: azure;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_container {
+    background: #0F1108;
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    border: 2px solid black;
+    width: 90%;
+    max-width: 1400px;
+    height: 80%;
+    padding: 1rem;
+
+    .playerLevel {
+      width: 280px;
+      height: 80px;
+    }
+
+    .mainCurrency {
+      //background: #00b3ff;
+      height: fit-content;
+      width: fit-content;
+      margin-left: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .keys {
+        width: 180px;
+        height: 40px;
+        padding-left: 1rem;
+      }
+
+      .coins {
+        width: 180px;
+        height: 40px;
+        padding-left: 1rem;
+      }
+
+      .rubies {
+        width: 180px;
+        height: 40px;
+        padding-left: 1rem;
+      }
+    }
+
+    .mainOptions {
+      //background: #00b3ff;
+      height: fit-content;
+      width: fit-content;
+      margin-left: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .settings {
+      }
+
+      .mail {
+        padding-left: 1rem;
+      }
+
+      .chat {
+        padding-left: 1rem;
+      }
+
+      .treasure {
+        padding-left: 1rem;
+      }
+    }
+
+    .mainLinks {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      color: white;
+      .영웅{
+        padding-right: 1rem;
+      }
+      .엽젹{
+        padding-right: 1rem;
+      }
+      .소셜{
+        padding-right: 1rem;
+      }
+      .길드{
+        padding-right: 1rem;
+      }
+      .콘텐츠{
+        padding-right: 1rem;
+      }
+      .소환상점{
+        padding-right: 1rem;
+      }
+      .상점{
+        padding-right: 1rem;
+      }
+      .버프상점{
+      }
+    }
+  }
+}
