@@ -1,0 +1,27 @@
+.mainCurrency {
+  //background: #00b3ff;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .keys {
+    width: 180px;
+    height: 40px;
+    padding-left: 1rem;
+  }
+
+  .coins {
+    width: 180px;
+    height: 40px;
+    padding-left: 1rem;
+  }
+
+  .rubies {
+    width: 180px;
+    height: 40px;
+    padding-left: 1rem;
+  }
+}

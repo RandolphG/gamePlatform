@@ -1,0 +1,12 @@
+{
+  "main-links": {
+    "영웅": "hero",
+    "업적": "Achievements",
+    "소셜": "Social",
+    "길드": "Guild",
+    "콘텐츠": "Contents",
+    "소환상점": "Summon Shop",
+    "상점": "Shop",
+    "버프상점": "Buff Shop"
+  }
+}

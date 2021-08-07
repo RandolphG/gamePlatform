@@ -1,0 +1,143 @@
+.mainLinks {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  color: white;
+  display: flex;
+  width: fit-content;
+
+  .영웅Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .영웅 {
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .엽젹Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .엽젹 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .소셜Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .소셜 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .길드Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .길드 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .콘텐츠Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .콘텐츠 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .소환상점Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .소환상점 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .상점Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .상점 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  .버프상점Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .버프상점 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

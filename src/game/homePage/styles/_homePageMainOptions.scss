@@ -1,0 +1,24 @@
+.mainOptions {
+  //background: #00b3ff;
+  height: fit-content;
+  width: fit-content;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .settings {
+  }
+
+  .mail {
+    padding-left: 1rem;
+  }
+
+  .chat {
+    padding-left: 1rem;
+  }
+
+  .treasure {
+    padding-left: 1rem;
+  }
+}
