@@ -1,7 +1,7 @@
 .homePage {
   position: relative;
   box-sizing: border-box;
-  background: azure;
+  background: black;
   width: 100%;
   height: 100%;
   display: flex;
@@ -9,15 +9,57 @@
   align-items: center;
 
   &_container {
+    overflow: hidden;
     background: #0F1108;
     position: relative;
     display: flex;
     box-sizing: border-box;
-    border: 2px solid black;
+    border: 2px solid white;
+    border-radius: .5rem;
     width: 90%;
     max-width: 1400px;
     height: 80%;
     padding: 1rem;
+
+    .myInfo {
+      box-sizing: border-box;
+      background: red;
+      position: absolute;
+      width: 355px;
+      border: 3px solid white;
+      height: 96%;
+      z-index: 100;
+
+      .내정보 {
+        height: 100%;
+        //display: none;
+      }
+    }
+
+    .eventsSection {
+      position: absolute;
+      right: 1rem;
+      top: 5rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .eventsSectionB{
+      color: white;
+      position: absolute;
+      left: 1rem;
+      top: 15rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .eventsSectionC{
+      color: white;
+      position: absolute;
+      right: 1rem;
+      top: 15rem;
+      display: flex;
+      flex-direction: column;
+    }
 
     .playerLevel {
       width: 280px;
@@ -82,28 +124,74 @@
       bottom: 1rem;
       left: 1rem;
       color: white;
-      .영웅{
+
+      .영웅 {
+        width: 80px;
         padding-right: 1rem;
       }
-      .엽젹{
+
+      .엽젹 {
         padding-right: 1rem;
+        width: 80px;
       }
-      .소셜{
+
+      .소셜 {
         padding-right: 1rem;
+        width: 80px;
       }
-      .길드{
+
+      .길드 {
         padding-right: 1rem;
+        width: 80px;
+        width: 80px;
       }
-      .콘텐츠{
+
+      .콘텐츠 {
         padding-right: 1rem;
+        width: 80px;
+        width: 80px;
       }
-      .소환상점{
+
+      .소환상점 {
         padding-right: 1rem;
+        width: 80px;
       }
-      .상점{
+
+      .상점 {
         padding-right: 1rem;
+        width: 80px;
       }
-      .버프상점{
+
+      .버프상점 {
+        width: 80px;
+
+      }
+    }
+
+    .mainEvents {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      color: white;
+
+      .전투 {
+        padding-right: 1rem;
+        width: 90px;
+      }
+
+      .대전 {
+        padding-right: 1rem;
+        width: 90px;
+      }
+
+      .성장 {
+        padding-right: 1rem;
+        width: 90px;
+      }
+
+      .모험 {
+        padding-right: 1rem;
+        width: 90px;
       }
     }
   }
