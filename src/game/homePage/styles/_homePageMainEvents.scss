@@ -3,10 +3,24 @@
   bottom: 1rem;
   right: 1rem;
   color: white;
+  display: flex;
+  flex-direction: row;
 
-  .전투 {
-    padding-right: 1rem;
-    width: 90px;
+  .전투Container {
+    width: 80px;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .전투 {
+      margin-top: auto;
+    }
+
+    .text {
+      text-align: center;
+      width: 100%;
+    }
   }
 
   .대전 {

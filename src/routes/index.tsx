@@ -10,7 +10,13 @@ import { GameDashboard, Intro, Notification, SignUp } from "../components";
 import DiagonalCarousel from "../components/common/daigonalCarousel/diagonalCarousel";
 import HomeIngParticles from "../components/common/homingParticles/homingParticles";
 import { Wizard } from "../components/wizard";
-import { CardBeamDown, HeroProfiles, HomePage, TitlePage } from "../game";
+import {
+  CardBeamDown,
+  DedicatedItemPage,
+  HeroProfiles,
+  HomePage,
+  TitlePage,
+} from "../game";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -42,6 +48,10 @@ const AppRouter: FC = () => {
                   exact
                   path="/homingParticles"
                   component={HomeIngParticles}
+                />
+                <Route
+                  path="/dedicatedItemPage"
+                  component={DedicatedItemPage}
                 />
                 <Route path="/cardBeamPage" component={CardBeamDown} />
                 <Route path="/awardPage" component={AwardPage} />

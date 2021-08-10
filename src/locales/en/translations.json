@@ -8,5 +8,49 @@
     "소환상점": "Summon Shop",
     "상점": "Shop",
     "버프상점": "Buff Shop"
+  },
+  "main-events": {
+    "전투": "Battle",
+    "대전": "Royal Palace",
+    "성장": "Growth",
+    "모험": "Adventure"
+  },
+  "eventsSectionA": {
+    "세나의달신규복귀꼴팁": "Comeback Tips",
+    "시간여행자의이야기": "A Time Traveler's Story",
+    "이벤트": "Event"
+  },
+  "eventsSectionB": {
+    "이벤트캘린더": "Event Calendar",
+    "콘텐츠형황판": "Content Type Plate",
+    "룬": "Runes"
+  },
+  "eventsSectionC": {
+    "오늘의소식": "Today's News",
+    "아르얀로드패키지": "Aryan Road Package"
+  },
+  "dedicated-equipment-section": {
+    "스킬옵션전용장비선택": "Skill Option Dedicated Equipment Selection",
+    "전용장비옵션": "Dedicated equipment option",
+    "장비리스트에서원하시는영웅의전용장비를선택해주세요": "Select the hero's exclusive equipment you want from the equipment list",
+    "특시옵션": "Special Option",
+    "초기화": "Initialization",
+    "선택": "Select",
+    "원하는아이템을선택하세요": "Choose the item you want.",
+    "buttons": {
+      "쥬다스": "Judas",
+      "다이아": "Diamond",
+      "오목": "Concave",
+      "란드그리드": "Land grid"
+    },
+    "item-info": {
+      "특수옵션": "Special Option",
+      "일반옵션": "General Option",
+      "attributes": {
+        "공격력": "Offensive Power",
+        "방어력": "Defense",
+        "최대생명력": "Maximum Vitality"
+      }
+    }
   }
 }

@@ -56,36 +56,76 @@ const HomePage = () => {
 
   const EventSectionA = () => (
     <div className="eventsSectionA">
-      <img
-        className="세나의달신규복귀꼴팁"
-        src={세나의달신규복귀꼴팁}
-        alt="세나의달신규복귀꼴팁"
-      />
-      <img
-        className="시간여행자의이야기"
-        src={시간여행자의이야기}
-        alt="시간여행자의이야기"
-      />
-      <img className="이벤트" src={이벤트} alt="이벤트" />
+      <div className="세나의달신규복귀꼴팁Container">
+        <img
+          className="세나의달신규복귀꼴팁"
+          src={세나의달신규복귀꼴팁}
+          alt="세나의달신규복귀꼴팁"
+        />
+        <div className="text">
+          <Trans>eventsSectionA.세나의달신규복귀꼴팁</Trans>
+        </div>
+      </div>
+      <div className="시간여행자의이야기Container">
+        <img
+          className="시간여행자의이야기"
+          src={시간여행자의이야기}
+          alt="시간여행자의이야기"
+        />
+        <div className="text">
+          <Trans>eventsSectionA.시간여행자의이야기</Trans>
+        </div>
+      </div>
+      <div className="이벤트Container">
+        <img className="이벤트" src={이벤트} alt="이벤트" />
+        <div className="text">
+          <Trans>eventsSectionA.이벤트</Trans>
+        </div>
+      </div>
     </div>
   );
 
   const EventSectionB = () => (
     <div className="eventsSectionB">
-      <img className="이벤트캘린더" src={이벤트캘린더} alt="이벤트캘린더" />
-      <img className="콘텐츠형황판" src={콘텐츠형황판} alt="콘텐츠형황판" />
-      <img className="룬" src={룬} alt="룬" />
+      <div className="이벤트캘린더Container">
+        <img className="이벤트캘린더" src={이벤트캘린더} alt="이벤트캘린더" />
+        <div className="text">
+          <Trans>eventsSectionB.이벤트캘린더</Trans>
+        </div>
+      </div>
+      <div className="콘텐츠형황판Container">
+        <img className="콘텐츠형황판" src={콘텐츠형황판} alt="콘텐츠형황판" />
+        <div className="text">
+          <Trans>eventsSectionB.콘텐츠형황판</Trans>
+        </div>
+      </div>
+      <div className="룬Container">
+        <img className="룬" src={룬} alt="룬" />
+        <div className="text">
+          <Trans>eventsSectionB.룬</Trans>
+        </div>
+      </div>
     </div>
   );
 
   const EventSectionC = () => (
     <div className="eventsSectionC">
-      <img className="오늘의소식" src={오늘의소식} alt="오늘의소식" />
-      <img
-        className="아르얀로드패키지"
-        src={아르얀로드패키지}
-        alt="아르얀로드패키지"
-      />
+      <div className="오늘의소식Container">
+        <img className="오늘의소식" src={오늘의소식} alt="오늘의소식" />
+        <div className="text">
+          <Trans>eventsSectionC.오늘의소식</Trans>
+        </div>
+      </div>
+      <div className="아르얀로드패키지Container">
+        <img
+          className="아르얀로드패키지"
+          src={아르얀로드패키지}
+          alt="아르얀로드패키지"
+        />
+        <div className="text">
+          <Trans>eventsSectionC.아르얀로드패키지</Trans>
+        </div>
+      </div>
     </div>
   );
 
@@ -161,10 +201,30 @@ const HomePage = () => {
 
   const MainEvents = () => (
     <div className="mainEvents">
-      <img className="전투" src={전투} alt="전투" />
-      <img className="대전" src={대전} alt="대전" />
-      <img className="성장" src={성장} alt="성장" />
-      <img className="모험" src={모험} alt="모험" />
+      <div className="전투Container">
+        <img className="전투" src={전투} alt="전투" />
+        <div className="text">
+          <Trans>main-events.전투</Trans>
+        </div>
+      </div>
+      <div className="대전Container">
+        <img className="대전" src={대전} alt="대전" />
+        <div className="text">
+          <Trans>main-events.대전</Trans>
+        </div>
+      </div>{" "}
+      <div className="성장Container">
+        <img className="성장" src={성장} alt="성장" />
+        <div className="text">
+          <Trans>main-events.성장</Trans>
+        </div>
+      </div>
+      <div className="모험Container">
+        <img className="모험" src={모험} alt="모험" />
+        <div className="text">
+          <Trans>main-events.모험</Trans>
+        </div>
+      </div>
     </div>
   );
 

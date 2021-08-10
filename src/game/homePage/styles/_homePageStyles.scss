@@ -36,7 +36,6 @@
 
       .내정보 {
         height: 100%;
-        //display: none;
       }
     }
 
@@ -67,15 +66,58 @@
         flex-direction: row;
         padding-right: 1rem;
 
-        .세나의달신규복귀꼴팁 {
+        .세나의달신규복귀꼴팁Container {
+          width: 80px;
           margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .세나의달신규복귀꼴팁 {
+            margin-top: auto;
+          }
+
+          .text {
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
         }
 
-        .시간여행자의이야기 {
+        .시간여행자의이야기Container {
+          width: 80px;
           margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .시간여행자의이야기 {
+            margin-top: auto;
+          }
+
+          .text {
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
         }
 
-        .이벤트 {
+        .이벤트Container {
+          width: 80px;
+          margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .이벤트 {
+            margin-top: auto;
+          }
+
+          .text {
+            color: white;
+            text-align: center;
+            width: 100%;
+          }
         }
       }
     }
@@ -104,6 +146,22 @@
         color: white;
         display: flex;
         flex-direction: column;
+        .오늘의소식Container {
+          width: 80px;
+          margin-right: 1rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          .전투 {
+            margin-top: auto;
+          }
+
+          .text {
+            text-align: center;
+            width: 100%;
+          }
+        }
       }
     }
 
