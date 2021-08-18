@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./styles/_homePageStyles.scss";
-import { Trans, useTranslation } from "react-i18next";
+import React, { useEffect, useState } from "react";
+import { Trans } from "react-i18next";
+import { useDispatch } from "react-redux";
 import playerLevel from "./assets/elements/playerLevelStatus.png";
 import keys from "./assets/elements/keys.png";
 import coins from "./assets/elements/coins.png";
@@ -9,20 +9,7 @@ import settings from "./assets/elements/settings.png";
 import mail from "./assets/elements/mail.png";
 import dialog from "./assets/elements/dialog.png";
 import treasure from "./assets/elements/treasure.png";
-/* images */
-import 영웅 from "./assets/elements/영웅.png";
-import 엽젹 from "./assets/elements/엽젹.png";
-import 소셜 from "./assets/elements/소셜.png";
-import 길드 from "./assets/elements/길드.png";
-import 콘텐츠 from "./assets/elements/콘텐츠.png";
-import 소환상점 from "./assets/elements/소환상점.png";
-import 상점 from "./assets/elements/상점.png";
-import 버프상점 from "./assets/elements/버프상점.png";
-/* events */
-import 전투 from "./assets/elements/전투.png";
-import 대전 from "./assets/elements/대전.png";
-import 성장 from "./assets/elements/성장.png";
-import 모험 from "./assets/elements/모험.png";
+
 import 내정보 from "./assets/elements/내정보.png";
 /* event section A*/
 import 세나의달신규복귀꼴팁 from "./assets/elements/세나의달신규복귀꼴팁.png";
@@ -35,9 +22,15 @@ import 룬 from "./assets/elements/룬.png";
 /* event section C*/
 import 오늘의소식 from "./assets/elements/오늘의소식.png";
 import 아르얀로드패키지 from "./assets/elements/아르얀로드패키지.png";
+import specialItem from "./assets/_dedicatedItem.png";
 import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { MainEvents, MainLinks } from "./components";
+import { setCoins } from "./store";
+import "./styles/_homePageStyles.scss";
 
 const HomePage = () => {
+  const dispatch = useDispatch();
   // @ts-ignore
   const [show, setShow] = useState(false);
   const 내정보MotionSettings = {
@@ -142,89 +135,9 @@ const HomePage = () => {
       <img className="mail" src={mail} alt="mail" />
       <img className="chat" src={dialog} alt="dialog" />
       <img className="treasure" src={treasure} alt="treasure" />
-      <img className="settings" src={settings} alt="settings" />
-    </div>
-  );
-
-  const MainLinks = () => (
-    <div className="mainLinks">
-      <div className="영웅Container">
-        <img className="영웅" src={영웅} alt="영웅" />
-        <div className="text">
-          <Trans>main-links.영웅</Trans>
-        </div>
-      </div>
-      <div className="업적Container">
-        <img className="업적" src={엽젹} alt="업적" />
-        <div className="text">
-          <Trans>main-links.업적</Trans>
-        </div>
-      </div>
-      <div className="소셜Container">
-        <img className="소셜" src={소셜} alt="소셜" />
-        <div className="text">
-          <Trans>main-links.소셜</Trans>
-        </div>
-      </div>
-      <div className="길드Container">
-        <img className="길드" src={길드} alt="길드" />
-        <div className="text">
-          <Trans>main-links.길드</Trans>
-        </div>
-      </div>
-      <div className="콘텐츠Container">
-        <img className="콘텐츠" src={콘텐츠} alt="콘텐츠" />
-        <div className="text">
-          <Trans>main-links.콘텐츠</Trans>
-        </div>
-      </div>
-      <div className="소환상점Container">
-        <img className="소환상점" src={소환상점} alt="소환상점" />
-        <div className="text">
-          <Trans>main-links.소환상점</Trans>
-        </div>
-      </div>
-      <div className="상점Container">
-        <img className="상점" src={상점} alt="상점" />
-        <div className="text">
-          <Trans>main-links.상점</Trans>
-        </div>
-      </div>
-      <div className="버프상점Container">
-        <img className="버프상점" src={버프상점} alt="버프상점" />
-        <div className="text">
-          <Trans>main-links.버프상점</Trans>
-        </div>
-      </div>
-    </div>
-  );
-
-  const MainEvents = () => (
-    <div className="mainEvents">
-      <div className="전투Container">
-        <img className="전투" src={전투} alt="전투" />
-        <div className="text">
-          <Trans>main-events.전투</Trans>
-        </div>
-      </div>
-      <div className="대전Container">
-        <img className="대전" src={대전} alt="대전" />
-        <div className="text">
-          <Trans>main-events.대전</Trans>
-        </div>
-      </div>{" "}
-      <div className="성장Container">
-        <img className="성장" src={성장} alt="성장" />
-        <div className="text">
-          <Trans>main-events.성장</Trans>
-        </div>
-      </div>
-      <div className="모험Container">
-        <img className="모험" src={모험} alt="모험" />
-        <div className="text">
-          <Trans>main-events.모험</Trans>
-        </div>
-      </div>
+      <Link to="settings">
+        <img className="settings" src={settings} alt="settings" />
+      </Link>
     </div>
   );
 
@@ -236,6 +149,10 @@ const HomePage = () => {
       alt="playerLevel"
     />
   );
+
+  // useEffect(() => {
+  //   dispatch(setCoins({ coins: 3000 }));
+  // }, []);
 
   return (
     <div className="homePage">
@@ -256,6 +173,17 @@ const HomePage = () => {
           <PlayerLevel />
           <MainCurrency />
           <MainOptions />
+        </div>
+
+        <div className="specialItem">
+          <Link to="dedicatedItemPage">
+            <img
+              className="specialItem_item"
+              src={specialItem}
+              onClick={onClick}
+              alt="playerLevel"
+            />
+          </Link>
         </div>
 
         <div className="middleSectionA">

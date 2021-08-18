@@ -6,15 +6,15 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { GameDashboard, Intro, Notification, SignUp } from "../components";
+import { Intro, Notification, SignUp } from "../components";
 import DiagonalCarousel from "../components/common/daigonalCarousel/diagonalCarousel";
-import HomeIngParticles from "../components/common/homingParticles/homingParticles";
 import { Wizard } from "../components/wizard";
 import {
   CardBeamDown,
   DedicatedItemPage,
   HeroProfiles,
   HomePage,
+  Settings,
   TitlePage,
 } from "../game";
 import {
@@ -45,20 +45,15 @@ const AppRouter: FC = () => {
               <Switch location={location} key={location.key}>
                 <Route exact path="/" component={renderRootRedirect} />
                 <Route
-                  exact
-                  path="/homingParticles"
-                  component={HomeIngParticles}
-                />
-                <Route
                   path="/dedicatedItemPage"
                   component={DedicatedItemPage}
                 />
+                <Route path="/settings" component={Settings} />
                 <Route path="/cardBeamPage" component={CardBeamDown} />
                 <Route path="/awardPage" component={AwardPage} />
                 <Route path="/homePage" component={HomePage} />
                 <Route path="/titlePage" component={TitlePage} />
                 <Route path="/heroProfiles" component={HeroProfiles} />
-                <Route path="/gameDashboard" component={GameDashboard} />
                 <Route path="/wizard" component={Wizard} />
                 <Route path="/diagonalCarousel" component={DiagonalCarousel} />
                 <PrivateRoute path="/app" component={AppRouting} />

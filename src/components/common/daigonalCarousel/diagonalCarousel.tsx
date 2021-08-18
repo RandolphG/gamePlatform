@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import "./styles/_diagonalCarouselStyles.scss";
-import { UI } from "../../gameDashboard/ui";
 import { KeyPressAnimation } from "./components";
 import { DiagonalCarouselModel } from "./diagonalCarouselModel";
 

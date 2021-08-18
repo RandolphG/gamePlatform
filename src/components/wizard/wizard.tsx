@@ -29,7 +29,7 @@ const Wizard = () => {
 
   return (
     <>
-      {/*<Header />*/}
+      <Header />
       <Modal showModal={showModal} setShowModal={setShowModal} />
       <AnimatePresence
         exitBeforeEnter
