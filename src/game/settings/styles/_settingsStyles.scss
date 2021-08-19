@@ -20,7 +20,7 @@
     padding: 1rem;
     border-radius: .25rem;
     background: rgba(0, 0, 0, 0.9);
-    border: 2px solid white;
+    border: 3px solid white;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -29,7 +29,7 @@
       cursor: pointer;
       position: absolute;
       text-align: center;
-      border: 2px solid white;
+      border: 3px solid white;
       background: black;
       border-radius: 10rem;
       width: 2.5rem;
@@ -48,14 +48,13 @@
     .buttons {
       width: 100%;
       height: fit-content;
-      background: #00b3ff;
       display: flex;
       flex-direction: row;
     }
 
     .mood {
       margin-top: .5rem;
-      border: 2px solid white;
+      border: 1px solid white;
       width: 100%;
       height: 100%;
       display: flex;
@@ -67,32 +66,29 @@
         justify-content: space-around;
 
         &_description {
-          display: flex;
-          align-items: center;
-        }
-      }
-
-      &_rowTwo {
-        margin-top: .5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        &_description {
+          width: 100%;
+          padding: 0 .5rem;
+          background: transparent;
           display: flex;
           align-items: center;
         }
       }
 
       &_rowThree {
+        background: transparent;
         margin-top: .5rem;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
 
         &_description {
+          width: 100%;
+          padding: 0 .5rem;
+          background: transparent;
           display: flex;
           align-items: center;
+          display: flex;
+          //justify-content: space-around;
         }
       }
 
@@ -107,14 +103,21 @@
       }
 
       &_rowFour {
+        background: transparent;
         margin-top: .5rem;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
 
         &_description {
+          border: 1px solid black;
           display: flex;
           align-items: center;
+          width: 100%;
+          padding: 0 .5rem;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         }
       }
 
