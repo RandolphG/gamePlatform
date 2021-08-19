@@ -4,7 +4,7 @@ import {
   Action,
   getDefaultMiddleware,
 } from "@reduxjs/toolkit";
-import { combineReducers, compose, applyMiddleware } from "redux";
+import { combineReducers } from "redux";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 
 // @ts-ignore
@@ -16,7 +16,7 @@ import { createLogger } from "redux-logger";
 import { routerMiddleware } from "connected-react-router";
 import { homePageEpics } from "./epics";
 import thunk from "redux-thunk";
-
+import settings from "../game/settings/store/settings";
 import user from "./userInfo/user";
 import notification from "../game/common/notification/store/notification";
 import home from "../game/homePage/store/home";
@@ -35,6 +35,7 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 const reducers = combineReducers({
   home,
   user,
+  settings,
   notification,
 });
 

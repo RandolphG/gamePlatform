@@ -65,7 +65,7 @@ const HomePage = () => {
       <div className="homePage_container">
         <MyInfo />
         <Topbar />
-        <Settings showModal={showSettings} setShowModal={setShowModal} />
+        <Settings />
         <AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             {routes.map(({ path, component }, idx) => (

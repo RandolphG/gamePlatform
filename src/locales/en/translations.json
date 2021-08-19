@@ -52,5 +52,35 @@
         "최대생명력": "Maximum Vitality"
       }
     }
+  },
+  "settings": {
+    "buttons": {
+      "기분": "Mood",
+      "게임": "Game",
+      "정보": "Information"
+    },
+    "mood": {
+      "카카오톡기본사진끄기": "KakaoTalk default photo off",
+      "카카오톡알림메시지거부": "KakaoTalk notification message rejection",
+      "화면절전모드전투중제외": "Screen sleep mode (except during combat)",
+      "그래픽해상도": "Graphic Resolution",
+      "그래픽포레임": "Graphic Frame",
+      "낮음": "Low",
+      "보통": "Medium",
+      "높음": "High",
+      "알림설정": "Notification Settings",
+      "모험열쇠": "Adventure Key",
+      "우편물수령시간": "Mail pink-up time",
+      "공성전마감시간": "Siege Deadline",
+      "결투의징표": "Token of Duel",
+      "행운의상자받기": "Get lucky box",
+      "길드전마감시간": "Guild Wars Deadline",
+      "길드전준비마감": "Guild War Preparation",
+      "스마트세나알림": "Smart Sena Notifications",
+      "투기자알림": "Spectator Notifications",
+      "공지알림": "Notice",
+      "게임푸쉬알림": "In-game Push Notifications",
+      "아간푸쉬알림": "night Push Notifications"
+    }
   }
 }

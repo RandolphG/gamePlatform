@@ -5,13 +5,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .modal {
+    position: relative;
     color: white;
     width: 1000px;
     height: 500px;
@@ -24,12 +25,99 @@
     flex-direction: column;
     justify-content: flex-start;
 
+    .modalCloseButton {
+      cursor: pointer;
+      position: absolute;
+      text-align: center;
+      border: 2px solid white;
+      background: black;
+      border-radius: 10rem;
+      width: 2.5rem;
+      padding: .5rem;
+      z-index: 10;
+      right: -1rem;
+      top: -1rem;
+      transition: .3s;
+
+      &:hover {
+        transform: scale(1.1);
+        font-size: 1.1rem;
+      }
+    }
+
     .buttons {
       width: 100%;
       height: fit-content;
       background: #00b3ff;
       display: flex;
       flex-direction: row;
+    }
+
+    .mood {
+      margin-top: .5rem;
+      border: 2px solid white;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      &_rowOne {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &_description {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &_rowTwo {
+        margin-top: .5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &_description {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &_rowThree {
+        margin-top: .5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &_description {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      .separator {
+        border-top: solid 2px white;
+        border-bottom: solid 2px white;
+        margin-top: .5rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        width: 100%;
+        text-align: center;
+      }
+
+      &_rowFour {
+        margin-top: .5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        &_description {
+          display: flex;
+          align-items: center;
+        }
+      }
+
     }
   }
 

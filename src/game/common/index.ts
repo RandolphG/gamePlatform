@@ -5,4 +5,5 @@ export { CoinDrop } from "./coinDrop";
 export { Coin } from "./coin";
 export { Shiny } from "./shiny";
 export { Button } from "./button";
-export { CheckBox } from "./checkBox";
+export { Slider } from "./slider";
+export { Checkbox } from "./checkbox";

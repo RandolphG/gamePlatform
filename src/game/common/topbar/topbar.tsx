@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import playerLevel from "../../homePage/assets/elements/playerLevelStatus.png";
 import keys from "../../homePage/assets/elements/keys.png";
 import coins from "../../homePage/assets/elements/coins.png";
@@ -10,8 +11,15 @@ import settings from "../../homePage/assets/elements/settings.png";
 import "./styles/_topbarStyles.scss";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { showSettings } from "../../settings";
+import { Slider } from "../slider";
 
 const Topbar = () => {
+  const dispatch = useDispatch();
+  function show() {
+    dispatch(showSettings());
+  }
+
   function onClick() {}
 
   const PlayerLevel = () => (
@@ -35,10 +43,11 @@ const Topbar = () => {
 
   const MainOptions = () => (
     <div className="mainOptions">
-      <img className="mail" src={mail} alt="mail" />
-      <img className="chat" src={dialog} alt="dialog" />
-      <img className="treasure" src={treasure} alt="treasure" />
-      <img className="settings" src={settings} alt="settings" />
+      {/*<img className="mail" src={mail} alt="mail" />*/}
+      {/*<img className="chat" src={dialog} alt="dialog" />*/}
+      {/*<img className="treasure" src={treasure} alt="treasure" />*/}
+      <img className="settings" src={settings} alt="settings" onClick={show} />
+      <Slider />
     </div>
   );
 
