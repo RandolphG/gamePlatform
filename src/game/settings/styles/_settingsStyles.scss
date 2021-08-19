@@ -1,34 +1,36 @@
-.settingsItemPage {
-  position: relative;
-  box-sizing: border-box;
-  background: black;
+/* modal */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  &_container {
-    box-sizing: border-box;
-    overflow: hidden;
-    background: #0F1108;
-    position: relative;
+  .modal {
+    color: white;
+    width: 1000px;
+    height: 500px;
+    max-width: 1000px;
+    padding: 1rem;
+    border-radius: .25rem;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid white;
     display: flex;
     flex-direction: column;
-    border: 1px solid white;
-    border-radius: .5rem;
-    width: 100%;
-    height: 90%;
-    max-height: 900px;
-    max-width: 1400px;
+    justify-content: flex-start;
 
-    .specialItemContainer {
-      box-sizing: border-box;
-      margin-top: 100px;
-      height: 100%;
+    .buttons {
       width: 100%;
+      height: fit-content;
+      background: #00b3ff;
       display: flex;
       flex-direction: row;
     }
   }
+
 }

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Author from "./components/Author";
-import Books from "./components/Books";
-import Order from "./components/Order";
 import { AnimatePresence } from "framer-motion";
-import Modal from "./components/Modal";
+import { Header, Home, Author, Books, Order, Modal } from "./components";
 import "./styles/_wizardStyles.scss";
 
 const Wizard = () => {
@@ -27,6 +22,25 @@ const Wizard = () => {
     setBooks({ ...books, Books: newToppings });
   };
 
+  const routes = [
+    {
+      path: "/wizard/order",
+      component: <Order books={books} setShowModal={setShowModal} />,
+    },
+    {
+      path: "/wizard/books",
+      component: <Books addBooks={addBooks} books={books} />,
+    },
+    {
+      path: "/wizard/authors",
+      component: <Author addAuthor={addAuthor} books={books} />,
+    },
+    {
+      path: "/wizard",
+      component: <Home />,
+    },
+  ];
+
   return (
     <>
       <Header />
@@ -36,16 +50,11 @@ const Wizard = () => {
         onExitComplete={() => setShowModal(false)}
       >
         <Switch location={location} key={location.pathname}>
-          <Route path="/wizard/order">
-            <Order books={books} setShowModal={setShowModal} />
-          </Route>
-          <Route path="/wizard/books">
-            <Books addBooks={addBooks} books={books} />
-          </Route>
-          <Route path="/wizard/authors">
-            <Author addAuthor={addAuthor} books={books} />
-          </Route>
-          <Route exact path="/wizard" component={Home} />
+          {routes.map(({ path, component }, idx) => (
+            <Route key={idx} path={path}>
+              {component}
+            </Route>
+          ))}
         </Switch>
       </AnimatePresence>
     </>

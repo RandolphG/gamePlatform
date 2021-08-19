@@ -8,17 +8,21 @@ import dialog from "../../homePage/assets/elements/dialog.png";
 import treasure from "../../homePage/assets/elements/treasure.png";
 import settings from "../../homePage/assets/elements/settings.png";
 import "./styles/_topbarStyles.scss";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Topbar = () => {
   function onClick() {}
 
   const PlayerLevel = () => (
-    <img
-      className="playerLevel"
-      src={playerLevel}
-      onClick={onClick}
-      alt="playerLevel"
-    />
+    <Link to="/homePage">
+      <img
+        className="playerLevel"
+        src={playerLevel}
+        onClick={onClick}
+        alt="playerLevel"
+      />
+    </Link>
   );
 
   const MainCurrency = () => (
@@ -39,11 +43,16 @@ const Topbar = () => {
   );
 
   return (
-    <div className="topbar">
+    <motion.div
+      className="topbar"
+      initial={{ y: -250 }}
+      animate={{ y: 0 }}
+      transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
+    >
       <PlayerLevel />
       <MainCurrency />
       <MainOptions />
-    </div>
+    </motion.div>
   );
 };
 

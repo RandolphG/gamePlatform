@@ -6,8 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Intro, Notification, SignUp } from "../components";
-import DiagonalCarousel from "../components/common/daigonalCarousel/diagonalCarousel";
+import { Intro, SignUp } from "../components";
 import { Wizard } from "../components/wizard";
 import {
   CardBeamDown,
@@ -17,6 +16,7 @@ import {
   Settings,
   TitlePage,
 } from "../game";
+import { Notification } from "../game/common";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -54,8 +54,7 @@ const AppRouter: FC = () => {
                 <Route path="/homePage" component={HomePage} />
                 <Route path="/titlePage" component={TitlePage} />
                 <Route path="/heroProfiles" component={HeroProfiles} />
-                <Route path="/wizard" component={Wizard} />
-                <Route path="/diagonalCarousel" component={DiagonalCarousel} />
+                {/*<Route path="/wizard" component={Wizard} />*/}
                 <PrivateRoute path="/app" component={AppRouting} />
                 <Route exact path="/signup" component={SignUp} />
                 <Route exact path="/intro" component={Intro} />

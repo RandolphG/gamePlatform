@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { Dashboard } from "../../../components";
+import { HomePage } from "../../../game";
 import { PrivateRoute } from "../privateRoute";
 
 const AppRouting: FC = () => {
@@ -12,7 +12,7 @@ const AppRouting: FC = () => {
     <Fragment>
       <Switch>
         <Route exact path="/app" render={renderRootRedirect} />
-        <PrivateRoute path="/app/dashboard" component={Dashboard} />
+        <PrivateRoute path="/app/homepage" component={HomePage} />
       </Switch>
     </Fragment>
   );

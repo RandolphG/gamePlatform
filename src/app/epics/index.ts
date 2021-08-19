@@ -6,6 +6,10 @@ import { setCoins } from "../../game/homePage";
 export const homePageEpics = (action$: Observable<Action>) =>
   action$.pipe(
     filter(setCoins.match),
-    map((data) => console.log(`set coins matched`, data)),
+    // filter((action: any) => action.type === setCoins.match),
+    map((data) => {
+      console.log(`set coins matched`, data);
+      setCoins({ coins: 3000 });
+    }),
     catchError((error) => of(() => console.log(error)))
   );

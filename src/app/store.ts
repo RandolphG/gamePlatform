@@ -18,8 +18,7 @@ import { homePageEpics } from "./epics";
 import thunk from "redux-thunk";
 
 import user from "./userInfo/user";
-import time from "../components/common/menu/topbar/components/userInfoOptions/components/time/store/time";
-import notification from "../components/common/notification/store/notification";
+import notification from "../game/common/notification/store/notification";
 import home from "../game/homePage/store/home";
 
 export type AppDispatch = typeof store.dispatch;
@@ -36,7 +35,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 const reducers = combineReducers({
   home,
   user,
-  time,
   notification,
 });
 
@@ -60,15 +58,7 @@ const protectAndCombineEpics = (...epics: any) => {
 };
 
 const epic = protectAndCombineEpics(homePageEpics);
-
 const epicMiddleware = createEpicMiddleware();
-
-const middleware = applyMiddleware(
-  thunk,
-  epicMiddleware,
-  routerMiddleware(history),
-  logger
-);
 
 export const store = configureStore({
   reducer: reducers,

@@ -1,11 +1,50 @@
 import React from "react";
-import { Topbar } from "../common";
 import { Trans } from "react-i18next";
 import image from "./item.png";
 import photo from "./image.png";
 import "./styles/_dedicatedItemPageStyles.scss";
+import { motion } from "framer-motion";
 
 const DedicatedItemPage = () => {
+  const containerVariants = {
+    hidden: {
+      opacity: 0,
+      x: "100vw",
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        delay: 0.5,
+      },
+    },
+    exit: {
+      x: "-100vw",
+      transition: { ease: "easeInOut" },
+    },
+  };
+  const nextVariants = {
+    hidden: {
+      x: "-100vw",
+    },
+    visible: {
+      x: 0,
+      transition: { type: "spring", stiffness: 120 },
+    },
+  };
+  const buttonVariants = {
+    hover: {
+      scale: 1.1,
+      textShadow: "0px 0px 8px rgb(255,255,255)",
+      boxShadow: "0px 0px 8px rgb(255,255,255)",
+      transition: {
+        duration: 0.3,
+        yoyo: Infinity,
+      },
+    },
+  };
+
   const ItemImage = () => (
     <div className="itemInfDetails_details_attributes_container_pic">
       <img src={photo} alt="dedicatedItem" />
@@ -149,15 +188,20 @@ const DedicatedItemPage = () => {
   );
 
   return (
-    <div className="dedicatedItemPage">
+    <motion.div
+      className="dedicatedItemPage"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <div className="dedicatedItemPage_container">
-        <Topbar />
         <div className="specialItemContainer">
           <ItemInfo />
           <ItemSelection />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
