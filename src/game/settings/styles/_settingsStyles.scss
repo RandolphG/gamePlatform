@@ -1,3 +1,5 @@
+@import "../components/mood/styles/moodStyles";
+
 /* modal */
 .backdrop {
   position: fixed;
@@ -52,76 +54,6 @@
       flex-direction: row;
     }
 
-    .mood {
-      margin-top: .5rem;
-      border: 1px solid white;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-
-      &_rowOne {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        &_description {
-          width: 100%;
-          padding: 0 .5rem;
-          background: transparent;
-          display: flex;
-          align-items: center;
-        }
-      }
-
-      &_rowThree {
-        background: transparent;
-        margin-top: .5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        &_description {
-          width: 100%;
-          padding: 0 .5rem;
-          background: transparent;
-          display: flex;
-          align-items: center;
-          display: flex;
-          //justify-content: space-around;
-        }
-      }
-
-      .separator {
-        border-top: solid 2px white;
-        border-bottom: solid 2px white;
-        margin-top: .5rem;
-        padding-top: .5rem;
-        padding-bottom: .5rem;
-        width: 100%;
-        text-align: center;
-      }
-
-      &_rowFour {
-        background: transparent;
-        margin-top: .5rem;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-
-        &_description {
-          border: 1px solid black;
-          display: flex;
-          align-items: center;
-          width: 100%;
-          padding: 0 .5rem;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-        }
-      }
-
-    }
   }
 
 }

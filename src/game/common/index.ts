@@ -7,3 +7,4 @@ export { Shiny } from "./shiny";
 export { Button } from "./button";
 export { Slider } from "./slider";
 export { Checkbox } from "./checkbox";
+export { Loader } from "./loader";

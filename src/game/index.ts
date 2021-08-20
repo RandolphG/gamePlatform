@@ -5,3 +5,4 @@ export { AwardPage } from "./awardPage";
 export { CardBeamDown } from "./cardBeamDown";
 export { DedicatedItemPage } from "./dedicatedItemPage";
 export * from "./settings";
+export * from "./common";

@@ -1,4 +1,5 @@
-body{
+.loader{
+  height: 100%;
   background-color:#000;
   overflow:hidden;
   display: flex;
@@ -6,23 +7,18 @@ body{
   justify-content: center;
 }
 
-.labSVG{
-
-  width:100%;
-  height:100%;
-  /* max-height:600px; */
+.loaderContainer{
+  width:600px;
+  height:600px;
 }
+
 .flask{
   stroke:#f7f7f7;
 }
 .liquidBack{
   fill:#0248AD;
 }
-/*
-.liquidFront, .liquidBubblesGroup{
-  fill:#005DE9;
-}
-*/
+
 .pop{
   stroke:#005DE9;
 }

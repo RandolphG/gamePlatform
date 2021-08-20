@@ -14,8 +14,8 @@ i18n
         translation: translationsKO,
       },
     },
-    lng: "en",
-    fallbackLng: "en",
+    lng: "ko",
+    fallbackLng: "ko",
     debug: true,
     detection: {
       order: ["queryString", "cookie"],

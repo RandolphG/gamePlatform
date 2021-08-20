@@ -44,7 +44,7 @@ const GamepadsProvider = ({ children }: any) => {
   };
 
   /**
-   * Adds game controllers during connection event listener
+   * Adds gameSettings controllers during connection event listener
    * @param {object} e
    */
   const connectGamepadHandler = (e: any) => {

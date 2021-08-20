@@ -1,0 +1,40 @@
+.gameSettings {
+  margin-top: .5rem;
+  border: 1px solid white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &_rowOne {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 .5rem;
+
+    &_description {
+      background: #00b3ff;
+      width: 100%;
+      padding: 0 .5rem;
+      //background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .skills{
+        background: purple;
+        width: 200px;
+      }
+    }
+  }
+
+  .separator {
+    border-top: solid 2px white;
+    border-bottom: solid 2px white;
+    margin-top: .5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    width: 100%;
+    text-align: center;
+  }
+}

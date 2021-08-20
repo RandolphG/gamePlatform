@@ -5,7 +5,7 @@ import { PrivateRoute } from "../privateRoute";
 
 const AppRouting: FC = () => {
   /* redirect from app to "/app/dashboard" */
-  const renderRootRedirect = () => <Redirect to="/app/dashboard" />;
+  const renderRootRedirect = () => <Redirect to="/app/homePage" />;
 
   /* return the root view */
   return (

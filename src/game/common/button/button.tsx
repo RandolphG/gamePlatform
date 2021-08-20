@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/_buttonStyles.scss";
 
-const Button = ({ title }: any) => {
+const Button = ({ title, url }: any) => {
   return (
-    <div className="container">
+    <Link to={url} className="container">
       <a className="btn effect01">
         <span>{title}</span>
       </a>
-    </div>
+    </Link>
   );
 };
 

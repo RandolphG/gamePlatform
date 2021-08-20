@@ -81,6 +81,24 @@
       "공지알림": "Notice",
       "게임푸쉬알림": "In-game Push Notifications",
       "아간푸쉬알림": "night Push Notifications"
+    },
+    "gameSettings": {
+      "스킬연춝끄기": "Turn off skill",
+      "보상확독표시": "reward confirmation",
+      "윌드맴모험모드": "Wild Mem Adventure Mode",
+      "전투종료후진도알림": "Notification of progress after battle",
+      "이용가능콘텐츠표시": "Display of available content",
+      "상태이상아이콘보기": "View status icon",
+      "치명타연출끄기": "turn off critical strike",
+      "영웅/펫잠금모드": "Hero/Pet Lock Mode",
+      "전투력증감파멉": "Combat power increase or decrease",
+      "모든스킬아이콘끄기": "Turn off all skill icons",
+      "스킬예약하기": "Reserve Skill",
+      "1개": "1st",
+      "2개": "2nd",
+      "3개": "3rd",
+      "심플스킬아이콘모드": "Simple skill Icon Mode",
+      "게임설정": "Game Settings"
     }
   }
 }
