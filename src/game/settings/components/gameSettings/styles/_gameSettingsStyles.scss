@@ -21,7 +21,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .skills{
+
+      .skills {
         background: purple;
         width: 200px;
       }
@@ -36,5 +37,34 @@
     padding-bottom: .5rem;
     width: 100%;
     text-align: center;
+  }
+
+  .soundSettingsRowOne {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+    .muteControls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 120px;
+      background: #00b3ff;
+    }
+  }
+
+  .soundSettingsRowTwo {
+    @extend .soundSettingsRowOne;
+    background: gray;
+    margin-top: 2rem;
+    //position: absolute;
+    bottom: 1rem;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 1rem;
   }
 }

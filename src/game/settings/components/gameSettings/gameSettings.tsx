@@ -1,7 +1,8 @@
 import React from "react";
 import { Trans } from "react-i18next";
-import { Checkbox } from "../../../common";
+import { Button, Checkbox } from "../../../common";
 import "./styles/_gameSettingsStyles.scss";
+import { VolumeButton } from "../../../common/volumeButton";
 
 const Separator = ({ title }: any) => (
   <div className="separator">
@@ -75,6 +76,54 @@ const GameSettings = () => (
         optionC={optionC}
       />
     ))}
+    <Separator title="settings.gameSettings.sound-settings.사운드설정" />
+    <div className="soundSettingsRowOne">
+      <div>
+        <Trans>settings.gameSettings.sound-settings.배경음</Trans>
+      </div>
+      <div>
+        <VolumeButton />
+      </div>
+      <div className="muteControls">
+        <div>
+          <Trans>settings.gameSettings.sound-settings.음소거</Trans>
+        </div>
+        <Checkbox />
+      </div>
+      <div>
+        <Trans>settings.gameSettings.sound-settings.효과음</Trans>
+      </div>
+      <div>
+        <VolumeButton />
+      </div>
+      <div className="muteControls">
+        <div>
+          <Trans>settings.gameSettings.sound-settings.음소거</Trans>
+        </div>
+        <Checkbox />
+      </div>
+    </div>
+    <div className="soundSettingsRowTwo">
+      <div>
+        <Trans>settings.gameSettings.sound-settings.배경음설정</Trans>
+      </div>
+      <div>SOUND_VOLUME</div>
+      <div>
+        <Trans>settings.gameSettings.sound-settings.시나리오보이스</Trans>
+      </div>
+      <div
+        style={{
+          width: "150px ",
+          height: "50px",
+          display: "flex",
+          // position: "absolute",
+          right: "1rem",
+          bottom: "1rem",
+        }}
+      >
+        <Button title="완료" />
+      </div>
+    </div>
   </div>
 );
 

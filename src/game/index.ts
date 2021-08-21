@@ -4,5 +4,7 @@ export { HomePage } from "./homePage";
 export { AwardPage } from "./awardPage";
 export { CardBeamDown } from "./cardBeamDown";
 export { DedicatedItemPage } from "./dedicatedItemPage";
+export { WorkInProgress } from "./workInProgress";
+// export { HomeScreen } from "./homeScreen";
 export * from "./settings";
 export * from "./common";

@@ -6,8 +6,8 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { Intro, SignUp } from "../components";
-import { Notification, HomePage, Settings, TitlePage } from "../game";
+import { HomePage, Settings, TitlePage, WorkInProgress } from "../game";
+import { VolumeButton } from "../game/common/volumeButton";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -21,12 +21,10 @@ import {
  * @constructor
  */
 const AppRouter: FC = () => {
-  // const renderRootRedirect = () => <Redirect to="/app" />;
-  const renderRootRedirect = () => <Redirect to="/titlePage" />;
+  const renderRootRedirect = () => <Redirect to="/workInProgress" />;
 
   return (
     <Fragment>
-      <Notification />
       <Router>
         <Route
           render={({ location }) => (
@@ -38,12 +36,13 @@ const AppRouter: FC = () => {
                   component={DedicatedItemPage}
                 />*/}
                 {/*<Route path="/loader" component={Loader} />*/}
+                <Route path="/workInProgress" component={WorkInProgress} />
                 <Route path="/settings" component={Settings} />
+                <Route path="/volumeButton" component={VolumeButton} />
+                {/*<Route path="/homeScreen" component={HomeScreen} />*/}
                 <Route path="/homePage" component={HomePage} />
                 <Route path="/titlePage" component={TitlePage} />
                 <PrivateRoute path="/app" component={AppRouting} />
-                {/*<Route exact path="/signup" component={SignUp} />*/}
-                {/*<Route exact path="/intro" component={Intro} />*/}
                 <Route path="/non-auth" component={NonAuthRoute} />
                 <Route path="/404" component={NotFound} />
                 <Redirect to="/404" />

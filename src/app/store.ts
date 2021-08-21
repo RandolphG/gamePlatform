@@ -1,11 +1,7 @@
-import {
-  configureStore,
-  ThunkAction,
-  Action,
-  getDefaultMiddleware,
-} from "@reduxjs/toolkit";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
+import { ActionType } from "typesafe-actions";
 
 // @ts-ignore
 import { of } from "rxjs";
@@ -19,18 +15,15 @@ import thunk from "redux-thunk";
 import settings from "../game/settings/store/settings";
 import user from "./userInfo/user";
 import notification from "../game/common/notification/store/notification";
-import home from "../game/homePage/store/home";
+import home, { setCoins } from "../game/homePage/store/home";
 
-export type AppDispatch = typeof store.dispatch;
+type SystemActionsWithPayload = typeof setCoins;
 
-export type RootState = ReturnType<typeof store.getState>;
+type SystemActions = ActionType<SystemActionsWithPayload>;
 
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+type finalActions = SystemActions;
+
+export const history = createBrowserHistory();
 
 const reducers = combineReducers({
   home,
@@ -38,8 +31,6 @@ const reducers = combineReducers({
   settings,
   notification,
 });
-
-export const history = createBrowserHistory();
 
 const logger = createLogger({
   collapsed: true,
@@ -59,7 +50,7 @@ const protectAndCombineEpics = (...epics: any) => {
 };
 
 const epic = protectAndCombineEpics(homePageEpics);
-const epicMiddleware = createEpicMiddleware();
+const epicMiddleware = createEpicMiddleware<finalActions>();
 
 export const store = configureStore({
   reducer: reducers,

@@ -19,7 +19,7 @@ const HomePageViewModel = () => {
   }
 
   useEffect(() => {
-    // dispatch(setCoins({ coins: 3000 }));
+    dispatch(setCoins({ coins: 3000 }));
   }, []);
 
   return {

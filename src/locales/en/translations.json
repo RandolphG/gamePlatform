@@ -98,7 +98,16 @@
       "2개": "2nd",
       "3개": "3rd",
       "심플스킬아이콘모드": "Simple skill Icon Mode",
-      "게임설정": "Game Settings"
+      "게임설정": "Game Settings",
+      "sound-settings": {
+        "사운드설정": "Sounds Settings",
+        "배경음": "Background Sound",
+        "음소거": "Mute",
+        "효과음": "Sound Effect",
+        "배경음설정": "Background Sound Settings",
+        "시나리오보이스": "Scenario Voice",
+        "완료": "Submit"
+      }
     }
   }
 }

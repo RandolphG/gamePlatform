@@ -1,0 +1,172 @@
+// =====================
+// 	Variables
+// =====================
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+$heading: "Playfair Display", serif;
+$copy: "Helvetica", "Arial", sans-serif;
+
+$white: #FAFAFA;
+$black: #212121;
+$burgundy: #766363;
+$brown: #83755E;
+$yellow: #DED092;
+$orange: #FABF74;
+$blue: #162A45;
+$red: #BD2A45;
+
+
+// =====================
+// 	The Demo
+// =====================
+input[type="range"] {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  -webkit-appearance: none;
+
+  // 	chrome specific
+  background: transparent;
+
+  // 	firefox specific
+  width: 200px;
+
+  &:focus {
+    outline: none;
+  }
+
+
+  // track
+  // ==================
+  &::-webkit-slider-runnable-track {
+    //	must specify without comma separator
+  }
+
+  &::-moz-range-track {
+    //	must specify without comma separator
+  }
+
+  &::-ms-track {
+    width: 300px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  // thumb
+  // ==================
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -8px;
+    // margin-top is not set to auto like Firefox and MS
+  }
+
+  &::-moz-range-thumb {
+    // styling is entirely up to you
+  }
+
+  &::-ms-thumb {
+    // styling is entirely up to you
+  }
+}
+
+
+// =====================
+// 	The Styling
+// =====================
+input[type="range"] {
+
+  // track
+  // ==================
+  &::-webkit-slider-runnable-track {
+    background: $orange;
+    border: 1px solid $white;
+    border-radius: 15px;
+    height: 30px;
+  }
+
+  &::-moz-range-track {
+    background: $orange;
+    border: 1px solid $white;
+    border-radius: 15px;
+    height: 30px;
+  }
+
+  // thumb
+  // ==================
+  &::-webkit-slider-thumb {
+    position: relative;
+    width: 8px;
+    height: calc(100% + 16px);
+    background: $white;
+    border: 1px solid $white;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  &::-moz-range-thumb {
+    position: relative;
+    width: 8px;
+    height: calc(100% + 16px);
+    background: $white;
+    border: 1px solid $white;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  &::-ms-thumb {
+    position: relative;
+    width: 8px;
+    height: calc(100% + 16px);
+    background: $white;
+    border: 1px solid $white;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  &:active {
+    &::-webkit-slider-thumb {
+      background: $blue;
+    }
+
+    &::-moz-range-thumb {
+      background: $blue;
+    }
+
+    &::-ms-thumb {
+      background: $blue;
+    }
+  }
+}
+
+
+// =====================
+// 	For The Layout
+// =====================
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: $copy;
+}
+
+header.info {
+  padding: 5px 0;
+  text-align: center;
+  background: $blue;
+  border-bottom: 2px solid $white;
+
+  img {
+    max-width: 100%;
+    height: 30px;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: $black;
+}
