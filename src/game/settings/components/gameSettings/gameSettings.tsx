@@ -121,7 +121,7 @@ const GameSettings = () => (
           bottom: "1rem",
         }}
       >
-        <Button title="완료" />
+        <Button id={1} title="완료" setVisible={() => {}} />
       </div>
     </div>
   </div>

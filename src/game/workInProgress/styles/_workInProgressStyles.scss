@@ -1,0 +1,179 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --green-one: #9be9a8;
+  --green-two: #40c463;
+  --green-three: #30a14e;
+  --green-four: #216e39;
+  --grey: #ebedf0;
+  --shirt: var(--green-one);
+  --shirt-shade: var(--green-two);
+  --skin: #716464;
+  --skin-shade: #c2a3a3;
+  --stroke: #333;
+  --laptop: #c7c7c7;
+  --laptop-main: #4d4d4c;
+  --laptop-shade: rgba(58, 58, 59, 0.5);
+  --laptop-badge: #fff;
+  --beard: #bf8040;
+  --beard: #ae6113;
+  --beard-light: #d9b38c;
+  --beard-light: #ea943e;
+  --eyes: var(--stroke);
+  --strap: #bf4040;
+  --strap: var(--green-four);
+  --cheeks: #df9f9f;
+  --cap: #404040;
+  --sparks: rgba(255, 255, 153, 0.85);
+  --bulb: rgba(255, 255, 153, 0.85);
+  --filament: #000;
+  --screw: #ccc;
+  --bg: #6e7c91;
+  --owl-1: #feec90;
+  --owl-2: #c6e472;
+  --owl-3: #f88a68;
+  --owl-4: #80cbc5;
+  --owl-5: #c793ec;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.vvg {
+  background: #0F1108;
+  height: 50vmin;
+  overflow: visible !important;
+}
+
+.vvg__code-block {
+  fill: var(--block-color, var(--owl-1));
+}
+
+.vvg__bulb-bulb {
+  fill: var(--bulb);
+}
+
+.vvg__bulb-dashes {
+  stroke: var(--sparks);
+  stroke-width: 4px;
+}
+
+.vvg__bulb-filament {
+  stroke: var(--filament);
+}
+
+.vvg__bulb-screw {
+  fill: var(--screw);
+}
+
+.vvg__cheeks {
+  fill: var(--cheeks);
+}
+
+.vvg__cap-body {
+  fill: var(--cap);
+}
+
+.vvg__cap-strap {
+  fill: var(--strap);
+}
+
+.vvg__cap-notch {
+  fill: var(--stroke);
+}
+
+.vvg-stroke {
+  stroke: var(--stroke);
+  stroke-width: 2px;
+}
+
+.vvg__eyes {
+  fill: var(--eyes);
+  stroke: var(--eyes);
+}
+
+.vvg-hair {
+  fill: var(--beard);
+}
+
+.vvg-hair--light {
+  fill: var(--beard-light);
+}
+
+.vvg__shirt {
+  fill: var(--shirt);
+}
+
+.vvg__shirt--shade {
+  fill: var(--shirt-shade);
+}
+
+.vvg-skin {
+  fill: var(--skin);
+}
+
+.vvg-skin--shade {
+  fill: var(--skin-shade);
+}
+
+.vvg__laptop-badge {
+  fill: var(--laptop-badge);
+}
+
+.vvg__laptop-shell {
+  fill: var(--laptop);
+}
+
+.vvg__laptop-shell--main {
+  fill: var(--laptop-main);
+}
+
+.vvg__laptop-shell--shade {
+  fill: var(--laptop-shade);
+}
+
+label {
+  height: 44px;
+  width: 44px;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+
+label > svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+label path {
+  fill: #424a57;
+}
+
+label svg:nth-of-type(1) {
+  display: none;
+}
+
+[type='checkbox'] {
+  height: 0;
+  width: 0;
+}
+
+:checked ~ label svg:nth-of-type(1) {
+  display: block;
+}
+
+:checked ~ label svg:nth-of-type(2) {
+  display: none;
+}
+

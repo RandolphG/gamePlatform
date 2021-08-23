@@ -1,42 +1,79 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React from "react";
-import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import React, { useState } from "react";
 import { Button } from "../common";
 import { GameSettings, Mood } from "./components";
 import SettingsViewModel from "./settingsView.Model";
 import "./styles/_settingsStyles.scss";
 
 const Settings = () => {
-  let { path, url } = useRouteMatch();
+  const items = [
+    {
+      id: 1,
+      title: "기분",
+      setVisible: (event: any, id: any): void => {
+        console.log(event);
+        setVisibleTab(event);
+        console.log(`visibleTab -->`, visibleTab);
+      },
+      component: <Mood />,
+    },
+    {
+      id: 2,
+      title: "게임",
+      setVisible: (event: any, id: any): void => {
+        console.log(event);
+        setVisibleTab(event);
+        console.log(`visibleTab -->`, visibleTab);
+      },
+      component: <GameSettings />,
+    },
+    {
+      id: 3,
+      title: "정보",
+      setVisible: (event: any, id: any): void => {
+        console.log(event);
+        setVisibleTab(event);
+        console.log(`visibleTab -->`, visibleTab);
+      },
+      component: <GameSettings />,
+    },
+  ];
 
-  const {
-    showModal,
-    hide,
-    location,
-    modal,
-    AnimatePresence,
-    motion,
-    backdrop,
-  } = SettingsViewModel();
+  const [visibleTab, setVisibleTab] = useState(items[0].id);
+
+  const { showModal, hide, modal, AnimatePresence, motion, backdrop } =
+    SettingsViewModel();
 
   const Buttons = () => (
     <div className="buttons">
-      <Button title="기분" url={`${url}/`} />
-      <Button title="게임" url={`${url}/gameSettings`} />
-      <Button title="정보" />
+      {items.map(({ id, setVisible, title }, idx) => (
+        <Button key={idx} title={title} id={id} setVisible={setVisible} />
+      ))}
     </div>
   );
 
-  const routes = [
-    {
-      path: `/mood`,
-      component: Mood,
-    },
-    {
-      path: `/`,
-      component: GameSettings,
-    },
-  ];
+  const CloseButton = () => (
+    <div className="modalCloseButton" onClick={hide}>
+      X
+    </div>
+  );
+
+  const options = items.map((item, idx) => {
+    console.log(`visibleTab`, visibleTab);
+
+    return (
+      <span key={idx} style={visibleTab === item.id ? {} : { display: "none" }}>
+        {item.component}
+      </span>
+    );
+  });
+
+  const SettingsWindows = () => (
+    <AnimatePresence exitBeforeEnter>{options}</AnimatePresence>
+  );
+
+  /*        <>{visibleTab === item.id ? {} : { display: "none" }}</>
+   */
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -49,19 +86,9 @@ const Settings = () => {
           exit="hidden"
         >
           <motion.div className="modal" variants={modal}>
-            <div className="modalCloseButton" onClick={hide}>
-              X
-            </div>
+            {CloseButton()}
             <Buttons />
-            <AnimatePresence exitBeforeEnter>
-              <Switch location={location} key={location.pathname}>
-                {routes.map(({ path, component }, idx) => (
-                  <Route key={idx} path={path}>
-                    {component}
-                  </Route>
-                ))}
-              </Switch>
-            </AnimatePresence>
+            <SettingsWindows />
           </motion.div>
         </motion.div>
       )}

@@ -6,8 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { HomePage, Settings, TitlePage, WorkInProgress } from "../game";
-import { VolumeButton } from "../game/common/volumeButton";
+import { HomePage, Loader, Settings, TitlePage, WorkInProgress } from "../game";
 import {
   PrivateRoute,
   NonAuthRoute,
@@ -21,7 +20,7 @@ import {
  * @constructor
  */
 const AppRouter: FC = () => {
-  const renderRootRedirect = () => <Redirect to="/workInProgress" />;
+  const renderRootRedirect = () => <Redirect to="/homePage" />;
 
   return (
     <Fragment>
@@ -30,21 +29,19 @@ const AppRouter: FC = () => {
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter>
               <Switch location={location} key={location.key}>
-                <Route exact path="/" component={renderRootRedirect} />
                 {/*<Route
                   path="/dedicatedItemPage"
                   component={DedicatedItemPage}
                 />*/}
-                {/*<Route path="/loader" component={Loader} />*/}
+                <Route path="/loader" component={Loader} />
                 <Route path="/workInProgress" component={WorkInProgress} />
-                <Route path="/settings" component={Settings} />
-                <Route path="/volumeButton" component={VolumeButton} />
-                {/*<Route path="/homeScreen" component={HomeScreen} />*/}
-                <Route path="/homePage" component={HomePage} />
-                <Route path="/titlePage" component={TitlePage} />
+                <Route exact path="/settings" component={Settings} />
+                <Route exact path="/homePage" component={HomePage} />
+                <Route exact path="/titlePage" component={TitlePage} />
                 <PrivateRoute path="/app" component={AppRouting} />
-                <Route path="/non-auth" component={NonAuthRoute} />
-                <Route path="/404" component={NotFound} />
+                <Route exact path="/non-auth" component={NonAuthRoute} />
+                <Route exact path="/404" component={NotFound} />
+                <Route path="/" component={renderRootRedirect} />
                 <Redirect to="/404" />
               </Switch>
             </AnimatePresence>

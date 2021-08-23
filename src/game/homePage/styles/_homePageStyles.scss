@@ -12,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   &_container {
     box-sizing: border-box;
@@ -22,10 +23,9 @@
     flex-direction: column;
     border: 2px solid white;
     border-radius: .5rem;
-    width: 100%;
+    width: 1200px;
     height: 90%;
     max-height: 900px;
-    max-width: 1400px;
 
     .myInfo {
       box-sizing: border-box;
@@ -41,12 +41,13 @@
     }
 
     .specialItem {
-      color:white;
+      color: white;
       //background: red;
       position: absolute;
 
       top: 8rem;
       left: 2rem;
+
       &_item {
         height: 8rem;
 
@@ -160,6 +161,7 @@
         color: white;
         display: flex;
         flex-direction: column;
+
         .오늘의소식Container {
           width: 80px;
           margin-right: 1rem;

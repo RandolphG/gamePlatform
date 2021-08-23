@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { Topbar } from "../common";
-import { DedicatedItemPage } from "../dedicatedItemPage";
 import { Settings } from "../settings";
 import { MyInfo, HomeDashboard } from "./components";
 import HomePageViewModel from "./homePageView.Model";
@@ -13,10 +12,6 @@ const HomePage = () => {
 
   const routes = [
     {
-      path: "/homepage/dedicatedItem",
-      component: DedicatedItemPage,
-    },
-    {
       path: "/",
       component: HomeDashboard,
     },
@@ -26,9 +21,9 @@ const HomePage = () => {
     <div className="homePage">
       <div className="homePage_container">
         <MyInfo />
-        <Topbar />
+        {/*<Topbar />*/}
         <Settings />
-        <AnimatePresence exitBeforeEnter>
+        {/*<AnimatePresence exitBeforeEnter>
           <Switch location={location} key={location.pathname}>
             {routes.map(({ path, component }, idx) => (
               <Route key={idx} path={path}>
@@ -36,7 +31,7 @@ const HomePage = () => {
               </Route>
             ))}
           </Switch>
-        </AnimatePresence>
+        </AnimatePresence>*/}
       </div>
     </div>
   );

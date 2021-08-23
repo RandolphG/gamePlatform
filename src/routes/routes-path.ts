@@ -1,10 +1,10 @@
 import { lazy } from "react";
 
 // @ts-ignore
-const Signup = lazy(
+/*const Signup = lazy(
   () => import("../components/intro/components/signUp/signUp")
-);
-const Intro = lazy(() => import("../components/intro/Intro"));
+);*/
+/*const Intro = lazy(() => import("../components/intro/Intro"));*/
 
 export const SIGNUP_TITLE = "signup";
 export const INTRO_TITLE = "Intro";
@@ -15,7 +15,7 @@ export const PATH_INTRO = "/intro";
 /**
  * app  routes
  */
-export const appRoutes = [
+/*export const appRoutes = [
   {
     path: PATH_SIGNUP,
     parentTitle: SIGNUP_TITLE,
@@ -30,4 +30,4 @@ export const appRoutes = [
     name: "Intro",
     component: Intro,
   },
-];
+];*/
