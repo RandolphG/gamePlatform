@@ -1,7 +1,14 @@
+import { motion } from "framer-motion";
 import React from "react";
 import { Trans } from "react-i18next";
 import { Checkbox } from "../../../common";
 import "./styles/_moodStyles.scss";
+
+const motionSettings = {
+  initial: { opacity: 0, x: 100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -100 },
+};
 
 const Separator = () => (
   <div className="separator">
@@ -151,7 +158,7 @@ const RowEight = () => (
 );
 
 const Mood = () => (
-  <div className="mood">
+  <motion.div key="mood" {...motionSettings} className="mood">
     <RowOne />
     <RowTwo />
     <RowThree />
@@ -161,7 +168,7 @@ const Mood = () => (
     <RowSix />
     <RowSeven />
     <RowEight />
-  </div>
+  </motion.div>
 );
 
 export default Mood;

@@ -3,6 +3,7 @@ import { Trans } from "react-i18next";
 import { Button, Checkbox } from "../../../common";
 import "./styles/_gameSettingsStyles.scss";
 import { VolumeButton } from "../../../common/volumeButton";
+import { motion } from "framer-motion";
 
 const Separator = ({ title }: any) => (
   <div className="separator">
@@ -64,8 +65,14 @@ const RowOne = ({ optionA, optionB, optionC, idx }: any) => (
   </div>
 );
 
+const motionSettings = {
+  initial: { opacity: 0, x: 100 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: -100 },
+};
+
 const GameSettings = () => (
-  <div className="gameSettings">
+  <motion.div key="gameSettings" {...motionSettings} className="gameSettings">
     <Separator title="settings.gameSettings.게임설정" />
     {options.map(({ optionA, optionB, optionC }, idx) => (
       <RowOne
@@ -124,7 +131,7 @@ const GameSettings = () => (
         <Button id={1} title="완료" setVisible={() => {}} />
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default GameSettings;
